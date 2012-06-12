@@ -21,8 +21,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="Debug"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -44,6 +44,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -77,9 +78,9 @@
 				ModuleDefinitionFile="BugTrap.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeForWindows98="0"
 				RandomizedBaseAddress="1"
@@ -111,8 +112,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="Debug-x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -135,6 +136,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -168,9 +170,9 @@
 				ModuleDefinitionFile=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeForWindows98="0"
 				RandomizedBaseAddress="1"
@@ -202,8 +204,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="Release"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -227,6 +229,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -259,9 +262,9 @@
 				ModuleDefinitionFile="BugTrap.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -295,8 +298,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="Release-x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -321,6 +324,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -353,9 +357,9 @@
 				ModuleDefinitionFile=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -389,8 +393,8 @@
 		</Configuration>
 		<Configuration
 			Name="Unicode Debug|Win32"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="UDebug"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			>
@@ -412,6 +416,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -445,9 +450,9 @@
 				ModuleDefinitionFile="BugTrap.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeForWindows98="0"
 				RandomizedBaseAddress="1"
@@ -479,8 +484,8 @@
 		</Configuration>
 		<Configuration
 			Name="Unicode Debug|x64"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="UDebug-x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			>
@@ -503,6 +508,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -536,9 +542,9 @@
 				ModuleDefinitionFile=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeForWindows98="0"
 				RandomizedBaseAddress="1"
@@ -570,8 +576,8 @@
 		</Configuration>
 		<Configuration
 			Name="Unicode Release|Win32"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="URelease"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			>
@@ -595,6 +601,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -627,9 +634,9 @@
 				ModuleDefinitionFile="BugTrap.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -663,8 +670,8 @@
 		</Configuration>
 		<Configuration
 			Name="Unicode Release|x64"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="URelease-x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			>
@@ -689,6 +696,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -721,9 +729,9 @@
 				ModuleDefinitionFile=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -757,8 +765,8 @@
 		</Configuration>
 		<Configuration
 			Name=".NET Debug|Win32"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="NDebug"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -781,6 +789,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="false"
 				ExceptionHandling="2"
@@ -815,9 +824,9 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeForWindows98="0"
 				RandomizedBaseAddress="1"
@@ -850,8 +859,8 @@
 		</Configuration>
 		<Configuration
 			Name=".NET Debug|x64"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="NDebug-x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -875,6 +884,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="false"
 				ExceptionHandling="2"
@@ -909,9 +919,9 @@
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeForWindows98="0"
 				RandomizedBaseAddress="1"
@@ -944,8 +954,8 @@
 		</Configuration>
 		<Configuration
 			Name=".NET Release|Win32"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="NRelease"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -970,6 +980,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="2"
@@ -1002,9 +1013,9 @@
 				ModuleDefinitionFile="BugTrap.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -1039,8 +1050,8 @@
 		</Configuration>
 		<Configuration
 			Name=".NET Release|x64"
-			OutputDirectory="..\Bin"
-			IntermediateDirectory="NRelease-x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="1"
@@ -1066,6 +1077,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+				AdditionalIncludeDirectories="..\zlib\include"
 				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="2"
@@ -1098,9 +1110,9 @@
 				ModuleDefinitionFile=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
-				GenerateMapFile="false"
+				GenerateMapFile="true"
 				MapFileName=""
-				MapExports="false"
+				MapExports="true"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"

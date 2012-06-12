@@ -605,6 +605,8 @@ public:
 	BOOL GetFirstStackTraceEntry(CStackTraceEntry& rEntry, HANDLE hThread = NULL);
 	/// Get structured representation of lower call stack entry.
 	BOOL GetNextStackTraceEntry(CStackTraceEntry& rEntry);
+	/// Check the stack trace for a certain module
+	BOOL CheckStackTrace(HMODULE hModule);
 #ifdef _MANAGED
 	/// Get structured representation of topmost call stack entry.
 	BOOL GetFirstStackTraceEntry(CNetStackTrace::CNetStackTraceEntry& rEntry);

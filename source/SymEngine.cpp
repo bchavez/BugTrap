@@ -3184,6 +3184,26 @@ BOOL CSymEngine::GetNextStackTraceEntry(CStackTraceEntry& rEntry)
 }
 
 /**
+ * @param hModule - module to find
+ * @return true if stack trace has the module specified.
+ */
+BOOL CSymEngine::CheckStackTrace(HMODULE hModule)
+{
+	if (hModule == NULL)
+		return TRUE;
+	TCHAR szModule[MAX_PATH];
+	GetModuleFileName(hModule, szModule, countof(szModule));
+	CStackTraceEntry entry;
+	if (GetFirstStackTraceEntry(entry))
+		do
+		{
+			if (_tcscmp(szModule, entry.m_szModule) == 0)
+				return TRUE;
+		} while (GetNextStackTraceEntry(entry));
+	return FALSE;
+}
+
+/**
  * @param pszFileName - report file name.
  * @param pEnumProcess - pointer to the process enumerator;
  * pass NULL pointer if you want to skip process and module list.

@@ -33,6 +33,8 @@ static BOOL IsNT(void)
 
 /// BugTrap module handle.
 HINSTANCE g_hInstance = NULL;
+/// Module of interest handle
+extern HINSTANCE g_hModule = NULL;
 /// Application name.
 TCHAR g_szAppName[MAX_PATH] = _T("");
 /// Application version number.

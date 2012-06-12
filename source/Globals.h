@@ -54,6 +54,8 @@ const DWORD g_dwProtocolSignature = (('B' << 0) | ('T' << 8) | ('0' << 16) | ('1
 
 /// BugTrap module handle.
 extern HINSTANCE g_hInstance;
+/// Module of interest handle
+extern HINSTANCE g_hModule;
 /// Application name.
 extern TCHAR g_szAppName[MAX_PATH];
 /// Application version number.

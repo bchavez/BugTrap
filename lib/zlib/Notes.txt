@@ -1,0 +1,27 @@
+I am trying to build the Intellesoft BugTrap source using Visual Studio 2008. I have downloaded and unziped the BugTrap source and the zlib source. I navigated down to ./BugTrap/Win32/BugTrap and opened BugTrap.sln (suggest by the author here).
+
+I used Build->Build Solution and the build failed with a compiler error:
+
+fatal error C1083: Cannot open include file: 'zip.h': No such file or directory
+
+I opened the project properties and added the path to the zlib-vc/zlib/include folder to the list of "Additional Include Directories" and tried to build again.
+
+The second build attempt failed with a linker error:
+
+fatal error LNK1104: cannot open file 'zlibSD.lib'
+
+I opened the zlib project and built the source. The zlib build succeeded. However, the bin directory does not contain a zlibSD.lib. The closest file in name is zlibMSD.lib. This poster on CodeProject seemed to have the same problem I did. But there is no resolution posted.
+
+Hopefully someone out there has experience building this project and can point me in the right direction, I've played with the binary distribution and it seems really slick.
+
+I figured this one out. After following the steps listed in the question, perform the following steps to build BugTrap.
+
+1. Add zlib.vcproj to the BugTrap Solution.
+2. Open the build Configuration Manager using Build -> Configuration Manager.
+3. Change the zlib project configuration from Static MD Debug to Static Debug. Close.
+4. Select the BugTrap project and open the project properties (Project -> Properties).
+5. Expand the Configuration Properties -> Linker nodes.
+6. Select the General node. Then add the zlib/bin directory to the list of Additional Library Directories. Click Ok.
+7. Build.
+
+Note that the BugTrap project was configured to build in Debug mode, these settings may need to be tweaked for Release mode. Also, I was not trying to build the BugTrapServer or the CrashExplorer, it seems that there are additional dependencies that will need to be resolved to build those items.
