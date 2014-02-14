@@ -1159,20 +1159,35 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 	static const TCHAR szWindowsMe[] = _T("Windows Me");
 	static const TCHAR szWindows2000[] = _T("Windows 2000");
 	static const TCHAR szWindowsXP[] = _T("Windows XP");
+	static const TCHAR szWindowsXPProX64[] = _T("Windows XP Professional x64 Edition");
 	static const TCHAR szWindowsVista[] = _T("Windows Vista");
+	static const TCHAR szWindows7[] = _T("Windows 7");
+	static const TCHAR szWindows8[] = _T("Windows 8");
+	static const TCHAR szWindows81[] = _T("Windows 8.1");
 	static const TCHAR szWindowsServer2003[] = _T("Windows Server 2003");
+	static const TCHAR szWindowsHomeServer[] = _T("Windows Home Server");
+	static const TCHAR szWindowsServer2003R2[] = _T("Windows Server 2003 R2");
+	static const TCHAR szWindowsServer2008[] = _T("Windows Server 2008");
+	static const TCHAR szWindowsServer2008R2[] = _T("Windows Server 2008 R2");
+	static const TCHAR szWindowsServer2012[] = _T("Windows Server 2012");
+	static const TCHAR szWindowsServer2012R2[] = _T("Windows Server 2012 R2");
 
-	OSVERSIONINFO osvi;
+	OSVERSIONINFOEX osvi;
 	osvi.dwOSVersionInfoSize = sizeof(osvi);
-	GetVersionEx(&osvi);
+	GetVersionEx((OSVERSIONINFO*)&osvi);
 
+	SYSTEM_INFO sysi;
+	GetSystemInfo(&sysi);
+	
 	rOsInfo.m_pszWinVersion = szUnknown;
+	
 	switch (osvi.dwMajorVersion)
 	{
 	case 3:
 		if (osvi.dwMinorVersion == 51 && osvi.dwPlatformId == VER_PLATFORM_WIN32_NT)
 			rOsInfo.m_pszWinVersion = szWindowsNT351;
 		break;
+		// ////////////////////////////////////////////////////////////////////
 	case 4:
 		switch (osvi.dwMinorVersion)
 		{
@@ -1192,6 +1207,7 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 			break;
 		}
 		break;
+		// ////////////////////////////////////////////////////////////////////
 	case 5:
 		if (osvi.dwPlatformId == VER_PLATFORM_WIN32_NT)
 		{
@@ -1204,18 +1220,75 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 				rOsInfo.m_pszWinVersion = szWindowsXP;
 				break;
 			case 2:
-				rOsInfo.m_pszWinVersion = szWindowsServer2003;
+				if (osvi.wProductType == VER_NT_WORKSTATION && sysi.wProcessorArchitecture == PROCESSOR_ARCHITECTURE_AMD64)
+					rOsInfo.m_pszWinVersion = szWindowsXPProX64;
+				else if (osvi.wSuiteMask & VER_SUITE_WH_SERVER)
+					rOsInfo.m_pszWinVersion = szWindowsHomeServer;
+				else if (GetSystemMetrics(SM_SERVERR2) == 0)
+					rOsInfo.m_pszWinVersion = szWindowsServer2003;
+				else
+					rOsInfo.m_pszWinVersion = szWindowsServer2003R2;
 				break;
 			}
 		}
 		break;
+		// ////////////////////////////////////////////////////////////////////
 	case 6:
 		if (osvi.dwPlatformId == VER_PLATFORM_WIN32_NT)
 		{
 			switch (osvi.dwMinorVersion)
 			{
 			case 0:
-				rOsInfo.m_pszWinVersion = szWindowsVista;
+				switch (osvi.wProductType)
+				{
+				case VER_NT_WORKSTATION:
+					rOsInfo.m_pszWinVersion = szWindowsVista;
+					break;
+				//case VER_NT_DOMAIN_CONTROLLER:
+				//case VER_NT_SERVER:
+				default:
+					rOsInfo.m_pszWinVersion = szWindowsServer2008;
+					break;
+				}
+				break;
+			case 1:
+				switch (osvi.wProductType)
+				{
+				case VER_NT_WORKSTATION:
+					rOsInfo.m_pszWinVersion = szWindows7;
+					break;
+				//case VER_NT_DOMAIN_CONTROLLER:
+				//case VER_NT_SERVER:
+				default:
+					rOsInfo.m_pszWinVersion = szWindowsServer2008R2;
+					break;
+				}
+				break;
+			case 2:
+				switch (osvi.wProductType)
+				{
+				case VER_NT_WORKSTATION:
+					rOsInfo.m_pszWinVersion = szWindows8;
+					break;
+					//case VER_NT_DOMAIN_CONTROLLER:
+					//case VER_NT_SERVER:
+				default:
+					rOsInfo.m_pszWinVersion = szWindowsServer2012;
+					break;
+				}
+				break;
+			case 3:
+				switch (osvi.wProductType)
+				{
+				case VER_NT_WORKSTATION:
+					rOsInfo.m_pszWinVersion = szWindows81;
+					break;
+					//case VER_NT_DOMAIN_CONTROLLER:
+					//case VER_NT_SERVER:
+				default:
+					rOsInfo.m_pszWinVersion = szWindowsServer2012R2;
+					break;
+				}
 				break;
 			}
 		}
@@ -1272,8 +1345,9 @@ void CSymEngine::GetOsString(CUTF8EncStream& rEncStream)
  */
 void CSymEngine::GetMemInfo(CMemInfo& rMemInfo)
 {
-	MEMORYSTATUS ms;
-	GlobalMemoryStatus(&ms);
+	MEMORYSTATUSEX ms;
+	ms.dwLength = sizeof(ms);
+	GlobalMemoryStatusEx(&ms);
 	_ultot_s(ms.dwMemoryLoad, rMemInfo.m_szMemoryLoad, countof(rMemInfo.m_szMemoryLoad), 10);
 	_ultot_s((DWORD)ms.dwTotalPhys, rMemInfo.m_szTotalPhys, countof(rMemInfo.m_szTotalPhys), 10);
 	_ultot_s((DWORD)ms.dwAvailPhys, rMemInfo.m_szAvailPhys, countof(rMemInfo.m_szAvailPhys), 10);
@@ -1287,14 +1361,15 @@ void CSymEngine::GetMemInfo(CMemInfo& rMemInfo)
  */
 void CSymEngine::GetMemString(PTSTR pszMemString, DWORD dwMemStringSize)
 {
-	MEMORYSTATUS ms;
-	GlobalMemoryStatus(&ms);
+	MEMORYSTATUSEX ms;
+	ms.dwLength = sizeof(ms);
+	GlobalMemoryStatusEx(&ms);
 	_stprintf_s(pszMemString, dwMemStringSize,
-	            _T("Current Memory Load:         %lu%%\r\n")
-	            _T("Total Physical Memory:       %lu MB\r\n")
-	            _T("Available Physical Memory:   %lu MB\r\n")
-	            _T("Total Page File Memory:      %lu MB\r\n")
-	            _T("Available Page File Memory:  %lu MB"),
+	            _T("Current Memory Load:         %d%%\r\n")
+	            _T("Total Physical Memory:       %I64d MB\r\n")
+	            _T("Available Physical Memory:   %I64d MB\r\n")
+	            _T("Total Page File Memory:      %I64d MB\r\n")
+	            _T("Available Page File Memory:  %I64d MB"),
 	            ms.dwMemoryLoad,
 	            ms.dwTotalPhys / (1024 * 1024),
 	            ms.dwAvailPhys / (1024 * 1024),
