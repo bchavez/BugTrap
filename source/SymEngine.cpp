@@ -1175,7 +1175,7 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 	OSVERSIONINFOEX osvi;
 	osvi.dwOSVersionInfoSize = sizeof(osvi);
 	GetVersionEx((OSVERSIONINFO*)&osvi);
-
+	
 	SYSTEM_INFO sysi;
 	GetSystemInfo(&sysi);
 	
@@ -1187,7 +1187,6 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 		if (osvi.dwMinorVersion == 51 && osvi.dwPlatformId == VER_PLATFORM_WIN32_NT)
 			rOsInfo.m_pszWinVersion = szWindowsNT351;
 		break;
-		// ////////////////////////////////////////////////////////////////////
 	case 4:
 		switch (osvi.dwMinorVersion)
 		{
@@ -1207,7 +1206,6 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 			break;
 		}
 		break;
-		// ////////////////////////////////////////////////////////////////////
 	case 5:
 		if (osvi.dwPlatformId == VER_PLATFORM_WIN32_NT)
 		{
@@ -1232,7 +1230,6 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 			}
 		}
 		break;
-		// ////////////////////////////////////////////////////////////////////
 	case 6:
 		if (osvi.dwPlatformId == VER_PLATFORM_WIN32_NT)
 		{
@@ -1348,11 +1345,11 @@ void CSymEngine::GetMemInfo(CMemInfo& rMemInfo)
 	MEMORYSTATUSEX ms;
 	ms.dwLength = sizeof(ms);
 	GlobalMemoryStatusEx(&ms);
-	_ultot_s(ms.dwMemoryLoad, rMemInfo.m_szMemoryLoad, countof(rMemInfo.m_szMemoryLoad), 10);
-	_ultot_s((DWORD)ms.dwTotalPhys, rMemInfo.m_szTotalPhys, countof(rMemInfo.m_szTotalPhys), 10);
-	_ultot_s((DWORD)ms.dwAvailPhys, rMemInfo.m_szAvailPhys, countof(rMemInfo.m_szAvailPhys), 10);
-	_ultot_s((DWORD)ms.dwTotalPageFile, rMemInfo.m_szTotalPageFile, countof(rMemInfo.m_szTotalPageFile), 10);
-	_ultot_s((DWORD)ms.dwAvailPageFile, rMemInfo.m_szAvailPageFile, countof(rMemInfo.m_szAvailPageFile), 10);
+	_ui64tot_s(ms.dwMemoryLoad, rMemInfo.m_szMemoryLoad, countof(rMemInfo.m_szMemoryLoad), 10);
+	_ui64tot_s(ms.ullTotalPhys, rMemInfo.m_szTotalPhys, countof(rMemInfo.m_szTotalPhys), 10);
+	_ui64tot_s(ms.ullAvailPhys, rMemInfo.m_szAvailPhys, countof(rMemInfo.m_szAvailPhys), 10);
+	_ui64tot_s(ms.ullTotalPageFile, rMemInfo.m_szTotalPageFile, countof(rMemInfo.m_szTotalPageFile), 10);
+	_ui64tot_s(ms.ullAvailPageFile, rMemInfo.m_szAvailPageFile, countof(rMemInfo.m_szAvailPageFile), 10);
 }
 
 /**
@@ -1371,10 +1368,10 @@ void CSymEngine::GetMemString(PTSTR pszMemString, DWORD dwMemStringSize)
 	            _T("Total Page File Memory:      %I64d MB\r\n")
 	            _T("Available Page File Memory:  %I64d MB"),
 	            ms.dwMemoryLoad,
-	            ms.dwTotalPhys / (1024 * 1024),
-	            ms.dwAvailPhys / (1024 * 1024),
-	            ms.dwTotalPageFile / (1024 * 1024),
-	            ms.dwAvailPageFile / (1024 * 1024));
+	            ms.ullTotalPhys / (1024 * 1024),
+	            ms.ullAvailPhys / (1024 * 1024),
+	            ms.ullTotalPageFile / (1024 * 1024),
+	            ms.ullAvailPageFile / (1024 * 1024));
 }
 
 /**
