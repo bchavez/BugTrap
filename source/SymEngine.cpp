@@ -1241,8 +1241,8 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 				case VER_NT_WORKSTATION:
 					rOsInfo.m_pszWinVersion = szWindowsVista;
 					break;
-					//case VER_NT_DOMAIN_CONTROLLER:
-					//case VER_NT_SERVER:
+				//case VER_NT_DOMAIN_CONTROLLER:
+				//case VER_NT_SERVER:
 				default:
 					rOsInfo.m_pszWinVersion = szWindowsServer2008;
 					break;
@@ -1254,8 +1254,8 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 				case VER_NT_WORKSTATION:
 					rOsInfo.m_pszWinVersion = szWindows7;
 					break;
-					//case VER_NT_DOMAIN_CONTROLLER:
-					//case VER_NT_SERVER:
+				//case VER_NT_DOMAIN_CONTROLLER:
+				//case VER_NT_SERVER:
 				default:
 					rOsInfo.m_pszWinVersion = szWindowsServer2008R2;
 					break;
