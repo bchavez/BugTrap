@@ -8,5 +8,8 @@ The original author's website (and source code) went offline sometime in 2012 ([
 
 The original source-code licence for BugTrap is the [GNU Lesser General Public License (LGPL)](http://web.archive.org/web/20120402075507/http://www.intellesoft.net/bugtrap-license.php?BugTrapSrc.zip). In other words, you're free to use BugTrap in commercial and non-commercial applications.
 
-
+## Screenshots
+![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/Screenshot2.png)
+![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/Screenshot3.png)
+![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/Screenshot4.png)
 
