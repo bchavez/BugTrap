@@ -87,6 +87,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -179,6 +180,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -273,6 +275,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -368,6 +371,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -459,6 +463,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -551,6 +556,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -645,6 +651,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -740,6 +747,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -833,6 +841,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 				KeyFile="&quot;$(InputDir)res\KeyPair.snk&quot;"
 			/>
 			<Tool
@@ -928,6 +937,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 				KeyFile="&quot;$(InputDir)res\KeyPair.snk&quot;"
 			/>
 			<Tool
@@ -1024,6 +1034,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 				KeyFile="&quot;$(InputDir)res\KeyPair.snk&quot;"
 			/>
 			<Tool
@@ -1121,6 +1132,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 				KeyFile="&quot;$(InputDir)res\KeyPair.snk&quot;"
 			/>
 			<Tool

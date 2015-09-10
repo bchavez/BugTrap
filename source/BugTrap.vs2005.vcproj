@@ -44,6 +44,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -86,6 +87,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -135,6 +137,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -177,6 +180,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -227,6 +231,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -270,6 +275,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -321,6 +327,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -364,6 +371,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -412,6 +420,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -454,6 +463,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -503,6 +513,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="true"
 				ExceptionHandling="0"
@@ -545,6 +556,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -595,6 +607,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -638,6 +651,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -689,6 +703,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="0"
@@ -732,6 +747,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -781,6 +797,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="false"
 				ExceptionHandling="2"
@@ -824,6 +841,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 				KeyFile="&quot;$(InputDir)res\KeyPair.snk&quot;"
 			/>
 			<Tool
@@ -875,6 +893,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN64;_DEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				MinimalRebuild="false"
 				ExceptionHandling="2"
@@ -918,6 +937,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 				KeyFile="&quot;$(InputDir)res\KeyPair.snk&quot;"
 			/>
 			<Tool
@@ -970,6 +990,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="2"
@@ -1013,6 +1034,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="1"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 				KeyFile="&quot;$(InputDir)res\KeyPair.snk&quot;"
 			/>
 			<Tool
@@ -1066,6 +1088,7 @@
 				Optimization="1"
 				InlineFunctionExpansion="1"
 				OmitFramePointers="true"
+                AdditionalIncludeDirectories="..\lib\zlib\include"
 				PreprocessorDefinitions="WIN64;NDEBUG;_WINDOWS;_USRDLL;BUGTRAP_EXPORTS"
 				StringPooling="true"
 				ExceptionHandling="2"
@@ -1109,6 +1132,7 @@
 				DataExecutionPrevention="0"
 				ImportLibrary="$(OutDir)/$(TargetName).lib"
 				TargetMachine="17"
+                AdditionalLibraryDirectories="$(SolutionDir)../lib/zlib-bin"
 				KeyFile="&quot;$(InputDir)res\KeyPair.snk&quot;"
 			/>
 			<Tool
