@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E6EDE286-05E0-4396-B551-AB273111E967}</ProjectGuid>
     <RootNamespace>CrashExplorer</RootNamespace>
+    <ProjectName>CrashExplorer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
