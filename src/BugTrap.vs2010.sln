@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap", "BugTrap.vs2010.vcxproj", "{E8CF1ADA-264A-4127-86C2-FD7057D3792C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap", "Client\BugTrap.vs2010.vcxproj", "{E8CF1ADA-264A-4127-86C2-FD7057D3792C}"
     ProjectSection(ProjectDependencies) = postProject
         {B5919129-6716-499D-9516-04EC34C86CDF} = {B5919129-6716-499D-9516-04EC34C86CDF}
     EndProjectSection
