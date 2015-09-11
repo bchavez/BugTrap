@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap.vs2013", "BugTrap.vs2013.vcxproj", "{E8CF1ADA-264A-4127-86C2-FD7057D3792C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap", "BugTrap.vs2013.vcxproj", "{E8CF1ADA-264A-4127-86C2-FD7057D3792C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B5919129-6716-499D-9516-04EC34C86CDF} = {B5919129-6716-499D-9516-04EC34C86CDF}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "zlib\zlib.vs2013.vcxproj", "{B5919129-6716-499D-9516-04EC34C86CDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +50,30 @@ Global
 		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|Win32.Build.0 = Unicode Release|Win32
 		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|x64.ActiveCfg = Unicode Release|x64
 		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|x64.Build.0 = Unicode Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|Win32.ActiveCfg = MD Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|Win32.Build.0 = MD Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|x64.ActiveCfg = MD Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|x64.Build.0 = MD Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|Win32.ActiveCfg = MD Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|Win32.Build.0 = MD Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|x64.ActiveCfg = MD Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|x64.Build.0 = MD Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|Win32.Build.0 = Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|x64.ActiveCfg = Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|x64.Build.0 = Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|Win32.ActiveCfg = Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|Win32.Build.0 = Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|x64.ActiveCfg = Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|x64.Build.0 = Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|Win32.ActiveCfg = Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|Win32.Build.0 = Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|x64.ActiveCfg = Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|x64.Build.0 = Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|Win32.ActiveCfg = Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|Win32.Build.0 = Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|x64.ActiveCfg = Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
