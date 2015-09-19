@@ -20,18 +20,18 @@ after_build:
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Debug\BugTrapD.lib
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Release\BugTrap.dll
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Release\BugTrap.lib
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\.NET Debug\BugTrapDN.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\.NET Debug\BugTrapDN.lib
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\.NET Release\BugTrapN.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\.NET Release\BugTrapN.lib
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\.NET Debug\BugTrapDN.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\.NET Debug\BugTrapDN.lib"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\.NET Release\BugTrapN.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\.NET Release\BugTrapN.lib"
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Debug\BugTrapD-x64.dll
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Debug\BugTrapD-x64.lib
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Release\BugTrap-x64.dll
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Release\BugTrap-x64.lib
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.lib
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.lib
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.lib"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.lib"
 
 
 artifacts:
