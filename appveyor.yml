@@ -8,6 +8,9 @@ init:
               Set-AppveyorBuildVariable -Name "IsPreRelease" -Value False
             }
 
+
+before_build:
+    - ps: |
             # ##################
             # SET VERSION HEADER
             # ##################
@@ -42,9 +45,7 @@ init:
             $versionInfo = $versionInfo -replace ">major",$major
             $versionInfo = $versionInfo -replace ">minor",$minor
             
-            $versionInfo | out-file -Force -FilePath source/VersionInfo.h
-
-
+            $versionInfo | out-file -FilePath source/VersionInfo.h
 
 build_script: build.cmd
 
