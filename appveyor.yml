@@ -1,4 +1,4 @@
-version: 0.{build}
+version: 1.4.{build}
 init:
     - ps: |
             If ($Env:APPVEYOR_REPO_TAG_NAME -match "-"){
@@ -7,6 +7,43 @@ init:
             Else{
               Set-AppveyorBuildVariable -Name "IsPreRelease" -Value False
             }
+
+            # ##################
+            # SET VERSION HEADER
+            # ##################
+
+            $versionInfo = @'
+            #pragma once
+
+            #define BUILD_NUMBER	>buildnum
+            #define REVISION_NUMBER	>buildrev
+
+            #define PRODUCT_MAJOR_VERSION	>major
+            #define PRODUCT_MINOR_VERSION	>minor
+            #define PRODUCT_SHORT_VERSION	">major.>minor"
+            #define PRODUCT_LONG_VERSION	">major.>minor.>buildnum.>buildrev"
+
+            #define FILE_MAJOR_VERSION	>major
+            #define FILE_MINOR_VERSION	>minor
+            #define FILE_SHORT_VERSION	">major.>minor"
+            #define FILE_LONG_VERSION	">major.>minor.>buildnum.>buildrev"
+
+            '@
+
+            $ver = $Env:APPVEYOR_BUILD_VERSION
+
+            $major = $ver.Split(".")[0]
+            $minor = $ver.Split(".")[1]
+            $buildnum = $ver.Split(".")[2]
+            $buildrev = "0"
+
+            $versionInfo = $versionInfo -replace ">buildnum",$buildnum
+            $versionInfo = $versionInfo -replace ">buildrev",$buildrev
+            $versionInfo = $versionInfo -replace ">major",$major
+            $versionInfo = $versionInfo -replace ">minor",$minor
+            
+            $versionInfo | out-file -filepath source\VersionInfo.h
+
 
 
 build_script: build.cmd
@@ -32,6 +69,16 @@ after_build:
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.lib"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.dll"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.lib"
+
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\BTAtlWindow.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\BTMfcWindow.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\BTTrace.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\BugTrap.h
+    
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\BugTrap.chm
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\CrashExplorer.exe
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\dbghelp.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\ReadMe.txt
 
 
 artifacts:
