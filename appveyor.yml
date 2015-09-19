@@ -26,10 +26,11 @@ matrix:
 build:
     parallel: false
     project: source\BugTrap.sln
+    verbosity: detailed
 
 test: off
 #  assemblies:
-#    - __compile\RethinkDb.Driver.Tests.dll
+#    - Unit.Tests.dll
 
 after_build:
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Debug\BugTrapD.dll
