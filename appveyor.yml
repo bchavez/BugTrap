@@ -1,10 +1,12 @@
 version: 0.{build}
 init:
     - ps: |
-            If ($Env:APPVEYOR_REPO_TAG_NAME -match "-")
+            If ($Env:APPVEYOR_REPO_TAG_NAME -match "-"){
               Set-AppveyorBuildVariable -Name "IsPreRelease" -Value True
-            Else
+            }
+            Else{
               Set-AppveyorBuildVariable -Name "IsPreRelease" -Value False
+            }
 
 platform:
     - Win32
