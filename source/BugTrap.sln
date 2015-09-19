@@ -1,11 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap", "BugTrap.vcproj", "{E8CF1ADA-264A-4127-86C2-FD7057D3792C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{B5919129-6716-499D-9516-04EC34C86CDF} = {B5919129-6716-499D-9516-04EC34C86CDF}
-	EndProjectSection
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap", "BugTrap.vcxproj", "{E8CF1ADA-264A-4127-86C2-FD7057D3792C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "..\lib\zlib\zlib.vcproj", "{B5919129-6716-499D-9516-04EC34C86CDF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "..\lib\zlib\zlib.vcxproj", "{B5919129-6716-499D-9516-04EC34C86CDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,22 +82,24 @@ Global
 		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|Win32.Build.0 = Unicode Release|Win32
 		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|x64.ActiveCfg = Unicode Release|x64
 		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|x64.Build.0 = Unicode Release|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|Win32.ActiveCfg = Static MD Release|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|x64.ActiveCfg = Static MD Release|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|x64.Build.0 = Static MD Release|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|Win32.ActiveCfg = Static MD Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|Win32.ActiveCfg = Static MD Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|Win32.Build.0 = Static MD Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|x64.ActiveCfg = Static MD Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|x64.Build.0 = Static MD Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|Win32.ActiveCfg = Static MD Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|Win32.Build.0 = Static MD Release|Win32
 		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|x64.ActiveCfg = Static MD Release|x64
 		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|x64.Build.0 = Static MD Release|x64
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|Win32.ActiveCfg = Static Debug|Win32
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|Win32.Build.0 = Static Debug|Win32
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|x64.ActiveCfg = Static MD Debug|x64
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|x64.Build.0 = Static MD Debug|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Debug|Win32.ActiveCfg = DLL Debug|Win32
-		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Debug|Win32.Build.0 = DLL Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Debug|Win32.ActiveCfg = Static Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Debug|Win32.Build.0 = Static Debug|Win32
 		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Debug|x64.ActiveCfg = DLL Debug|x64
 		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Debug|x64.Build.0 = DLL Debug|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Release|Win32.ActiveCfg = DLL Release|Win32
-		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Release|Win32.Build.0 = DLL Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Release|Win32.ActiveCfg = Static Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Release|Win32.Build.0 = Static Release|Win32
 		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Release|x64.ActiveCfg = DLL Release|x64
 		{B5919129-6716-499D-9516-04EC34C86CDF}.DLL Release|x64.Build.0 = DLL Release|x64
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|Win32.ActiveCfg = Static Release|Win32
@@ -121,10 +122,12 @@ Global
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Static Release|Win32.Build.0 = Static Release|Win32
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Static Release|x64.ActiveCfg = Static Release|x64
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Static Release|x64.Build.0 = Static Release|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|Win32.ActiveCfg = Static MD Release|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|x64.ActiveCfg = Static MD Release|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|x64.Build.0 = Static MD Release|x64
-		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|Win32.ActiveCfg = Static MD Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|Win32.ActiveCfg = Static Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|Win32.Build.0 = Static Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|x64.ActiveCfg = Static MD Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|x64.Build.0 = Static MD Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|Win32.ActiveCfg = Static Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|Win32.Build.0 = Static Release|Win32
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|x64.ActiveCfg = Static MD Release|x64
 		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|x64.Build.0 = Static MD Release|x64
 	EndGlobalSection
