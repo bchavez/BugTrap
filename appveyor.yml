@@ -42,7 +42,7 @@ init:
             $versionInfo = $versionInfo -replace ">major",$major
             $versionInfo = $versionInfo -replace ">minor",$minor
             
-            $versionInfo | out-file -filepath source/VersionInfo.h
+            $versionInfo | out-file -Force -FilePath source/VersionInfo.h
 
 
 
