@@ -223,7 +223,7 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <LinkKeyFile>"$(ProjectDir)res\KeyPair.snk"</LinkKeyFile>
-    <TargetName>$(ProjectName)D-x64</TargetName>
+    <TargetName>$(ProjectName)DN-x64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='.NET Release|Win32'">
     <OutDir>$(Configuration)\</OutDir>
@@ -237,7 +237,7 @@
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <LinkKeyFile>"$(ProjectDir)res\KeyPair.snk"</LinkKeyFile>
-    <TargetName>$(ProjectName)-x64</TargetName>
+    <TargetName>$(ProjectName)N-x64</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
