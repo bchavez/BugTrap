@@ -8,25 +8,8 @@ init:
               Set-AppveyorBuildVariable -Name "IsPreRelease" -Value False
             }
 
-platform:
-    - Win32
-    - x64
 
-configuration:
-    - Debug
-    - Release
-    #- Unicode Debug
-    #- Unicode Release
-    #- .NET Debug
-    #- .NET Release
-
-matrix:
-    fast_finish: true
-
-build:
-    parallel: false
-    project: source\BugTrap.sln
-    verbosity: detailed
+build_script: build.cmd
 
 test: off
 #  assemblies:
@@ -37,6 +20,19 @@ after_build:
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Debug\BugTrapD.lib
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Release\BugTrap.dll
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Release\BugTrap.lib
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\.NET Debug\BugTrapDN.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\.NET Debug\BugTrapDN.lib
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\.NET Release\BugTrapN.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\.NET Release\BugTrapN.lib
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Debug\BugTrapD-x64.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Debug\BugTrapD-x64.lib
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Release\BugTrap-x64.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Release\BugTrap-x64.lib
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.lib
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.lib
+
 
 artifacts:
     - path: BugTrap.zip
