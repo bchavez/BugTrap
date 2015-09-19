@@ -32,8 +32,6 @@ void CModuleImportTable::TraverseImportTables(HMODULE hModule, BOOL bOverride, s
 	BOOL bCleanup = FALSE;
 	if (nNestedLevel == 0)
 	{
-		if (! g_bWinNT)
-			return;
 		HMODULE hMainModule = GetModuleHandle(NULL);
 		if (hModule == NULL)
 			hModule = hMainModule;
