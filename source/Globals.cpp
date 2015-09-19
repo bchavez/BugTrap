@@ -19,17 +19,6 @@
 #define new DEBUG_NEW
 #endif
 
-/**
- * @brief Get the type of current platform.
- * @return true for Windows NT platform and false for Windows 9x platform.
- */
-static BOOL IsNT(void)
-{
-	OSVERSIONINFO osvi;
-	osvi.dwOSVersionInfoSize = sizeof(osvi);
-	GetVersionEx(&osvi);
-	return (osvi.dwPlatformId >= VER_PLATFORM_WIN32_NT);
-}
 
 /// BugTrap module handle.
 HINSTANCE g_hInstance = NULL;
@@ -79,8 +68,6 @@ BT_ErrHandler g_pfnPostErrHandler = NULL;
 INT_PTR g_nPostErrHandlerParam = 0;
 /// Pointer to the exception information.
 PEXCEPTION_POINTERS g_pExceptionPointers = NULL;
-/// True if application runs on Windows NT platform.
-BOOL g_bWinNT = IsNT();
 /// Custom resources manager.
 CResManager* g_pResManager = NULL;
 /// Pointer to Simple MAPI session object.

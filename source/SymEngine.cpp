@@ -269,7 +269,7 @@ CSymEngine::CSymEngine(const CEngineParams& rParams)
 			DWORD dwOptions = FSymGetOptions();
 			FSymSetOptions(dwOptions | SYMOPT_DEFERRED_LOADS | SYMOPT_LOAD_LINES | SYMOPT_UNDNAME);
 
-			m_hSymProcess = g_bWinNT ? GetCurrentProcess() : (HANDLE)GetCurrentProcessId();
+			m_hSymProcess = GetCurrentProcess();
 			if (FSymInitialize(m_hSymProcess, NULL, TRUE))
 				SetEngineParameters(rParams);
 			else
@@ -426,7 +426,7 @@ BOOL CSymEngine::CScreenShot::WriteScreenShot(PCTSTR pszFileName)
 			return FALSE;
 		TCHAR szFileName[MAX_PATH];
 		if (m_dwNumMonitors > 1)
-			_stprintf_s(szFileName, countof(szFileName), _T("%s%d.bmp"), pszFileName, dwMonitorNumber + 1);
+			_stprintf_s(szFileName, countof(szFileName), _T("%s%u.bmp"), pszFileName, dwMonitorNumber + 1);
 		else
 			_stprintf_s(szFileName, countof(szFileName), _T("%s.bmp"), pszFileName);
 		HANDLE hFile = CreateFile(szFileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
@@ -952,7 +952,7 @@ void CSymEngine::GetRegistersValues(CRegistersValues& rRegVals)
  */
 void CSymEngine::GetRegistersString(PTSTR pszRegString, DWORD dwRegStringSize)
 {
-	if (m_pExceptionPointers == NULL && dwRegStringSize)
+	if ( m_pExceptionPointers == NULL )
 	{
 		*pszRegString = _T('\0');
 		return;
@@ -1039,26 +1039,21 @@ void CSymEngine::GetCpusInfo(CCpusInfo& rCpusInfo)
 	rCpusInfo.m_pszCpuArch = szUnknown;
 	SYSTEM_INFO si;
 	GetSystemInfo(&si);
-	if (g_bWinNT)
+	switch (si.wProcessorArchitecture)
 	{
-		switch (si.wProcessorArchitecture)
-		{
-		case PROCESSOR_ARCHITECTURE_INTEL:
-			rCpusInfo.m_pszCpuArch = szIntel;
-			break;
-		case PROCESSOR_ARCHITECTURE_IA64:
-			rCpusInfo.m_pszCpuArch = szIA64;
-			break;
-		case PROCESSOR_ARCHITECTURE_AMD64:
-			rCpusInfo.m_pszCpuArch = szAMD64;
-			break;
-		default: // PROCESSOR_ARCHITECTURE_UNKNOWN
-			rCpusInfo.m_pszCpuArch = szUnknown;
-			break;
-		}
-	}
-	else
+	case PROCESSOR_ARCHITECTURE_INTEL:
 		rCpusInfo.m_pszCpuArch = szIntel;
+		break;
+	case PROCESSOR_ARCHITECTURE_IA64:
+		rCpusInfo.m_pszCpuArch = szIA64;
+		break;
+	case PROCESSOR_ARCHITECTURE_AMD64:
+		rCpusInfo.m_pszCpuArch = szAMD64;
+		break;
+	default: // PROCESSOR_ARCHITECTURE_UNKNOWN
+		rCpusInfo.m_pszCpuArch = szUnknown;
+		break;
+	}
 	rCpusInfo.m_dwNumCpus = si.dwNumberOfProcessors;
 }
 
@@ -1077,34 +1072,32 @@ BOOL CSymEngine::GetCpuInfo(DWORD dwCpuNum, CCpuInfo& rCpuInfo)
 	_tcscpy_s(rCpuInfo.m_szCpuDescription, countof(rCpuInfo.m_szCpuId), szUnknown);
 
 	BOOL bResult = TRUE;
-	if (g_bWinNT)
+	TCHAR szCentralProcessorPath[ MAX_PATH ];
+	_stprintf_s( szCentralProcessorPath, countof( szCentralProcessorPath ), _T( "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\%lu" ), dwCpuNum );
+	HKEY hKey;
+	if ( RegOpenKeyEx( HKEY_LOCAL_MACHINE, szCentralProcessorPath, 0l, KEY_READ, &hKey ) == ERROR_SUCCESS )
 	{
-		TCHAR szCentralProcessorPath[MAX_PATH];
-		_stprintf_s(szCentralProcessorPath, countof(szCentralProcessorPath), _T("HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\%lu"), dwCpuNum);
-		HKEY hKey;
-		if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, szCentralProcessorPath, 0l, KEY_READ, &hKey) == ERROR_SUCCESS)
-		{
-			DWORD dwValue, dwValueType, dwValueSize;
-			dwValueSize = sizeof(dwValue);
-			if (RegQueryValueEx(hKey, _T("~MHz"), NULL, &dwValueType, (PBYTE)&dwValue, &dwValueSize) == ERROR_SUCCESS && dwValueType == REG_DWORD)
-				_ultot_s(dwValue, rCpuInfo.m_szCpuSpeed, countof(rCpuInfo.m_szCpuSpeed), 10);
-			else
-				*rCpuInfo.m_szCpuSpeed = _T('\0');
-			dwValueSize = sizeof(rCpuInfo.m_szCpuDescription);
-			if (RegQueryValueEx(hKey, _T("ProcessorNameString"), NULL, &dwValueType, (PBYTE)rCpuInfo.m_szCpuDescription, &dwValueSize) == ERROR_SUCCESS && dwValueType == REG_SZ)
-				TrimSpaces(rCpuInfo.m_szCpuDescription);
-			else
-				*rCpuInfo.m_szCpuDescription = _T('\0');
-			dwValueSize = sizeof(rCpuInfo.m_szCpuId);
-			if (RegQueryValueEx(hKey, _T("Identifier"), NULL, &dwValueType, (PBYTE)rCpuInfo.m_szCpuId, &dwValueSize) == ERROR_SUCCESS && dwValueType == REG_SZ)
-				TrimSpaces(rCpuInfo.m_szCpuId);
-			else
-				*rCpuInfo.m_szCpuId = _T('\0');
-			RegCloseKey(hKey);
-		}
+		DWORD dwValue, dwValueType, dwValueSize;
+		dwValueSize = sizeof( dwValue );
+		if ( RegQueryValueEx( hKey, _T( "~MHz" ), NULL, &dwValueType, (PBYTE)&dwValue, &dwValueSize ) == ERROR_SUCCESS && dwValueType == REG_DWORD )
+			_ultot_s( dwValue, rCpuInfo.m_szCpuSpeed, countof( rCpuInfo.m_szCpuSpeed ), 10 );
 		else
-			bResult = FALSE;
+			*rCpuInfo.m_szCpuSpeed = _T( '\0' );
+		dwValueSize = sizeof( rCpuInfo.m_szCpuDescription );
+		if ( RegQueryValueEx( hKey, _T( "ProcessorNameString" ), NULL, &dwValueType, (PBYTE)rCpuInfo.m_szCpuDescription, &dwValueSize ) == ERROR_SUCCESS && dwValueType == REG_SZ )
+			TrimSpaces( rCpuInfo.m_szCpuDescription );
+		else
+			*rCpuInfo.m_szCpuDescription = _T( '\0' );
+		dwValueSize = sizeof( rCpuInfo.m_szCpuId );
+		if ( RegQueryValueEx( hKey, _T( "Identifier" ), NULL, &dwValueType, (PBYTE)rCpuInfo.m_szCpuId, &dwValueSize ) == ERROR_SUCCESS && dwValueType == REG_SZ )
+			TrimSpaces( rCpuInfo.m_szCpuId );
+		else
+			*rCpuInfo.m_szCpuId = _T( '\0' );
+		RegCloseKey( hKey );
 	}
+	else
+		bResult = FALSE;
+
 	return bResult;
 }
 
@@ -1164,6 +1157,7 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 	static const TCHAR szWindows7[] = _T("Windows 7");
 	static const TCHAR szWindows8[] = _T("Windows 8");
 	static const TCHAR szWindows81[] = _T("Windows 8.1");
+	static const TCHAR szWindows10[] = _T("Windows 10");
 	static const TCHAR szWindowsServer2003[] = _T("Windows Server 2003");
 	static const TCHAR szWindowsHomeServer[] = _T("Windows Home Server");
 	static const TCHAR szWindowsServer2003R2[] = _T("Windows Server 2003 R2");
@@ -1171,12 +1165,12 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 	static const TCHAR szWindowsServer2008R2[] = _T("Windows Server 2008 R2");
 	static const TCHAR szWindowsServer2012[] = _T("Windows Server 2012");
 	static const TCHAR szWindowsServer2012R2[] = _T("Windows Server 2012 R2");
+	static const TCHAR szWindowsServer2016[] = _T("Windows Server 2016");
 
-	OSVERSIONINFOEX osvi;
-	osvi.dwOSVersionInfoSize = sizeof(osvi);
+	OSVERSIONINFOEX osvi = { sizeof( OSVERSIONINFOEX ) };
 	GetVersionEx((OSVERSIONINFO*)&osvi);
-	
-	SYSTEM_INFO sysi;
+
+	SYSTEM_INFO sysi = {};
 	GetSystemInfo(&sysi);
 	
 	rOsInfo.m_pszWinVersion = szUnknown;
@@ -1290,6 +1284,27 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 			}
 		}
 		break;
+	case 10:
+		if (osvi.dwPlatformId == VER_PLATFORM_WIN32_NT)
+		{
+			switch (osvi.dwMinorVersion)
+			{
+			case 0:
+				switch (osvi.wProductType)
+				{
+				case VER_NT_WORKSTATION:
+					rOsInfo.m_pszWinVersion = szWindows10;
+					break;
+				//case VER_NT_DOMAIN_CONTROLLER:
+				//case VER_NT_SERVER:
+				default:
+					rOsInfo.m_pszWinVersion = szWindowsServer2016;
+					break;
+				}
+				break;
+			}
+		}
+		break;
 	}
 
 	_tcscpy_s(rOsInfo.m_szSPVersion, countof(rOsInfo.m_szSPVersion), osvi.szCSDVersion);
@@ -1342,10 +1357,9 @@ void CSymEngine::GetOsString(CUTF8EncStream& rEncStream)
  */
 void CSymEngine::GetMemInfo(CMemInfo& rMemInfo)
 {
-	MEMORYSTATUSEX ms;
-	ms.dwLength = sizeof(ms);
+	MEMORYSTATUSEX ms = { sizeof( MEMORYSTATUSEX ) };
 	GlobalMemoryStatusEx(&ms);
-	_ui64tot_s(ms.dwMemoryLoad, rMemInfo.m_szMemoryLoad, countof(rMemInfo.m_szMemoryLoad), 10);
+	_ultot_s(ms.dwMemoryLoad, rMemInfo.m_szMemoryLoad, countof(rMemInfo.m_szMemoryLoad), 10);
 	_ui64tot_s(ms.ullTotalPhys, rMemInfo.m_szTotalPhys, countof(rMemInfo.m_szTotalPhys), 10);
 	_ui64tot_s(ms.ullAvailPhys, rMemInfo.m_szAvailPhys, countof(rMemInfo.m_szAvailPhys), 10);
 	_ui64tot_s(ms.ullTotalPageFile, rMemInfo.m_szTotalPageFile, countof(rMemInfo.m_szTotalPageFile), 10);
@@ -1358,15 +1372,14 @@ void CSymEngine::GetMemInfo(CMemInfo& rMemInfo)
  */
 void CSymEngine::GetMemString(PTSTR pszMemString, DWORD dwMemStringSize)
 {
-	MEMORYSTATUSEX ms;
-	ms.dwLength = sizeof(ms);
+	MEMORYSTATUSEX ms = { sizeof( MEMORYSTATUSEX ) };
 	GlobalMemoryStatusEx(&ms);
 	_stprintf_s(pszMemString, dwMemStringSize,
-	            _T("Current Memory Load:         %d%%\r\n")
-	            _T("Total Physical Memory:       %I64d MB\r\n")
-	            _T("Available Physical Memory:   %I64d MB\r\n")
-	            _T("Total Page File Memory:      %I64d MB\r\n")
-	            _T("Available Page File Memory:  %I64d MB"),
+	            _T("Current Memory Load:         %u%%\r\n")
+	            _T("Total Physical Memory:       %I64u MB\r\n")
+	            _T("Available Physical Memory:   %I64u MB\r\n")
+	            _T("Total Page File Memory:      %I64u MB\r\n")
+	            _T("Available Page File Memory:  %I64u MB"),
 	            ms.dwMemoryLoad,
 	            ms.ullTotalPhys / (1024 * 1024),
 	            ms.ullAvailPhys / (1024 * 1024),
@@ -1551,7 +1564,6 @@ BOOL CSymEngine::InitStackTrace(HANDLE hThread)
 		// only properly copied part of larger memory block.
 		if (m_eExceptionType == WIN32_EXCEPTION)
 		{
-			_ASSERTE(m_pExceptionPointers != NULL);
 			SafeCopy(&m_swContext.m_context, m_pExceptionPointers->ContextRecord, sizeof(m_swContext.m_context));
 		}
 		else
@@ -1778,8 +1790,6 @@ void CSymEngine::GetAssemblyList(CXmlWriter& rXmlWriter)
  */
 void CSymEngine::GetModuleList(CUTF8EncStream& rEncStream, CEnumProcess* pEnumProcess, CEnumProcess::CProcessEntry& rProcEntry)
 {
-	_ASSERTE(pEnumProcess != NULL);
-
 	static const CHAR szProcessMsg[] = "Process: ";
 	static const CHAR szModulesMsg[] = ", Modules:\r\n";
 	static const CHAR szProcessIDMsg[] = ", PID: ";
@@ -1837,8 +1847,6 @@ void CSymEngine::GetModuleList(CUTF8EncStream& rEncStream, CEnumProcess* pEnumPr
  */
 void CSymEngine::GetModuleList(CXmlWriter& rXmlWriter, CEnumProcess* pEnumProcess, CEnumProcess::CProcessEntry& rProcEntry)
 {
-	_ASSERTE(pEnumProcess != NULL);
-
 	rXmlWriter.WriteStartElement(_T("process")); // <process>
 	 rXmlWriter.WriteElementString(_T("name"), rProcEntry.m_szProcessName); // <name>...</name>
 	 TCHAR szTempBuf[64];
@@ -1879,7 +1887,7 @@ void CSymEngine::GetModuleList(CXmlWriter& rXmlWriter, CEnumProcess* pEnumProces
 void CSymEngine::GetProcessList(CXmlWriter& rXmlWriter, CEnumProcess* pEnumProcess)
 {
 	rXmlWriter.WriteStartElement(_T("processes")); // <processes>
-	_ASSERTE(pEnumProcess != NULL);
+
 	CEnumProcess::CProcessEntry ProcEntry;
 	if (g_dwFlags & BTF_LISTPROCESSES)
 	{
@@ -1905,7 +1913,6 @@ void CSymEngine::GetProcessList(CXmlWriter& rXmlWriter, CEnumProcess* pEnumProce
  */
 void CSymEngine::GetProcessList(CUTF8EncStream& rEncStream, CEnumProcess* pEnumProcess)
 {
-	_ASSERTE(pEnumProcess != NULL);
 	CEnumProcess::CProcessEntry ProcEntry;
 	if (g_dwFlags & BTF_LISTPROCESSES)
 	{
@@ -2094,7 +2101,6 @@ void CSymEngine::GetNetStackTrace(CXmlWriter& rXmlWriter)
  */
 void CSymEngine::GetWin32ThreadsList(CUTF8EncStream& rEncStream, CEnumProcess* pEnumProcess)
 {
-	_ASSERTE(pEnumProcess != NULL);
 	if (! FOpenThread)
 		return;
 
@@ -2141,7 +2147,6 @@ void CSymEngine::GetWin32ThreadsList(CUTF8EncStream& rEncStream, CEnumProcess* p
  */
 void CSymEngine::GetWin32ThreadsList(CXmlWriter& rXmlWriter, CEnumProcess* pEnumProcess)
 {
-	_ASSERTE(pEnumProcess != NULL);
 	if (! FOpenThread)
 		return;
 
@@ -3065,7 +3070,6 @@ BOOL CSymEngine::ArchiveReportFiles(PCTSTR pszReportFolder, PCTSTR pszArchiveFil
 		for (size_t nFilePos = 0; nFilePos < nFileCount; ++nFilePos)
 		{
 			CLogLink* pLogLink = g_arrLogLinks[nFilePos];
-			_ASSERTE(pLogLink != NULL);
 			PCTSTR pszFilePath = pLogLink->GetLogFileName();
 			PCTSTR pszFileName = PathFindFileName(pszFilePath);
 			_ASSERTE(pszFileName != NULL);
@@ -3187,7 +3191,7 @@ BOOL CSymEngine::GetNextStackTraceEntry(CStackTraceEntry& rEntry)
 	            _T("%04lX:%016lX"), wExceptionSegment, dwExceptionAddress);
 #elif defined _WIN32
 	_stprintf_s(rEntry.m_szAddress, countof(rEntry.m_szAddress),
-	            _T("%04lX:%08lX"), wExceptionSegment, dwExceptionAddress);
+	            _T("%04lX:%08I64X"), wExceptionSegment, dwExceptionAddress);
 #endif
 
 	BYTE arrSymBuffer[512];
