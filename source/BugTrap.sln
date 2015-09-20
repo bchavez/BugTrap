@@ -6,6 +6,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap", "BugTrap.vcxproj"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "..\lib\zlib\zlib.vcxproj", "{B5919129-6716-499D-9516-04EC34C86CDF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{654919A0-63D3-41C4-B312-B89660A506F7}"
+	ProjectSection(SolutionItems) = preProject
+		..\appveyor.yml = ..\appveyor.yml
+		..\build.cmd = ..\build.cmd
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		.NET Debug|Win32 = .NET Debug|Win32
