@@ -90,11 +90,13 @@ nuget:
 
 deploy:
     - provider: GitHub
-      release: 'Release $(appveyor_build_version)'
+      release: 'Release $(APPVEYOR_BUILD_VERSION)'
+      tag: $(APPVEYOR_REPO_TAG_NAME)
       description: $(APPVEYOR_REPO_COMMIT_MESSAGE)
       prerelease: $(IsPreRelease)
       artifact: Zip
       auth_token:
-          secure: cyivrWQwrZNAb6UCNXlIQlGfVSnKIC6TatUOIP95CQgMeKGnmBSqBgAFv2TsRZhR
+        secure: cyivrWQwrZNAb6UCNXlIQlGfVSnKIC6TatUOIP95CQgMeKGnmBSqBgAFv2TsRZhR
       on:
-          appveyor_repo_tag: true
+        branch: /v\d+\.\d+\.\d+/
+        appveyor_repo_tag: true
