@@ -1,4 +1,4 @@
-version: 1.4.0.{build}
+version: 1.4.2.{build}
 init:
     - ps: |
             If ($Env:APPVEYOR_REPO_TAG_NAME -match "-"){
@@ -24,7 +24,11 @@ before_build:
             # ###################
 
             $versionInfo = @'
-
+            // This is the main version file.
+            // If you are building locally, you can modify these values.
+            // If you are building though appveyor (or GitHub releases),
+            // change the version in appveyor.yml. The CI build process
+            // will overwrite these values.
             #pragma once
 
             #define VERSION_MAJOR   >major
@@ -80,28 +84,18 @@ after_build:
 artifacts:
     - path: BugTrap.zip
       name: Zip
-#    - path: __package\*.nupkg
-#      name: NuGet
-
 
 nuget:
     disable_publish_on_pr: true
 
 deploy:
     - provider: GitHub
+      release: 'Release $(appveyor_build_version)'
       description: $(APPVEYOR_REPO_COMMIT_MESSAGE)
       prerelease: $(IsPreRelease)
-      artifact: Zip, NuGet
+      artifact: Zip
       auth_token:
           secure: cyivrWQwrZNAb6UCNXlIQlGfVSnKIC6TatUOIP95CQgMeKGnmBSqBgAFv2TsRZhR
-      on:
-          branch: master
-          appveyor_repo_tag: true
-
-    - provider: NuGet
-      api_key:
-          secure: 1nPS2ttf+N4+FUhd+GZycrL7YzSWQpZjnGOMCb5+pGJXSdx0IFvVF8xhTGna7B9t
-      artifact: NuGet
       on:
           branch: master
           appveyor_repo_tag: true
