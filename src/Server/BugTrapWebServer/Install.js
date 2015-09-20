@@ -128,6 +128,10 @@ function getDotNetFrameworkPath() {
 	var webRoot = webServer.GetObject('IIsWebVirtualDir', 'Root');
 	// Construct destination path
 	var destPath = webRoot.Path;
+    // setup environment variable for deployment
+    var sh = WScript.CreateObject("WScript.Shell");
+    var sysEnv = sh.Environment("SYSTEM");
+    sysEnv("BT_WEBSRV_ROOT") = destPath;
 	// Check if web site files should be copied or just registered in place
 	var copyFiles = sourcePath.substr(0, destPath.length).toLowerCase() != destPath.toLowerCase();
 	if (copyFiles) {
