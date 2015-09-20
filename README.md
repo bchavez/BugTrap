@@ -10,16 +10,16 @@ The original author's website (and source code) went offline sometime in 2012 ([
 
 The original source-code licence for BugTrap is the [GNU Lesser General Public License (LGPL)](http://web.archive.org/web/20120402075507/http://www.intellesoft.net/bugtrap-license.php?BugTrapSrc.zip). In other words, you're free to use BugTrap in commercial and non-commercial applications.
 
-## Download
+## Download & Install
 Check the releases section in this repository for the latest builds:
 [**BugTrap.zip**](https://github.com/bchavez/BugTrap/releases) contains all BugTrap components required for Win32/x64 projects:
 
 * `BugTrap[U][D][N][-x64].dll` - BugTrap DLL module.
 * `BugTrap[U][D][N][-x64].lib` - BugTrap library file used by linker.
-  * `[U]` - Unicode aware version has 'U' letter. ANSI version doesn't have 'U' letter.
-  * `[D]` - Debug version has 'D' letter. Release version doesn't have 'D' letter.
-  * `[N]` - managed (.NET) version has 'N' letter. Native version doesn't have 'N' letter.
-  * `[-x64]` - 64 bit version for AMD-64 platform has '-x64' suffix. x86 version doesn't have this suffix.
+  * **`[U]`** - Unicode aware version has 'U' letter. ANSI version doesn't have 'U' letter.
+  * **`[D]`** - Debug version has 'D' letter. Release version doesn't have 'D' letter.
+  * **`[N]`** - managed (.NET) version has 'N' letter. Native version doesn't have 'N' letter.
+  * **`[-x64]`** - 64 bit version for AMD-64 platform has '-x64' suffix. x86 version doesn't have this suffix.
 * `dbghelp.dll` - DbgHelp library (see ["BugTrap Developer's Guide"](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/BugTrap.pdf)                                      for details).
 * `BugTrap.h` - Header file with BugTrap API definitions.
 * `BTTrace.h` - C++ wrapper of custom logging functions.
