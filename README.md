@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/73nrgph9by0pgeb0?svg=true)](https://ci.appveyor.com/project/bchavez/bugtrap)
+
 # BugTrap
 
 BugTrap is a tool to catch unhandled exceptions in **unmanaged** and **managed** .NET code. BugTrap also supports sending crash reports to a remote server for analysis.

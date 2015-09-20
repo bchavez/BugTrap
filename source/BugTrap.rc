@@ -1,6 +1,7 @@
 // Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
+#include "VersionInfoString.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -16,10 +17,8 @@
 // Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
 LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -65,7 +64,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_TRANSFERPROGRESS_DLG, DIALOG
     BEGIN
@@ -82,13 +81,11 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
-// German (Neutral) resources
+// German resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
-#ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_NEUTRAL
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -168,7 +165,7 @@ CAPTION "BugTrap"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "",IDC_INTRO_BKGND,0,0,330,53,SS_NOPREFIX
-    CONTROL         112,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
+    CONTROL         IDS_BUGTRAP_NAME,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
     LTEXT           "BugTrap hat einen absturz festgestellt",IDC_INTRO1,35,7,288,8
     LTEXT           "Um den entwicklungsprozess zu unterstützen wird dieses programm alle nötigen informationen über den absturz sammeln. Diese daten können dann an den produktsupport übertragen, oder gespeichert werden.",IDC_INTRO2,35,19,288,26,SS_NOPREFIX
     CONTROL         "",-1,"Static",SS_ETCHEDHORZ | WS_GROUP,0,52,330,1
@@ -210,7 +207,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUT_BUGTRAP_DLG, DIALOG
     BEGIN
@@ -313,7 +310,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_BUGTRAP_NAME        "BugTrap"
     IDS_CLOSE_TIP           "Beende die unterbrochene anwendung."
@@ -330,7 +327,7 @@ BEGIN
     IDS_COLUMN_METHOD       "Methode"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STATUS_REPORTSENT   "Vielen dank für ihre geduld!\nFehlerbericht fertig."
     IDS_ERROR_TRANSFERFAILED 
@@ -350,7 +347,7 @@ BEGIN
     IDS_COLUMN_SIZE         "Größe"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUT_ITEM          "Über BugTrap..."
     IDS_ERROR_NOT_AVAILABLE "N/A (fehler)"
@@ -360,7 +357,7 @@ BEGIN
     IDS_UNDEFINED_ERROR     "Unbekannter fehler"
 END
 
-#endif    // German (Neutral) resources
+#endif    // German resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -368,10 +365,8 @@ END
 // German (Germany) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
-#ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -384,7 +379,7 @@ CAPTION "BugTrap"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "",IDC_INTRO_BKGND,0,0,354,59,SS_NOPREFIX
-    CONTROL         112,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
+    CONTROL         IDS_BUGTRAP_NAME,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
     LTEXT           "BugTrap hat einen absturz festgestellt",IDC_INTRO1,35,7,312,8
     LTEXT           "Um den entwicklungsprozess zu unterstützen wird dieses programm alle nötigen informationen über den absturz sammeln. Diese daten können dann an den produktsupport übertragen, oder gespeichert werden.",IDC_INTRO2,35,19,312,28,SS_NOPREFIX
     LTEXT           "Produktsupport:",IDC_URL_PREFIX,35,47,71,8
@@ -427,7 +422,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_MAIN_DLG, DIALOG
     BEGIN
@@ -461,13 +456,11 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -480,7 +473,7 @@ CAPTION "BugTrap"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "",IDC_INTRO_BKGND,0,0,354,59,SS_NOPREFIX
-    CONTROL         112,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
+    CONTROL         IDS_BUGTRAP_NAME,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
     LTEXT           "A crash has been detected by BugTrap",IDC_INTRO1,35,7,312,8
     LTEXT           "To help the development process, this program will try and gather the information about the crash, and the state of your machine at the time of the crash. This data can then be submitted to product support or saved to a file.",IDC_INTRO2,35,19,312,28,SS_NOPREFIX
     LTEXT           "Product support site:",IDC_URL_PREFIX,35,47,71,8
@@ -574,7 +567,7 @@ CAPTION "BugTrap"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "",IDC_INTRO_BKGND,0,0,330,53,SS_NOPREFIX
-    CONTROL         112,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
+    CONTROL         IDS_BUGTRAP_NAME,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
     LTEXT           "A crash has been detected by BugTrap",IDC_INTRO1,35,7,288,8
     LTEXT           "To help the development process, this program will try and gather the information about the crash, and the state of your machine at the time of the crash. This data can then be submitted to product support or saved to a file.",IDC_INTRO2,35,19,288,26,SS_NOPREFIX
     CONTROL         "",-1,"Static",SS_ETCHEDHORZ | WS_GROUP,0,52,330,1
@@ -642,7 +635,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_MAIN_DLG, DIALOG
     BEGIN
@@ -782,8 +775,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1, 3, 3718, 38316
- PRODUCTVERSION 1, 3, 3718, 38316
+ FILEVERSION VER_FILE_VERSION
+ PRODUCTVERSION VER_PRODUCT_VERSION
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -801,29 +794,40 @@ BEGIN
             VALUE "Comments", "BugTrap - softwarefehler berichterstattung"
             VALUE "CompanyName", "IntelleSoft"
             VALUE "FileDescription", "BugTrap dynamic link library"
-            VALUE "FileVersion", "1.3.3718.38316"
+            VALUE "FileVersion", VER_FILE_VERSION_STR "\0"
             VALUE "InternalName", "BugTrap"
             VALUE "LegalCopyright", "Copyright © 2005-2009 IntelleSoft"
             VALUE "OriginalFilename", "BugTrap.dll"
             VALUE "ProductName", "BugTrap"
-            VALUE "ProductVersion", "1.3.3718.38316"
+            VALUE "ProductVersion", VER_PRODUCT_VERSION_STR "\0"
+        END
+        BLOCK "040004b0"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", VER_FILE_VERSION_STR "\0"
+            VALUE "InternalName", "BugTrap.dll"
+            VALUE "LegalCopyright", "Copyright (C) 2015"
+            VALUE "OriginalFilename", "BugTrap.dll"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", VER_PRODUCT_VERSION_STR "\0"
         END
         BLOCK "040904b0"
         BEGIN
             VALUE "Comments", "BugTrap - software error reporting tool"
             VALUE "CompanyName", "IntelleSoft"
             VALUE "FileDescription", "BugTrap dynamic link library"
-            VALUE "FileVersion", "1.3.3718.38316"
+            VALUE "FileVersion", VER_FILE_VERSION_STR "\0"
             VALUE "InternalName", "BugTrap"
             VALUE "LegalCopyright", "Copyright © 2005-2009 IntelleSoft"
             VALUE "OriginalFilename", "BugTrap.dll"
             VALUE "ProductName", "BugTrap"
-            VALUE "ProductVersion", "1.3.3718.38316"
+            VALUE "ProductVersion", VER_PRODUCT_VERSION_STR "\0"
         END
     END
     BLOCK "VarFileInfo"
     BEGIN
-        VALUE "Translation", 0x7, 1200, 0x409, 1200
+        VALUE "Translation", 0x7, 1200, 0x400, 1200, 0x409, 1200
     END
 END
 
@@ -859,7 +863,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_BUGTRAP_NAME        "BugTrap"
     IDS_CLOSE_TIP           "Terminate interrupted application."
@@ -876,7 +880,7 @@ BEGIN
     IDS_COLUMN_METHOD       "Method"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STATUS_REPORTSENT   "Thank you for your patience!\nError report complete."
     IDS_ERROR_TRANSFERFAILED "Error: can't send error report to the server"
@@ -895,7 +899,7 @@ BEGIN
     IDS_COLUMN_SIZE         "Size"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUT_ITEM          "About BugTrap..."
     IDS_ERROR_NOT_AVAILABLE "N/A (error)"
@@ -905,7 +909,7 @@ BEGIN
     IDS_UNDEFINED_ERROR     "Undefined error"
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

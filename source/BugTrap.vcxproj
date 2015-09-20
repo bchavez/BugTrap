@@ -850,6 +850,7 @@
     <ClInclude Include="ThemeXP.h" />
     <ClInclude Include="TransferProgressDlg.h" />
     <ClInclude Include="VersionInfo.h" />
+    <ClInclude Include="VersionInfoString.h" />
     <ClInclude Include="WaitCursor.h" />
     <ClInclude Include="WaitDlg.h" />
     <ClInclude Include="XmlLogFile.h" />

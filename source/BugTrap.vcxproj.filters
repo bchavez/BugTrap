@@ -444,6 +444,9 @@
     <ClInclude Include="StrStream.h">
       <Filter>Streams\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VersionInfoString.h">
+      <Filter>Accessories\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Bug.ico">

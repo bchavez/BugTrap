@@ -26,6 +26,7 @@
 #include "Globals.h"
 #include "Encoding.h"
 #include "MemStream.h"
+#include "VersionInfoString.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -1486,7 +1487,7 @@ LONG InternalFilter(PEXCEPTION_POINTERS pExceptionPointers)
 			{
 				TCHAR szDumpFileName[MAX_PATH];
 				GetTempPath(countof(szDumpFileName), szDumpFileName);
-				PathAppend(szDumpFileName, _T("BugTrap-") _T(FILE_LONG_VERSION) _T(".dmp"));
+				PathAppend(szDumpFileName, _T("BugTrap-") _T(VER_FILE_VERSION_STR) _T(".dmp"));
 				HANDLE hFile = CreateFile(szDumpFileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 				if (hFile != INVALID_HANDLE_VALUE)
 				{

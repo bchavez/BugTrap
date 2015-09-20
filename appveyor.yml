@@ -1,4 +1,4 @@
-version: 1.4.{build}
+version: 1.4.0.{build}
 init:
     - ps: |
             If ($Env:APPVEYOR_REPO_TAG_NAME -match "-"){
@@ -24,23 +24,14 @@ before_build:
             # ###################
 
             $versionInfo = @'
+
             #pragma once
 
-            #define BUILD_NUMBER	>buildnum
+            #define VERSION_MAJOR   >major
+            #define VERSION_MINOR   >minor
             #define REVISION_NUMBER	>buildrev
-
-            #define PRODUCT_MAJOR_VERSION	>major
-            #define PRODUCT_MINOR_VERSION	>minor
-            #define PRODUCT_SHORT_VERSION	">major.>minor"
-            #define PRODUCT_LONG_VERSION	">major.>minor.>buildnum.>buildrev"
-
-            #define FILE_MAJOR_VERSION	>major
-            #define FILE_MINOR_VERSION	>minor
-            #define FILE_SHORT_VERSION	">major.>minor"
-            #define FILE_LONG_VERSION	">major.>minor.>buildnum.>buildrev"
-
+            #define BUILD_NUMBER	>buildnum
             '@
-
             
             $versionInfo = $versionInfo -replace ">buildnum",$buildnum
             $versionInfo = $versionInfo -replace ">buildrev",$buildrev
@@ -49,63 +40,7 @@ before_build:
             
             $versionInfo | out-file -FilePath source/VersionInfo.h
 
-            $versionInfo = @'
-            #include "StdAfx.h"
 
-            #ifdef _MANAGED
-
-            #pragma managed
-
-            using namespace System::Reflection;
-            using namespace System::Runtime::CompilerServices;
-            using namespace System::Runtime::InteropServices;
-
-            // General Information about an assembly is controlled through the following
-            // set of attributes. Change these attribute values to modify the information
-            // associated with an assembly.
-            [assembly: AssemblyTitle("BugTrap dynamic link library")];
-            [assembly: AssemblyDescription("BugTrap - software error reporting tool")];
-            [assembly: AssemblyConfiguration("")];
-            [assembly: AssemblyCompany("IntelleSoft")];
-            [assembly: AssemblyProduct("BugTrap")];
-            [assembly: AssemblyCopyright("Copyright © 2005-2009 IntelleSoft")];
-            [assembly: AssemblyTrademark("")];
-            [assembly: AssemblyCulture("")];
-
-            // Setting ComVisible to false makes the types in this assembly not visible
-            // to COM components.  If you need to access a type in this assembly from
-            // COM, set the ComVisible attribute to true on that type.
-            [assembly: ComVisible(false)];
-
-            // The following GUID is for the ID of the typelib if this project is exposed to COM
-            [assembly: Guid("B3DB7206-529E-4000-B549-CA23E08A37F0")];
-
-            // Version information for an assembly consists of the following four values:
-            //
-            //      Major Version
-            //      Minor Version
-            //      Build Number
-            //      Revision
-            //
-            [assembly: AssemblyVersion(">major.>minor.>buildnum.>buildrev")];
-            [assembly: AssemblyFileVersion(">major.>minor.>buildnum.>buildrev")];
-
-            using namespace System::Security::Permissions;
-
-            [assembly: SecurityPermission(SecurityAction::RequestMinimum, UnmanagedCode = true)];
-
-            #pragma unmanaged
-
-            #endif // _MANAGED
-
-            '@
-            
-            $versionInfo = $versionInfo -replace ">buildnum",$buildnum
-            $versionInfo = $versionInfo -replace ">buildrev",$buildrev
-            $versionInfo = $versionInfo -replace ">major",$major
-            $versionInfo = $versionInfo -replace ">minor",$minor
-            
-            $versionInfo | out-file -FilePath source/AssemblyInfo.cpp
 
 build_script: build.cmd
 
