@@ -100,8 +100,6 @@ extern BT_ErrHandler g_pfnPostErrHandler;
 extern INT_PTR g_nPostErrHandlerParam;
 /// Pointer to the exception information.
 extern PEXCEPTION_POINTERS g_pExceptionPointers;
-/// True if application runs on Windows NT platform.
-extern BOOL g_bWinNT;
 /// Custom resources manager.
 extern CResManager* g_pResManager;
 /// Pointer to Simple MAPI session object.

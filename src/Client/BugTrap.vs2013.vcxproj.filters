@@ -444,24 +444,29 @@
     <ClInclude Include="StrStream.h">
       <Filter>Streams\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VersionInfoString.h">
+      <Filter>Accessories\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Bug.ico">
+    <Image Include="res\Bug.ico">
       <Filter>Accessories\Resource Files</Filter>
-    </None>
+    </Image>
+    <Image Include="res\CheckMark.bmp">
+      <Filter>Accessories\Resource Files</Filter>
+    </Image>
+    <Image Include="res\ImageToolbar.bmp">
+      <Filter>Accessories\Resource Files</Filter>
+    </Image>
+    <Image Include="res\SortArrows.bmp">
+      <Filter>Accessories\Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="BugTrap.def">
       <Filter>Accessories\Resource Files</Filter>
     </None>
-    <None Include="res\CheckMark.bmp">
-      <Filter>Accessories\Resource Files</Filter>
-    </None>
-    <None Include="res\ImageToolbar.bmp">
-      <Filter>Accessories\Resource Files</Filter>
-    </None>
     <None Include="res\KeyPair.snk">
-      <Filter>Accessories\Resource Files</Filter>
-    </None>
-    <None Include="res\SortArrows.bmp">
       <Filter>Accessories\Resource Files</Filter>
     </None>
     <None Include="res\Upload.avi">

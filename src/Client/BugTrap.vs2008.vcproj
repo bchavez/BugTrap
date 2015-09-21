@@ -1717,6 +1717,10 @@
 					RelativePath="VersionInfo.h"
 					>
 				</File>
+				<File
+					RelativePath="VersionInfoString.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Resource Files"

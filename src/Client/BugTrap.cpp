@@ -61,8 +61,6 @@ static _CrtMemState g_MemState;
  */
 static BOOL RequestMorePrivileges(void)
 {
-	if (! g_bWinNT)
-		return TRUE; // simulation for Win9x
 	BOOL bResult = FALSE;
 	HANDLE hCurrentProcess = GetCurrentProcess();
 	HANDLE hToken;

@@ -907,6 +907,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="VersionInfo.h" />
+    <ClInclude Include="VersionInfoString.h" />
     <ClInclude Include="Encoding.h" />
     <ClInclude Include="TextFormat.h" />
     <ClInclude Include="XmlReader.h" />
@@ -920,12 +921,14 @@
     <ClInclude Include="StrStream.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Bug.ico" />
+    <Image Include="res\Bug.ico" />
+    <Image Include="res\CheckMark.bmp" />
+    <Image Include="res\ImageToolbar.bmp" />
+    <Image Include="res\SortArrows.bmp" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="BugTrap.def" />
-    <None Include="res\CheckMark.bmp" />
-    <None Include="res\ImageToolbar.bmp" />
     <None Include="res\KeyPair.snk" />
-    <None Include="res\SortArrows.bmp" />
     <None Include="res\Upload.avi" />
   </ItemGroup>
   <ItemGroup>
