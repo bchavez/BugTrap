@@ -267,7 +267,6 @@ namespace BugTrapServer
                 writer.Close();
 			}
             this.Response.Flush();
-            this.Response.Close();
 		}
 
 		/// <summary>
