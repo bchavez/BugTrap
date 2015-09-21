@@ -225,10 +225,10 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Unicode Release|x64'" />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='.NET Debug|Win32'">
-    <TargetName>$(ProjectName)ND</TargetName>
+    <TargetName>$(ProjectName)DN</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='.NET Debug|x64'">
-    <TargetName>$(ProjectName)ND-x64</TargetName>
+    <TargetName>$(ProjectName)DN-x64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='.NET Release|Win32'">
     <TargetName>$(ProjectName)N</TargetName>
