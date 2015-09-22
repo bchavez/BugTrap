@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/73nrgph9by0pgeb0?svg=true)](https://ci.appveyor.com/project/bchavez/bugtrap) [![License](https://img.shields.io/github/license/bchavez/BugTrap.svg)](https://raw.githubusercontent.com/bchavez/BugTrap/master/LICENSE) [![Release](https://img.shields.io/github/release/bchavez/BugTrap.svg)](https://github.com/bchavez/BugTrap/releases)
+[![Build status](https://ci.appveyor.com/api/projects/status/73nrgph9by0pgeb0?svg=true)](https://ci.appveyor.com/project/bchavez/bugtrap) [![Release](https://img.shields.io/github/release/bchavez/BugTrap.svg)](https://github.com/bchavez/BugTrap/releases) [![License](https://img.shields.io/github/license/bchavez/BugTrap.svg)](https://raw.githubusercontent.com/bchavez/BugTrap/master/LICENSE)
 
 # BugTrap
 
