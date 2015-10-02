@@ -1354,7 +1354,7 @@ static void ExecuteHandlerAction(void)
 			{
 				if (g_dwFlags & BTF_SHOWADVANCEDUI)
 					DialogBox(g_hInstance, MAKEINTRESOURCE(IDD_MAIN_DLG), NULL, MainDlgProc);
-				else if (DialogBox(g_hInstance, MAKEINTRESOURCE(IDD_SIMPLE_DLG), NULL, SimpleDlgProc) == TRUE)
+				else if (DialogBox(g_hInstance, MAKEINTRESOURCE(IDD_SIMPLE_DLG), GetForegroundWindow(), SimpleDlgProc) == TRUE)
 					DialogBox(g_hInstance, MAKEINTRESOURCE(IDD_MAIN_DLG), NULL, MainDlgProc);
 			}
 			break;
