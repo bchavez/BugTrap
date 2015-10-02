@@ -124,14 +124,30 @@ CResManager::CResManager(HWND hwndParent)
 	if (m_hSmallAppIcon == NULL)
 	{
 		m_bDestroySmallAppIcon = true;;
-		m_hSmallAppIcon = (HICON)LoadImage(g_hInstance, MAKEINTRESOURCE(IDI_BUG), IMAGE_ICON, nCXSmallIcon, nCYSmallIcon, LR_DEFAULTCOLOR);
+		TCHAR szModuleFileName[MAX_PATH];
+		if (GetModuleFileName(NULL, szModuleFileName, countof(szModuleFileName)))
+		{
+			ExtractIconEx(szModuleFileName, 0, NULL, &m_hSmallAppIcon, 1);
+		}
+		if (m_hSmallAppIcon == NULL)
+		{
+			m_hSmallAppIcon = (HICON)LoadImage(g_hInstance, MAKEINTRESOURCE(IDI_BUG), IMAGE_ICON, nCXSmallIcon, nCYSmallIcon, LR_DEFAULTCOLOR);
+		}
 	}
 	int nCXIcon = GetSystemMetrics(SM_CXICON);
 	int nCYIcon = GetSystemMetrics(SM_CYICON);
 	if (m_hBigAppIcon == NULL)
 	{
-		m_bDestroyBigAppIcon = true;;
-		m_hBigAppIcon = (HICON)LoadImage(g_hInstance, MAKEINTRESOURCE(IDI_BUG), IMAGE_ICON, nCXIcon, nCYIcon, LR_DEFAULTCOLOR);
+		m_bDestroyBigAppIcon = true;
+		TCHAR szModuleFileName[MAX_PATH];
+		if (GetModuleFileName(NULL, szModuleFileName, countof(szModuleFileName)))
+		{
+			ExtractIconEx(szModuleFileName, 0, &m_hBigAppIcon, NULL, 1);
+		}
+		if (m_hBigAppIcon == NULL)
+		{
+			m_hBigAppIcon = (HICON)LoadImage(g_hInstance, MAKEINTRESOURCE(IDI_BUG), IMAGE_ICON, nCXIcon, nCYIcon, LR_DEFAULTCOLOR);
+		}
 	}
 	if (m_hBigAppIcon != NULL)
 	{
