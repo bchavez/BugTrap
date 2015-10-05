@@ -17,6 +17,8 @@
 #include "AboutDlg.h"
 #include "BugTrapUI.h"
 #include "BugTrapUtils.h"
+#include "Globals.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -70,7 +72,69 @@ static BOOL AboutDlg_OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
 	g_hlURL.SetLinkURL(szLinkURL);
 	g_hlURL.Attach(hwndCtl);
 
+	WORD MajorVersion = 0;
+	WORD MinorVersion = 0;
+	WORD BuildNumber = 0;
+	WORD RevisionNumber = 0;
+	if (GetProductVersion(&MajorVersion, &MinorVersion, &BuildNumber, &RevisionNumber))
+	{
+		TCHAR buffer[MAX_PATH];
+		_stprintf_s(buffer, countof(buffer), _T("Version %d.%d.%d"), MajorVersion, MinorVersion, BuildNumber);
+		SetDlgItemText(hwnd, IDC_STATIC_VERSION, buffer);
+	}
+
 	return FALSE;
+}
+
+/**
+* @brief Get major, minor, build and revision numbers from module
+* @param MajorVersion major version number
+* @param MinorVersion minor version number
+* @param BuildNumber build number
+* @param RevisionNumber revision number
+* @return true if version info could be read
+*/
+bool GetProductVersion(WORD *MajorVersion, WORD *MinorVersion, WORD *BuildNumber, WORD *RevisionNumber)
+{
+	// get the filename of the executable containing the version resource
+	TCHAR szFilename[MAX_PATH + 1] = { 0 };
+	if (GetModuleFileName(g_hInstance, szFilename, MAX_PATH) == 0)
+	{
+		return false;
+	}
+
+	// allocate a block of memory for the version info
+	DWORD dummy;
+	DWORD dwSize = GetFileVersionInfoSize(szFilename, &dummy);
+	if (dwSize == 0)
+	{
+		return false;
+	}
+	LPTSTR lpData = (LPTSTR)malloc(dwSize);
+
+	// load the version info
+	if (!GetFileVersionInfo(szFilename, NULL, dwSize, lpData))
+	{
+		free(lpData);
+		return false;
+	}
+
+	UINT				uiVerLen = 0;
+	VS_FIXEDFILEINFO*	pFixedInfo = 0;		// pointer to fixed file info structure
+											// get the fixed file info (language-independend) 
+	if (VerQueryValue(lpData, TEXT("\\"), (void**)&pFixedInfo, (UINT *)&uiVerLen) == 0)
+	{
+		free(lpData);
+		return false;
+	}
+
+	*MajorVersion = HIWORD(pFixedInfo->dwFileVersionMS);
+	*MinorVersion = LOWORD(pFixedInfo->dwFileVersionMS);
+	*BuildNumber = HIWORD(pFixedInfo->dwFileVersionLS);
+	*RevisionNumber = LOWORD(pFixedInfo->dwFileVersionLS);
+
+	free(lpData);
+	return true;
 }
 
 /**

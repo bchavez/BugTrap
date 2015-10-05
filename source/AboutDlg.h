@@ -15,3 +15,4 @@
 #pragma once
 
 INT_PTR CALLBACK AboutDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
+bool GetProductVersion(WORD *MajorVersion, WORD *MinorVersion, WORD *BuildNumber, WORD *RevisionNumber);
