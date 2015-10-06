@@ -7,6 +7,9 @@ bin/
 intermediate/
 lib/
 
+# include .nuget configs
+!.nuget/
+
 #################
 ## Eclipse
 #################

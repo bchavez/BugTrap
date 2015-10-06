@@ -10,6 +10,9 @@ IF NOT DEFINED DevEnvDir (
 	)
 )
 
+rem Restore NuGet packages
+nuget restore source\BugTrap.vs2013.sln
+
 rem 32-bit client
 echo ">>>>>>>>>>>>>>>>>>>>>>>> DEBUG 32"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=Debug -p:Platform=Win32
