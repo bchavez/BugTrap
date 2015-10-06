@@ -16,87 +16,94 @@ powershell -file install-dependencies.ps1
 rem Restore NuGet packages
 nuget restore source\BugTrap.vs2013.sln
 
+rem Add boost to include and library paths
+set "INCLUDE=C:\Libraries\boost;%INCLUDE%"
+set "LIB=C:\Libraries\boost\stage\lib;%LIB%"
+
+rem Additional arguments required for msbuild to use INCLUDE and LIB 
+set "MSB_ADD_ARGS=/p:useenv=true"
+
 rem 32-bit client
 echo ">>>>>>>>>>>>>>>>>>>>>>>> DEBUG 32"
-msbuild source\BugTrap.vs2013.sln -p:Configuration=Debug -p:Platform=Win32
+msbuild source\BugTrap.vs2013.sln -p:Configuration=Debug -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>> RELEASE 32"
-msbuild source\BugTrap.vs2013.sln -p:Configuration=Release -p:Platform=Win32
+msbuild source\BugTrap.vs2013.sln -p:Configuration=Release -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET DEBUG 32"
-msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Debug" -p:Platform=Win32
+msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Debug" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET RELEASE 32"
-msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Release" -p:Platform=Win32
+msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Release" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem 64-bit client
 echo ">>>>>>>>>>>>>>>>>>>>>>>> DEBUG 64"
-msbuild source\BugTrap.vs2013.sln -p:Configuration=Debug -p:Platform=x64
+msbuild source\BugTrap.vs2013.sln -p:Configuration=Debug -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>> RELEASE 64"
-msbuild source\BugTrap.vs2013.sln -p:Configuration=Release -p:Platform=x64
+msbuild source\BugTrap.vs2013.sln -p:Configuration=Release -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET DEBUG 64"
-msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Debug" -p:Platform=x64
+msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Debug" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET RELEASE 64"
-msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Release" -p:Platform=x64
+msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Release" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem Examples
 echo "Building BugTrap.Examples [Debug|Win32]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Debug -p:Platform=Win32
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Debug -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Release|Win32]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Release -p:Platform=Win32
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Release -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Unicode Debug|Win32]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=Win32
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Unicode Release|Win32]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=Win32
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Debug|x64]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Debug -p:Platform=x64
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Debug -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Release|x64]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Release -p:Platform=x64
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Release -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Unicode Debug|x64]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=x64
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Unicode Release|x64]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=x64
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Debug|.NET x86]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Debug -p:Platform=".NET x86"
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Debug -p:Platform=".NET x86" %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Release|.NET x86]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Release -p:Platform=".NET x86"
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration=Release -p:Platform=".NET x86" %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Unicode Debug|.NET x86]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=".NET x86"
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=".NET x86" %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo "Building BugTrap.Examples [Unicode Release|.NET x86]"
-msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=".NET x86"
+msbuild source\BugTrap.Examples.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=".NET x86" %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem Windows server
