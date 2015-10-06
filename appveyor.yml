@@ -70,6 +70,8 @@ after_build:
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.dll"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.lib"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\CrashExplorer.exe"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\srv\release\BugTrapServer.exe"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\srv\release\BugTrapServer.exe.config"
 
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTAtlWindow.h
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTMfcWindow.h
