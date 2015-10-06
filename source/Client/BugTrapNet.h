@@ -120,7 +120,7 @@ namespace IntelleSoft
 		};
 
 		[Flags]
-		public enum class MinidumpType
+        public enum class MinidumpType : UInt32
 		{
 			Normal                         = MiniDumpNormal,
 			WithDataSegs                   = MiniDumpWithDataSegs,
