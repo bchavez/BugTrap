@@ -10,6 +10,9 @@ IF NOT DEFINED DevEnvDir (
 	)
 )
 
+rem Install additional libraries (vc_mbcsmfc)
+powershell -file install-dependencies.ps1
+
 rem Restore NuGet packages
 nuget restore source\BugTrap.vs2013.sln
 
