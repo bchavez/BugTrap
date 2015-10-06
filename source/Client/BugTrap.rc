@@ -98,11 +98,12 @@ CAPTION "Über BugTrap"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     ICON            IDI_BUG,IDC_STATIC,7,7,20,20,WS_GROUP
-    LTEXT           "BugTrap - softwarefehler berichterstattung\nVersion 1.3",IDC_VERSION_STRING,34,7,146,16
+    LTEXT           "BugTrap - Softwarefehler Berichterstattung",IDC_VERSION_STRING,34,7,146,11
     LTEXT           "Copyright © 2005-2009 IntelleSoft",IDC_STATIC,7,32,113,8
     LTEXT           "http://www.intellesoft.net",IDC_URL,7,42,72,10,WS_TABSTOP
     LTEXT           " GUI design basierend auf Jim Crafton's BlackBox library",IDC_PORTIONS_COPYRIGHT,7,59,228,10,SS_NOPREFIX | SS_SUNKEN
     DEFPUSHBUTTON   "Schließen",IDCANCEL,195,7,40,14,WS_GROUP
+    LTEXT           "Version",IDC_STATIC_VERSION,34,18,152,8
 END
 
 IDD_MACHINE_INFO_DLG DIALOGEX 0, 0, 340, 260
@@ -128,7 +129,7 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     GROUPBOX        "Laufende Prozesse beim Absturz",IDC_PROCESS_LIST_FRAME,7,7,250,97,WS_GROUP,WS_EX_TRANSPARENT
     CONTROL         "",IDC_PROCESS_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,12,17,239,80
-    GROUPBOX        "Vom Gewählten Prozess Geladene Module",IDC_PROCESS_MODULES_LIST_FRAME,7,107,250,108,WS_GROUP,WS_EX_TRANSPARENT
+    GROUPBOX        "Vom gewählten Prozess geladene Module",IDC_PROCESS_MODULES_LIST_FRAME,7,107,250,108,WS_GROUP,WS_EX_TRANSPARENT
     CONTROL         "",IDC_PROCESS_MODULES_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,12,117,239,92
     DEFPUSHBUTTON   "Schließen",IDCANCEL,264,11,51,14,WS_GROUP
 END
@@ -139,7 +140,7 @@ EXSTYLE WS_EX_TOPMOST | WS_EX_TOOLWINDOW
 FONT 10, "MS Shell Dlg", 400, 0, 0xCC
 BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,1,1,81,17
-    LTEXT           "Bitte Warten...",IDC_STATIC,18,5,48,8
+    LTEXT           "Bitte warten...",IDC_STATIC,18,5,47,8
     CONTROL         "",IDC_PROGRESS_BAR,"Static",SS_GRAYRECT | WS_GROUP | WS_TABSTOP,1,19,81,7,WS_EX_STATICEDGE
 END
 
@@ -166,13 +167,13 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "",IDC_INTRO_BKGND,0,0,330,53,SS_NOPREFIX
     CONTROL         IDS_BUGTRAP_NAME,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
-    LTEXT           "BugTrap hat einen absturz festgestellt",IDC_INTRO1,35,7,288,8
-    LTEXT           "Um den entwicklungsprozess zu unterstützen wird dieses programm alle nötigen informationen über den absturz sammeln. Diese daten können dann an den produktsupport übertragen, oder gespeichert werden.",IDC_INTRO2,35,19,288,26,SS_NOPREFIX
+    LTEXT           "BugTrap hat einen Absturz festgestellt",IDC_INTRO1,35,7,288,8
+    LTEXT           "Um den Entwicklungsprozess zu unterstützen wird dieses Programm alle nötigen Informationen über den Absturz sammeln. Diese Daten können dann an den Produktsupport übertragen oder gespeichert werden.",IDC_INTRO2,35,19,288,26,SS_NOPREFIX
     CONTROL         "",-1,"Static",SS_ETCHEDHORZ | WS_GROUP,0,52,330,1
     LTEXT           "Produktsupport:",IDC_URL_PREFIX,7,59,71,8
     LTEXT           "",IDC_URL,78,59,245,10,WS_TABSTOP
     DEFPUSHBUTTON   "Info senden",IDC_SUBMIT_BUG,7,73,52,14,WS_GROUP
-    LTEXT           "email an...",IDC_MAILTO,78,75,35,8,NOT WS_GROUP | WS_TABSTOP
+    LTEXT           "E-Mail an...",IDC_MAILTO,78,75,38,8,NOT WS_GROUP | WS_TABSTOP
     PUSHBUTTON      "Erweitert...",IDC_MORE,208,73,52,14
     PUSHBUTTON      "Schließen",IDCANCEL,271,73,52,14
 END
@@ -313,15 +314,15 @@ END
 STRINGTABLE
 BEGIN
     IDS_BUGTRAP_NAME        "BugTrap"
-    IDS_CLOSE_TIP           "Beende die unterbrochene anwendung."
-    IDS_PREVIEW_REPORT_TIP  "Vorschau der reportdateien."
-    IDS_SAVE_REPORT_TIP     "Fehlerinformationen in eine datei speichern."
-    IDS_MAILTO_TIP          "Eine email an den produktsupport versenden."
-    IDS_SUBMIT_BUG_TIP      "Einen automatisch generierten report an den produktsupport versenden."
-    IDS_MACHINE_INFO_TIP    "Informationen über das betriebssystem anzeigen."
-    IDS_MACHINE_STATE_TIP   "Alle laufenden prozesse und geladenen module anzeigen."
+    IDS_CLOSE_TIP           "Beende die unterbrochene Anwendung."
+    IDS_PREVIEW_REPORT_TIP  "Vorschau der Reportdateien."
+    IDS_SAVE_REPORT_TIP     "Fehlerinformationen in eine Datei speichern."
+    IDS_MAILTO_TIP          "Eine E-Mail an den Produktsupport versenden."
+    IDS_SUBMIT_BUG_TIP      "Einen automatisch generierten Report an den Produktsupport versenden."
+    IDS_MACHINE_INFO_TIP    "Informationen über das Betriebssystem anzeigen."
+    IDS_MACHINE_STATE_TIP   "Alle laufenden Prozesse und geladenen Module anzeigen."
     IDS_PLEASE_WAIT         "Bitte warten..."
-    IDS_ZOOMIN              "Zoom vergrößern"
+    IDS_ZOOMIN              "Vergrößern"
     IDS_MORE_TIP            "Fehlerinformationen anzeigen."
     IDS_COLUMN_ASSEMBLY     "Assembly"
     IDS_COLUMN_METHOD       "Methode"
@@ -329,11 +330,11 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_STATUS_REPORTSENT   "Vielen dank für ihre geduld!\nFehlerbericht fertig."
+    IDS_STATUS_REPORTSENT   "Vielen Dank für ihre Geduld!\nFehlerbericht fertig."
     IDS_ERROR_TRANSFERFAILED 
-                            "Fehler: konnte den report nicht an den server versenden"
+                            "Fehler: konnte den Report nicht an den Server versenden"
     IDS_COLUMN_FUNCTION     "Funktion"
-    IDS_UNDEFINED_ERROR_EX  "Unbekannter fehler (0x%08lX)"
+    IDS_UNDEFINED_ERROR_EX  "Unbekannter Fehler (0x%08lX)"
     IDS_ADDITIONAL_INFORMATION "\nZusatzinformation:\n"
     IDS_COLUMN_ADDRESS      "Addresse"
     IDS_COLUMN_FILE         "Datei"
@@ -350,11 +351,11 @@ END
 STRINGTABLE
 BEGIN
     IDS_ABOUT_ITEM          "Über BugTrap..."
-    IDS_ERROR_NOT_AVAILABLE "N/A (fehler)"
-    IDS_ZOOMOUT             "Zoom verkleinern"
+    IDS_ERROR_NOT_AVAILABLE "N/A (Fehler)"
+    IDS_ZOOMOUT             "Verkleinern"
     IDS_RESETSIZE           "Größe zurücksetzen"
     IDS_FITIMAGE            "Bild einpassen"
-    IDS_UNDEFINED_ERROR     "Unbekannter fehler"
+    IDS_UNDEFINED_ERROR     "Unbekannter Fehler"
 END
 
 #endif    // German resources
@@ -380,8 +381,8 @@ FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     LTEXT           "",IDC_INTRO_BKGND,0,0,354,59,SS_NOPREFIX
     CONTROL         IDS_BUGTRAP_NAME,IDC_DIALOG_ICON,"Static",SS_BITMAP | WS_GROUP,7,7,15,13
-    LTEXT           "BugTrap hat einen absturz festgestellt",IDC_INTRO1,35,7,312,8
-    LTEXT           "Um den entwicklungsprozess zu unterstützen wird dieses programm alle nötigen informationen über den absturz sammeln. Diese daten können dann an den produktsupport übertragen, oder gespeichert werden.",IDC_INTRO2,35,19,312,28,SS_NOPREFIX
+    LTEXT           "BugTrap hat einen Absturz festgestellt",IDC_INTRO1,35,7,312,8
+    LTEXT           "Um den Entwicklungsprozess zu unterstützen wird dieses Programm alle nötigen Informationen über den Absturz sammeln. Diese Daten können dann an den Produktsupport übertragen oder gespeichert werden.",IDC_INTRO2,35,19,312,28,SS_NOPREFIX
     LTEXT           "Produktsupport:",IDC_URL_PREFIX,35,47,71,8
     LTEXT           "",IDC_URL,106,47,241,10,WS_TABSTOP
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ | WS_GROUP,0,59,354,1
@@ -409,10 +410,10 @@ BEGIN
     CONTROL         "",IDC_FILESLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | WS_BORDER | WS_GROUP | WS_TABSTOP,3,3,336,55
     CONTROL         "",IDC_FILEVIEW,"Static",SS_GRAYRECT | WS_BORDER | WS_GROUP | WS_TABSTOP,3,61,336,125
     CONTROL         "",IDC_FILEFORMAT_FRAME,"Static",SS_ETCHEDFRAME | NOT WS_VISIBLE | WS_GROUP,3,190,122,18,WS_EX_TRANSPARENT
-    CONTROL         "&Textblick",IDC_TEXTVIEW,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP | WS_TABSTOP,13,194,44,10
-    CONTROL         "&Hexblick",IDC_HEXVIEW,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,68,194,42,10
+    CONTROL         "&Text",IDC_TEXTVIEW,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE | WS_GROUP | WS_TABSTOP,13,194,44,10
+    CONTROL         "&Hex",IDC_HEXVIEW,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,68,194,42,10
     CONTROL         "",IDC_IMAGE_COMMANDS,"ToolbarWindow32",NOT WS_VISIBLE | 0x4c,3,191,121,16
-    DEFPUSHBUTTON   "Close",IDCANCEL,284,192,50,14,WS_GROUP
+    DEFPUSHBUTTON   "Schließen",IDCANCEL,284,192,50,14,WS_GROUP
 END
 
 
@@ -500,11 +501,12 @@ CAPTION "About BugTrap"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     ICON            IDI_BUG,IDC_STATIC,7,7,20,20,WS_GROUP
-    LTEXT           "BugTrap - software error reporting tool\nVersion 1.2",IDC_VERSION_STRING,34,7,128,16
+    LTEXT           "BugTrap - software error reporting tool",IDC_VERSION_STRING,34,7,128,11
     LTEXT           "Copyright © 2005-2009 IntelleSoft",IDC_STATIC,7,32,113,8
     LTEXT           "http://www.intellesoft.net",IDC_URL,7,42,72,10,WS_TABSTOP
     LTEXT           " GUI design based on Jim Crafton's BlackBox library",IDC_PORTIONS_COPYRIGHT,7,59,228,10,SS_NOPREFIX | SS_SUNKEN
     DEFPUSHBUTTON   "Close",IDCANCEL,195,7,40,14,WS_GROUP
+    LTEXT           "Version",IDC_STATIC_VERSION,34,18,152,8
 END
 
 IDD_MACHINE_INFO_DLG DIALOGEX 0, 0, 340, 260
@@ -791,7 +793,7 @@ BEGIN
     BEGIN
         BLOCK "000704b0"
         BEGIN
-            VALUE "Comments", "BugTrap - softwarefehler berichterstattung"
+            VALUE "Comments", "BugTrap - Softwarefehler Berichterstattung"
             VALUE "CompanyName", "IntelleSoft"
             VALUE "FileDescription", "BugTrap dynamic link library"
             VALUE "FileVersion", VER_FILE_VERSION_STR "\0"

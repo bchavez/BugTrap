@@ -68,6 +68,8 @@ local.properties
 *.tlb
 *.tli
 *.tlh
+*.tlog
+*.log
 *.tmp
 *.vspscc
 .builds
