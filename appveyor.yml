@@ -71,10 +71,10 @@ after_build:
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.lib"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\CrashExplorer.exe"
 
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\src\Client\BTAtlWindow.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\src\Client\BTMfcWindow.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\src\Client\BTTrace.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\src\Client\BugTrap.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTAtlWindow.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTMfcWindow.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTTrace.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BugTrap.h
     
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\BugTrap.chm
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\ReadMe.txt
