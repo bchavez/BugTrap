@@ -29,54 +29,54 @@ set "MSB_ADD_ARGS=-p:useenv=true"
 rem 32-bit client
 %envsetup% x86
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> DEBUG 32"
+echo "Building BugTrap [Debug|Win32]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=Debug -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> RELEASE 32"
+echo "Building BugTrap [Release|Win32]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=Release -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET DEBUG 32"
+echo "Building BugTrap [.NET Debug|Win32]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Debug" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET RELEASE 32"
+echo "Building BugTrap [.NET Release|Win32]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Release" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> Unicode DEBUG 32"
+echo "Building BugTrap [Unicode Debug|Win32]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> Unicode RELEASE 32"
+echo "Building BugTrap [Unicode Release|Win32]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem 64-bit client
 %envsetup% x86_amd64
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> DEBUG 64"
+echo "Building BugTrap [Debug|x64]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=Debug -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> RELEASE 64"
+echo "Building BugTrap [Release|x64]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=Release -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET DEBUG 64"
+echo "Building BugTrap [.NET Debug|x64]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Debug" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET RELEASE 64"
+echo "Building BugTrap [.NET Release|x64]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Release" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> Unicode DEBUG 64"
+echo "Building BugTrap [Unicode Debug|x64]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-echo ">>>>>>>>>>>>>>>>>>>>>>>> Unicode RELEASE 64"
+echo "Building BugTrap [Unicode Release|x64]"
 msbuild source\BugTrap.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
