@@ -29,7 +29,7 @@ Check the releases section in this repository for the latest builds:
 Please see ["BugTrap Developer's Guide"](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/BugTrap.pdf) for additional information about file types used by BugTrap for Win32/x64.
 
 ## Screenshots
-![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/Screenshot2.png)
-![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/Screenshot3.png)
-![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/Screenshot4.png)
+![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/Screenshot2.png)
+![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/Screenshot3.png)
+![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/Screenshot4.png)
 
