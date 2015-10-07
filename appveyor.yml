@@ -34,7 +34,7 @@ before_build:
             #define VERSION_MAJOR   >major
             #define VERSION_MINOR   >minor
             #define REVISION_NUMBER	>rev
-            #define BUILD_NUMBER	>buildnum
+            #define BUILD_NUMBER    >buildnum
             '@
             
             $versionInfo = $versionInfo -replace ">buildnum",$buildnum
@@ -53,32 +53,34 @@ test: off
 #    - Unit.Tests.dll
 
 after_build:
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Debug\BugTrapD.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Debug\BugTrapD.lib
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Release\BugTrap.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Release\BugTrap.lib
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\.NET Debug\BugTrapDN.dll"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\.NET Debug\BugTrapDN.lib"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\.NET Release\BugTrapN.dll"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\.NET Release\BugTrapN.lib"
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Debug\BugTrapD-x64.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Debug\BugTrapD-x64.lib
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Release\BugTrap-x64.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\x64\Release\BugTrap-x64.lib
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.dll"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Debug\BugTrapDN-x64.lib"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.dll"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\source\x64\.NET Release\BugTrapN-x64.lib"
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.lib
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.lib
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN.lib"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN.lib"
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD-x64.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD-x64.lib
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap-x64.dll
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap-x64.lib
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN-x64.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN-x64.lib"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.lib"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\CrashExplorer.exe"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\srv\release\BugTrapServer.exe"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\srv\release\BugTrapServer.exe.config"
 
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\BTAtlWindow.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\BTMfcWindow.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\BTTrace.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\BugTrap.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTAtlWindow.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTMfcWindow.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTTrace.h
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BugTrap.h
     
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\BugTrap.chm
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\CrashExplorer.exe
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\BugTrap.chm
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\ReadMe.txt
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\dbghelp.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\ReadMe.txt
 
 
 artifacts:
