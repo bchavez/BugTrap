@@ -10,7 +10,7 @@ IF NOT DEFINED DevEnvDir (
 	)
 )
 
-rem Install additional libraries (vc_mbcsmfc)
+rem Install additional libraries (vc_mbcsmfc + boost.regex)
 powershell -file install-dependencies.ps1
 
 rem Restore NuGet packages

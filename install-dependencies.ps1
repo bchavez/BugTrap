@@ -25,3 +25,22 @@ if (!$found)
   cmd /c start /wait $exePath /quiet
   cmd /c del $exePath
 }
+
+$boostDir = "C:\Libraries\boost\"
+$bootstrap = $boostDir+"bootstrap.bat"
+if (!(Test-Path $bootstrap))
+{
+  return
+}
+echo "Building Boost.Build engine..."
+cmd /c $bootstrap
+echo "Done."
+echo "Building Boost.Regex..."
+$bjamExe = $boostDir+"bjam.exe"
+$bjamArgsDebug = "--with-regex toolset=msvc-12.0 link=static threading=multi runtime-link=static debug stage"
+$bjamArgsRelease = "--with-regex toolset=msvc-12.0 link=static threading=multi runtime-link=static release stage"
+start-process -FilePath $bjamExe -WorkingDirectory $boostDir -ArgumentList $bjamArgsDebug -Wait
+start-process -FilePath $bjamExe -WorkingDirectory $boostDir -ArgumentList $bjamArgsRelease -Wait
+echo "Done."
+echo "Available boost libraries:"
+Get-ChildItem -Path ($boostDir+"stage\lib\") -File -Name
