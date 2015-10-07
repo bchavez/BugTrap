@@ -45,6 +45,14 @@ echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET RELEASE 32"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Release" -p:Platform=Win32 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
+echo ">>>>>>>>>>>>>>>>>>>>>>>> Unicode DEBUG 32"
+msbuild source\BugTrap.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=Win32 %MSB_ADD_ARGS%
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>> Unicode RELEASE 32"
+msbuild source\BugTrap.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=Win32 %MSB_ADD_ARGS%
+if %errorlevel% neq 0 exit /b %errorlevel%
+
 rem 64-bit client
 %envsetup% x86_amd64
 
@@ -62,6 +70,14 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>> .NET RELEASE 64"
 msbuild source\BugTrap.vs2013.sln -p:Configuration=".NET Release" -p:Platform=x64 %MSB_ADD_ARGS%
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>> Unicode DEBUG 64"
+msbuild source\BugTrap.vs2013.sln -p:Configuration="Unicode Debug" -p:Platform=x64 %MSB_ADD_ARGS%
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>> Unicode RELEASE 64"
+msbuild source\BugTrap.vs2013.sln -p:Configuration="Unicode Release" -p:Platform=x64 %MSB_ADD_ARGS%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem Examples
