@@ -28,6 +28,14 @@ Check the releases section in this repository for the latest builds:
 
 Please see ["BugTrap Developer's Guide"](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/BugTrap.pdf) for additional information about file types used by BugTrap for Win32/x64.
 
+### BugTrap Server Application
+Inside [**BugTrap.zip**](https://github.com/bchavez/BugTrap/releases), you'll also find the following server applications for server side acceptance of crash reports:
+* `Server\BugTrapServer` - BugTrap Server Windows Service in C#
+* `Server\BugTrapWebServer` - BugTrap Web Server in ASP.NET
+* `Server\JBugTrapServer` - BugTrap Server in Java
+
+You can choose any server technology to begin accepting crash reports from BugTrap clients. Open and edit `*.config` files for various configuration parameters.
+
 ## Screenshots
 ![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/Screenshot2.png)
 ![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/Screenshot3.png)
