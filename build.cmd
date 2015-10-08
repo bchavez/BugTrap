@@ -154,4 +154,4 @@ msbuild source\BugTrapWebServer.vs2013.sln -p:Configuration=Release -p:Platform=
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem Java server
-rem XXX: add java server build script
+source\Server\JBugTrapServer\make.cmd
