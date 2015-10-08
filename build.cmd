@@ -13,7 +13,12 @@ IF NOT DEFINED DevEnvDir (
     )
 )
 
+mkdir __package
 
 rem Java server
 cd source\Server\JBugTrapServer\
 make.cmd
+xcopy JBugTrapServer.jar ..\..\..\__package\Server\JBugTrapServer\
+xcopy BugTrapServer.config ..\..\..\__package\Server\JBugTrapServer\
+xcopy start.cmd ..\..\..\__package\Server\JBugTrapServer\
+xcopy libs\ ..\..\..\__package\Server\JBugTrapServer\
