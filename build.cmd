@@ -154,4 +154,5 @@ msbuild source\BugTrapWebServer.vs2013.sln -p:Configuration=Release -p:Platform=
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 rem Java server
-source\Server\JBugTrapServer\make.cmd
+cd source\Server\JBugTrapServer\
+make.cmd
