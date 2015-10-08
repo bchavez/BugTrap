@@ -1,4 +1,4 @@
-version: 1.4.4.{build}
+version: 1.4.5.{build}
 init:
     - ps: |
             If ($Env:APPVEYOR_REPO_TAG_NAME -match "-"){
