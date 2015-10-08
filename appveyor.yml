@@ -12,7 +12,7 @@ init:
 before_build:
     - ps: |
             # Enables RDP for debugging
-            $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+            # $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
             
             $ver = $Env:APPVEYOR_BUILD_VERSION
 
@@ -55,38 +55,38 @@ test: off
 #    - Unit.Tests.dll
 
 after_build:
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.lib
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.lib
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN.dll"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN.lib"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN.dll"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN.lib"
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD-x64.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD-x64.lib
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap-x64.dll
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap-x64.lib
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN-x64.dll"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN-x64.lib"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.dll"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.lib"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\CrashExplorer.exe"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\srv\release\BugTrapServer.exe"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\srv\release\BugTrapServer.exe.config"
+    - ps: cd __package\; 7z a BugTrap.zip **
 
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTAtlWindow.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTMfcWindow.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTTrace.h
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BugTrap.h
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.dll
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.lib
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.dll
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.lib
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN.dll"
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN.lib"
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN.dll"
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN.lib"
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD-x64.dll
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD-x64.lib
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap-x64.dll
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap-x64.lib
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN-x64.dll"
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN-x64.lib"
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.dll"
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.lib"
+    - 7z a __package\BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\CrashExplorer.exe"
+
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTAtlWindow.h
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTMfcWindow.h
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTTrace.h
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BugTrap.h
     
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\BugTrap.chm
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\ReadMe.txt
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\dbghelp.dll
-
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\BugTrap.pdf
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\ReadMe.txt
+    - 7z a __package\BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\dbghelp.dll
+    
 
 artifacts:
-    - path: BugTrap.zip
+    - path: __package\BugTrap.zip
       name: Zip
 
 nuget:
