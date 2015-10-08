@@ -7,14 +7,13 @@ init:
             Else{
               Set-AppveyorBuildVariable -Name "IsPreRelease" -Value False
             }
-            
-            # Enables RDP for debugging
-            $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 
 before_build:
     - ps: |
-
+            # Enables RDP for debugging
+            $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+            
             $ver = $Env:APPVEYOR_BUILD_VERSION
 
             $major = $ver.Split(".")[0]
