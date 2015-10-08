@@ -146,7 +146,7 @@ echo "Building BugTrapServer [Release|Any CPU]"
 msbuild source\BugTrapServer.vs2013.sln -p:Configuration=Release -p:Platform="Any CPU"
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-robocopy source\Server\BugTrapServer\bin __package\Server\BugTrapServer\ /S
+robocopy bin\srv __package\Server\BugTrapServer\ /S
 
 rem Windows web server
 echo "Building BugTrapWebServer [Debug|Any CPU]"
