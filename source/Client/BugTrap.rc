@@ -201,6 +201,17 @@ BEGIN
     DEFPUSHBUTTON   "Schließen",IDCANCEL,127,51,50,14
 END
 
+IDD_DESCRIBE_ERROR_DLG DIALOGEX 0, 0, 316, 196
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MAXIMIZEBOX | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Fehlerbeschreibung"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Bitte beschreiben Sie die Art des Problems und wenn möglich, die Schritte die Sie unternommen haben, um das Problem zu reproduzieren:",-1,7,7,302,22
+    EDITTEXT        IDC_DETAILS,7,29,302,137,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    DEFPUSHBUTTON   "Senden",IDOK,203,175,50,14,WS_GROUP
+    PUSHBUTTON      "Schließen",IDCANCEL,259,175,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -301,6 +312,17 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 65
         HORZGUIDE, 43
+    END
+
+    IDD_DESCRIBE_ERROR_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 309
+        VERTGUIDE, 63
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+        HORZGUIDE, 29
+        HORZGUIDE, 166
     END
 END
 #endif    // APSTUDIO_INVOKED
