@@ -19,3 +19,10 @@ File names may vary by the following signs:
 
 Please see "BugTrap Developer's Guide" for additional information about file types
 used by BugTrap for Win32.
+
+------------------------------------------------------------------------------------
+Bug Trap Server Applications for receiving crash reports
+------------------------------------------------------------------------------------
+Server\BugTrapServer               - BugTrap Server Windows Service in C#
+Server\BugTrapWebServer            - BugTrap Web Server in ASP.NET
+Server\JBugTrapServer              - BugTrap Server in Java

@@ -1,4 +1,4 @@
-version: 1.4.4.{build}
+version: 1.4.5.{build}
 init:
     - ps: |
             If ($Env:APPVEYOR_REPO_TAG_NAME -match "-"){
@@ -11,7 +11,9 @@ init:
 
 before_build:
     - ps: |
-
+            # Enables RDP for debugging
+            # $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+            
             $ver = $Env:APPVEYOR_BUILD_VERSION
 
             $major = $ver.Split(".")[0]
@@ -53,6 +55,10 @@ test: off
 #    - Unit.Tests.dll
 
 after_build:
+    - ps: cd __package\; 7z a BugTrap.zip **
+    
+    # Zip relative to __package directory
+    
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.dll
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.lib
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.dll
@@ -70,21 +76,19 @@ after_build:
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.dll"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.lib"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\CrashExplorer.exe"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\srv\release\BugTrapServer.exe"
-    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\srv\release\BugTrapServer.exe.config"
 
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTAtlWindow.h
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTMfcWindow.h
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BTTrace.h
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\source\Client\BugTrap.h
     
-    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\BugTrap.chm
+    - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\BugTrap.pdf
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\doc\ReadMe.txt
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\pkg\dbghelp.dll
-
+    
 
 artifacts:
-    - path: BugTrap.zip
+    - path: __package\BugTrap.zip
       name: Zip
 
 nuget:

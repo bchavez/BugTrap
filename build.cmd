@@ -13,6 +13,8 @@ IF NOT DEFINED DevEnvDir (
     )
 )
 
+mkdir __package
+
 rem Install additional libraries (vc_mbcsmfc + boost.regex)
 powershell -file install-dependencies.ps1
 
@@ -144,6 +146,8 @@ echo "Building BugTrapServer [Release|Any CPU]"
 msbuild source\BugTrapServer.vs2013.sln -p:Configuration=Release -p:Platform="Any CPU"
 if %errorlevel% neq 0 exit /b %errorlevel%
 
+robocopy bin\srv __package\Server\BugTrapServer\ /S
+
 rem Windows web server
 echo "Building BugTrapWebServer [Debug|Any CPU]"
 msbuild source\BugTrapWebServer.vs2013.sln -p:Configuration=Debug -p:Platform="Any CPU"
@@ -153,5 +157,12 @@ echo "Building BugTrapWebServer [Release|Any CPU]"
 msbuild source\BugTrapWebServer.vs2013.sln -p:Configuration=Release -p:Platform="Any CPU"
 if %errorlevel% neq 0 exit /b %errorlevel%
 
+robocopy source\Server\BugTrapWebServer __package\Server\BugTrapWebServer\ /S
+
+
 rem Java server
-rem XXX: add java server build script
+cd source\Server\JBugTrapServer\
+call make.cmd
+robocopy .\ ..\..\..\__package\Server\JBugTrapServer\ JBugTrapServer.jar BugTrapServer.config start.cmd
+robocopy libs\ ..\..\..\__package\Server\JBugTrapServer\ /S /XD proguard*
+cd ..\..\..
