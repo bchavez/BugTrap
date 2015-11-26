@@ -1,0 +1,5 @@
+# exclude user-specific files
+workspace.xml
+tasks.xml
+# include .name file
+!.name

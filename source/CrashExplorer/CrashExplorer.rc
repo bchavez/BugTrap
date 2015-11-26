@@ -1,0 +1,320 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\bug.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About CrashExplorer"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,6,6,20,20
+    LTEXT           "BugTrap error log viewer 1.3",IDC_VERSION_STRING,36,6,105,8,SS_NOPREFIX
+    LTEXT           "Copyright © 2005-2009 IntelleSoft",IDC_STATIC,36,18,113,8
+    LTEXT           "http://www.intellesoft.net",IDC_URL,36,30,70,8
+    DEFPUSHBUTTON   "OK",IDOK,180,6,50,14
+END
+
+IDD_MAIN DIALOGEX 0, 0, 322, 218
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_CONTROLPARENT | WS_EX_APPWINDOW
+CAPTION "Crash Explorer"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_MODES,"SysTabControl32",WS_GROUP | 0x8,0,0,322,218
+END
+
+IDD_WAIT DIALOGEX 0, 0, 91, 25
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP
+FONT 10, "Arial", 400, 0, 0xCC
+BEGIN
+    CTEXT           "Please Wait...",IDC_STATIC,3,3,85,19,SS_CENTERIMAGE | SS_SUNKEN
+END
+
+IDD_MANUAL_MODE DIALOGEX 0, 0, 324, 172
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Map/Pdb File:",IDC_MAPPDBFILE_LABEL,7,9,44,8
+    EDITTEXT        IDC_MAPPDBFILE,62,7,235,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_MAPPDBFILE_BROWSE,297,7,20,14,BS_FLAT | WS_GROUP
+    LTEXT           "&Base Address:",IDC_BASEADDRESS_LABEL,7,32,47,8
+    EDITTEXT        IDC_BASEADDRESS,62,30,74,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "?",IDC_BASEADDRESS_RADIX,136,30,20,14,BS_FLAT | WS_GROUP
+    LTEXT           "M&odule Size:",IDC_MODULESIZE_LABEL,167,32,41,8
+    EDITTEXT        IDC_MODULESIZE,223,30,74,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "?",IDC_MODULESIZE_RADIX,297,30,20,14,BS_FLAT | WS_GROUP
+    LTEXT           "&Crash Address:",IDC_CRASHADDRESS_LABEL,7,55,50,8
+    EDITTEXT        IDC_CRASHADDRESS,62,53,74,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "?",IDC_CRASHADDRESS_RADIX,136,53,20,14,BS_FLAT | WS_GROUP
+    LTEXT           "&Source File:",IDC_SOURCEFILE_LABEL,7,78,38,8
+    EDITTEXT        IDC_SOURCEFILE,62,76,255,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "&Function Name:",IDC_FUNCTIONNAME_LABEL,7,102,51,8
+    EDITTEXT        IDC_FUNCTIONNAME,62,101,255,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "&Line Number:",IDC_LINENUMBER_LABEL,7,126,43,8
+    EDITTEXT        IDC_LINENUMBER,62,125,255,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    DEFPUSHBUTTON   "Calculate",IDOK,106,151,50,14,WS_GROUP
+    PUSHBUTTON      "Close",IDCANCEL,167,151,50,14
+END
+
+IDD_EXPRESS_MODE DIALOGEX 0, 0, 384, 309
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "&Log File:",IDC_LOGFILE_LABEL,7,8,28,8
+    EDITTEXT        IDC_LOGFILE,66,7,229,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_LOGFILE_BROWSE,295,7,20,14,BS_FLAT | WS_GROUP
+    LTEXT           "&Map/Pdb Folder:",IDC_MAPPDBFOLDER_LABEL,7,30,54,8
+    EDITTEXT        IDC_MAPPDBFOLDER,66,29,229,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_MAPPDBFOLDER_BROWSE,295,29,20,14,BS_FLAT | WS_GROUP
+    GROUPBOX        "Exception Reason",IDC_ERROR_REASON_GROUP,7,51,308,84,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_ERROR_REASON,13,61,295,68,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    GROUPBOX        "Stack Trace",IDC_STACK_TRACE_GROUP,7,140,308,162,0,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STACK_TRACE,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,13,150,295,146
+    DEFPUSHBUTTON   "Calculate",IDOK,327,7,50,14,WS_GROUP
+    PUSHBUTTON      "Copy",IDC_COPY,327,29,50,14
+    PUSHBUTTON      "Save",IDC_SAVE,327,51,50,14
+    PUSHBUTTON      "Close",IDCANCEL,327,74,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1, 3, 3718, 38316
+ PRODUCTVERSION 1, 3, 3718, 38316
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comments", "Error log viewer"
+            VALUE "CompanyName", "IntelleSoft"
+            VALUE "FileDescription", "CrashExplorer executable"
+            VALUE "FileVersion", "1.3.3718.38316"
+            VALUE "InternalName", "CrashExplorer"
+            VALUE "LegalCopyright", "Copyright © 2005-2009 IntelleSoft"
+            VALUE "OriginalFilename", "CrashExplorer.exe"
+            VALUE "ProductName", "BugTrap"
+            VALUE "ProductVersion", "1.3.3718.38316"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        VERTGUIDE, 36
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_MAIN, DIALOG
+    BEGIN
+        RIGHTMARGIN, 321
+    END
+
+    IDD_WAIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 88
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 22
+    END
+
+    IDD_MANUAL_MODE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 317
+        VERTGUIDE, 62
+        VERTGUIDE, 136
+        VERTGUIDE, 156
+        VERTGUIDE, 167
+        VERTGUIDE, 297
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 165
+        HORZGUIDE, 30
+        HORZGUIDE, 53
+        HORZGUIDE, 76
+        HORZGUIDE, 101
+        HORZGUIDE, 125
+    END
+
+    IDD_EXPRESS_MODE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 377
+        VERTGUIDE, 13
+        VERTGUIDE, 66
+        VERTGUIDE, 295
+        VERTGUIDE, 308
+        VERTGUIDE, 315
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 302
+        HORZGUIDE, 29
+        HORZGUIDE, 51
+        HORZGUIDE, 61
+        HORZGUIDE, 74
+        HORZGUIDE, 129
+        HORZGUIDE, 135
+        HORZGUIDE, 140
+        HORZGUIDE, 150
+        HORZGUIDE, 296
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE
+BEGIN
+    "#include ""afxres.h""\0"
+END
+
+3 TEXTINCLUDE
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_RADIX_CONTEXT MENU
+BEGIN
+    POPUP "Radix"
+    BEGIN
+        MENUITEM "&Hex",                        ID_RADIX_HEX
+        MENUITEM "&Dec",                        ID_RADIX_DEC
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About CrashExplorer..."
+    IDS_INVALIDCRASHADDRESS "Valid crash address is required"
+    IDS_PROJECTTITLE        "Crash Explorer"
+    IDS_NOFUNCTIONINFO      "Error: Can't get function info!"
+    IDS_INVALIDBASEADDRESS  "Valid base address is required"
+    IDS_INVALIDMAPPDBFILE   "Valid map/pdb file name is required"
+    IDS_NOSOURCEFILEINFO    "Error: Can't get source file info!"
+    IDS_NOLINEINFO          "Error: Can't get line info!"
+    IDS_ERROR_UNSUPPORTEDPLATFORM "Unsupported platform"
+    IDS_SAVEFORM            "&Save Form"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MANUALMODE          "Manual Mode"
+    IDS_EXPRESSMODE         "Express Mode"
+    IDS_SELECTMAPPDBFOLDER  "Select folder with map/pdb files"
+    IDS_INVALIDLOGFILE      "Valid XML log file name is required"
+    IDS_INVALIDMAPPDBFOLDER "Valid folder name is required"
+    IDS_ERROR_UNDEFINEDERROR "Undefined error (0x%08lX)"
+    IDS_ERROR_XMLLOADERROR  "Error: can't load XML document"
+    IDS_ERROR_UNSUPPORTEDREPORTVERSION "Unsupported report version"
+    IDS_COLUMN_FUNCTION     "Function"
+    IDS_COLUMN_ADDRESS      "Address"
+    IDS_COLUMN_FILE         "File"
+    IDS_COLUMN_LINE         "Line"
+    IDS_COLUMN_MODULE       "Module"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_INVALIDMODULESIZE   "Valid module size is required"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
