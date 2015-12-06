@@ -238,15 +238,19 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='.NET Debug|Win32'">
     <TargetName>$(ProjectName)DN</TargetName>
+    <LinkKeyFile>$(ProjectDir)res\KeyPair.snk</LinkKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='.NET Debug|x64'">
     <TargetName>$(ProjectName)DN-x64</TargetName>
+    <LinkKeyFile>$(ProjectDir)res\KeyPair.snk</LinkKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='.NET Release|Win32'">
     <TargetName>$(ProjectName)N</TargetName>
+    <LinkKeyFile>$(ProjectDir)res\KeyPair.snk</LinkKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='.NET Release|x64'">
     <TargetName>$(ProjectName)N-x64</TargetName>
+    <LinkKeyFile>$(ProjectDir)res\KeyPair.snk</LinkKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>$(ProjectName)D-x64</TargetName>
