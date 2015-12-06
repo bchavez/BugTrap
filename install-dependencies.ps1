@@ -33,6 +33,7 @@ if (!(Test-Path $bootstrap))
   return
 }
 echo "Building Boost.Build engine..."
+pushd $boostDir
 cmd /c $bootstrap
 echo "Done."
 echo "Building Boost.Regex..."
@@ -42,5 +43,6 @@ $bjamArgsRelease = "--with-regex toolset=msvc-12.0 link=static threading=multi r
 start-process -FilePath $bjamExe -WorkingDirectory $boostDir -ArgumentList $bjamArgsDebug -Wait
 start-process -FilePath $bjamExe -WorkingDirectory $boostDir -ArgumentList $bjamArgsRelease -Wait
 echo "Done."
+popd
 echo "Available boost libraries:"
 Get-ChildItem -Path ($boostDir+"stage\lib\") -File -Name

@@ -18,7 +18,7 @@ Check the releases section in this repository for the latest builds:
   * **`[D]`** - Debug version has 'D' letter. Release version doesn't have 'D' letter.
   * **`[N]`** - managed (.NET) version has 'N' letter. Native version doesn't have 'N' letter.
   * **`[-x64]`** - 64 bit version for AMD-64 platform has '-x64' suffix. x86 version doesn't have this suffix.
-* `dbghelp.dll` - DbgHelp library (see ["BugTrap Developer's Guide"](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/BugTrap.pdf)                                      for details).
+* `dbghelp.dll` - DbgHelp library (see ["BugTrap Developer's Guide"](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/BugTrap.pdf)                                      for details).
 * `BugTrap.h` - Header file with BugTrap API definitions.
 * `BTTrace.h` - C++ wrapper of custom logging functions.
 * `BTAtlWindow.h` - ATL/WTL exception handlers.
@@ -26,7 +26,7 @@ Check the releases section in this repository for the latest builds:
 * `CrashExplorer.exe` - MAP file analyzer.
 * `BugTrap.chm` - BugTrap 1.x Specification.
 
-Please see ["BugTrap Developer's Guide"](https://raw.githubusercontent.com/bchavez/BugTrap/master/docs/BugTrap.pdf) for additional information about file types used by BugTrap for Win32/x64.
+Please see ["BugTrap Developer's Guide"](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/BugTrap.pdf) for additional information about file types used by BugTrap for Win32/x64.
 
 ### BugTrap Server Application
 Inside [**BugTrap.zip**](https://github.com/bchavez/BugTrap/releases), you'll also find the following server applications for server side acceptance of crash reports:
