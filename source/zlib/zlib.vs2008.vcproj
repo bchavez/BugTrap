@@ -21,8 +21,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)..\lib\"
-			IntermediateDirectory="$(SolutionDir)..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
+			OutputDirectory="$(ProjectDir)..\..\lib\"
+			IntermediateDirectory="$(ProjectDir)..\..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
             TargetName="$(ProjectName)SD"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -90,8 +90,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)..\lib\"
-			IntermediateDirectory="$(SolutionDir)..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
+			OutputDirectory="$(ProjectDir)..\..\lib\"
+			IntermediateDirectory="$(ProjectDir)..\..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
             TargetName="$(ProjectName)S"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -162,8 +162,8 @@
 		</Configuration>
 		<Configuration
 			Name="MD Debug|Win32"
-			OutputDirectory="$(SolutionDir)..\lib\"
-			IntermediateDirectory="$(SolutionDir)..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
+			OutputDirectory="$(ProjectDir)..\..\lib\"
+			IntermediateDirectory="$(ProjectDir)..\..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
             TargetName="$(ProjectName)MSD"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -231,8 +231,8 @@
 		</Configuration>
 		<Configuration
 			Name="MD Release|Win32"
-			OutputDirectory="$(SolutionDir)..\lib\"
-			IntermediateDirectory="$(SolutionDir)..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
+			OutputDirectory="$(ProjectDir)..\..\lib\"
+			IntermediateDirectory="$(ProjectDir)..\..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
             TargetName="$(ProjectName)MS"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -303,8 +303,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
-			OutputDirectory="$(SolutionDir)..\lib\"
-			IntermediateDirectory="$(SolutionDir)..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
+			OutputDirectory="$(ProjectDir)..\..\lib\"
+			IntermediateDirectory="$(ProjectDir)..\..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
             TargetName="$(ProjectName)SD-x64"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -373,8 +373,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			OutputDirectory="$(SolutionDir)..\lib\"
-			IntermediateDirectory="$(SolutionDir)..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
+			OutputDirectory="$(ProjectDir)..\..\lib\"
+			IntermediateDirectory="$(ProjectDir)..\..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
             TargetName="$(ProjectName)S-x64"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -446,8 +446,8 @@
 		</Configuration>
 		<Configuration
 			Name="MD Debug|x64"
-			OutputDirectory="$(SolutionDir)..\lib\"
-			IntermediateDirectory="$(SolutionDir)..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
+			OutputDirectory="$(ProjectDir)..\..\lib\"
+			IntermediateDirectory="$(ProjectDir)..\..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
             TargetName="$(ProjectName)MSD-x64"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
@@ -516,8 +516,8 @@
 		</Configuration>
 		<Configuration
 			Name="MD Release|x64"
-			OutputDirectory="$(SolutionDir)..\lib\"
-			IntermediateDirectory="$(SolutionDir)..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
+			OutputDirectory="$(ProjectDir)..\..\lib\"
+			IntermediateDirectory="$(ProjectDir)..\..\intermediate\$(ProjectName)\$(Platform)\$(Configuration)\"
             TargetName="$(ProjectName)MS-x64"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
