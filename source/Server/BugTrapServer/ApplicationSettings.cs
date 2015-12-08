@@ -52,7 +52,10 @@ namespace BugTrapServer
 		[XmlElement("smtpPort", Type = typeof(short))]
 		public short SmtpPort = -1;
 
-		[XmlElement("smtpUser", Type = typeof(string))]
+        [XmlElement("smtpSSL", Type = typeof(bool))]
+        public bool SmtpSSL = false;
+
+        [XmlElement("smtpUser", Type = typeof(string))]
 		public string SmtpUser = null;
 
 		[XmlElement("smtpPassword", Type = typeof(string))]
