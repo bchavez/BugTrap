@@ -156,6 +156,7 @@ namespace BugTrapServer
 					smtpClient = new SmtpClient(applicationSettings.SmtpHost, applicationSettings.SmtpPort);
 				else
 					smtpClient = new SmtpClient(applicationSettings.SmtpHost);
+				smtpClient.EnableSsl = this.applicationSettings.SmtpSSL;
 				if (applicationSettings.SmtpUser != null)
 					smtpClient.Credentials = new NetworkCredential(applicationSettings.SmtpUser, applicationSettings.SmtpPassword);
 				smtpClient.Send(message);

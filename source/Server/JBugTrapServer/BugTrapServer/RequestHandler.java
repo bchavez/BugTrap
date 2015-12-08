@@ -89,6 +89,9 @@ class RequestHandler implements Runnable {
 				properties.setProperty("mail.smtp.auth", "false");
 				session = Session.getDefaultInstance(properties);
 			}
+			if (this.applicationSettings.smtpSSL) {
+				properties.setProperty("mail.smtp.starttls.enable", "true");
+			}
 			Transport transport = session.getTransport("smtp");
 			try {
 				MimeMessage message = new MimeMessage(session);

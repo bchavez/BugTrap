@@ -38,6 +38,10 @@ class ApplicationSettings {
 	 * notification e-mails.
 	 */
 	public short smtpPort = -1;
+	/**
+	 * Use SSL
+	 */
+	public boolean smtpSSL = false;
 	/** User name of SMTP account. */
 	public String smtpUser = null;
 	/** Password of SMTP account. */
@@ -117,6 +121,10 @@ class ApplicationSettings {
 		settingValue = xpath.evaluate("./smtpPort/text()", appSettings);
 		if (settingValue != null && settingValue.length() > 0) {
 			this.smtpPort = Short.parseShort(settingValue);
+		}
+		settingValue = xpath.evaluate("./smtpSSL/text()", appSettings);
+		if (settingValue != null && settingValue.length() > 0) {
+			this.smtpSSL = Boolean.valueOf(settingValue);
 		}
 		settingValue = xpath.evaluate("./smtpUser/text()", appSettings);
 		if (settingValue != null && settingValue.length() > 0) {
