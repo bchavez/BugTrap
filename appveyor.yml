@@ -1,4 +1,4 @@
-version: 1.4.5.{build}
+version: '{build}'
 init:
     - ps: |
             If ($Env:APPVEYOR_REPO_TAG_NAME -match "-"){
@@ -14,12 +14,15 @@ before_build:
             # Enables RDP for debugging
             # $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
             
-            $ver = $Env:APPVEYOR_BUILD_VERSION
-
+            $ver = "0.0.0";
+            If( Test-Path Env:APPVEYOR_REPO_TAG_NAME ){
+               $ver = $Env:APPVEYOR_REPO_TAG_NAME.Substring(1)
+            }
+            
             $major = $ver.Split(".")[0]
             $minor = $ver.Split(".")[1]
             $rev = $ver.Split(".")[2]
-            $buildnum = $ver.Split(".")[3]
+            $buildnum = $Env:APPVEYOR_BUILD_VERSION
 
             # ###################
             # SET VERSION HEADERS
@@ -112,8 +115,9 @@ deploy:
       auth_token:
         secure: cyivrWQwrZNAb6UCNXlIQlGfVSnKIC6TatUOIP95CQgMeKGnmBSqBgAFv2TsRZhR
       on:
-        branch: /v\d+\.\d+\.\d+/
-        appveyor_repo_tag: true
+          branch: master
+          appveyor_repo_tag_name: /v\d+\.\d+\.\d+/
+          appveyor_repo_tag: true
 
 on_failure:
     - ps: |
