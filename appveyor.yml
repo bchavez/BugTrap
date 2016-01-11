@@ -63,6 +63,10 @@ after_build:
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD.lib
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.dll
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap.lib
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapUD.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapUD.lib"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapU.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapU.lib"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN.dll"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN.lib"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN.dll"
@@ -71,6 +75,10 @@ after_build:
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrapD-x64.lib
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap-x64.dll
     - 7z a BugTrap.zip %APPVEYOR_BUILD_FOLDER%\bin\BugTrap-x64.lib
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapUD-x64.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapUD-x64.lib"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapU-x64.dll"
+    - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapU-x64.lib"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN-x64.dll"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapDN-x64.lib"
     - 7z a BugTrap.zip "%APPVEYOR_BUILD_FOLDER%\bin\BugTrapN-x64.dll"
