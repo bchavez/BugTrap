@@ -1,5 +1,5 @@
 ## v1.4.6
-* Added remaining top-level aggregation terms.
+* Include unicode binaries in release package. Close #16.
 
 ## v1.4.5
 * Release contains BugTrap server apps.
