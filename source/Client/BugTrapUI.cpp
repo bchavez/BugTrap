@@ -1358,6 +1358,11 @@ static void ExecuteHandlerAction(void)
 					DialogBox(g_hInstance, MAKEINTRESOURCE(IDD_MAIN_DLG), NULL, MainDlgProc);
 			}
 			break;
+		case BTA_CUSTOM:
+			if (g_pfnCustomActivityHandler != NULL)
+				(*g_pfnCustomActivityHandler)(g_szInternalReportFilePath, g_nCustomActivityHandlerParam);
+
+			break;
 		}
 	}
 	// Remove temporarily generated report files.

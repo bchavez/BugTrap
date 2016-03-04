@@ -66,7 +66,11 @@ typedef enum BUGTRAP_ACTIVITY_tag
 	/**
 	 * @brief Automatically send bug report to support server.
 	 */
-	BTA_SENDREPORT   = 4
+	BTA_SENDREPORT   = 4,
+	/**
+	* @brief Call custom handler specified by BT_SetCustomActivityHandler().
+	*/
+	BTA_CUSTOM = 5,
 }
 BUGTRAP_ACTIVITY;
 
@@ -365,6 +369,11 @@ BUGTRAP_REGEXPORTENTRY;
  */
 typedef void (CALLBACK * BT_ErrHandler)(INT_PTR nErrHandlerParam);
 
+/**
+* @brief Type definition of user-defined activity handler.
+*/
+typedef void (CALLBACK * BT_CustomActivityHandler)(LPCTSTR pszReportFilePath,  INT_PTR nCustomActivityHandlerParam);
+
 /** @} */
 
 /**
@@ -645,6 +654,22 @@ BUGTRAP_API BT_ErrHandler APIENTRY BT_GetPostErrHandler(void);
  * @brief Set address of error handler called after BugTrap dialog.
  */
 BUGTRAP_API void APIENTRY BT_SetPostErrHandler(BT_ErrHandler pfnPostErrHandler, INT_PTR nPostErrHandlerParam);
+
+/** @} */
+
+/**
+* @defgroup CustomActivityHandlers Custom activity handlers
+* @{
+*/
+
+/**
+* @brief Get address of custom activity handler called at processing BugTrap action.
+*/
+BUGTRAP_API BT_CustomActivityHandler APIENTRY BT_GetCustomActivityHandler(void);
+/**
+* @brief Set address of custom activity handler called at processing BugTrap action.
+*/
+BUGTRAP_API void APIENTRY BT_SetCustomActivityHandler(BT_CustomActivityHandler pfnCustomActivityHandler, INT_PTR nCustomActivityHandlerParam);
 
 /** @} */
 

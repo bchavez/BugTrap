@@ -84,3 +84,8 @@ CStrHolder g_strUserMessage;
 CStrHolder g_strFirstIntroMesage;
 /// 2nd introduction message displayed on the dialog.
 CStrHolder g_strSecondIntroMesage;
+
+/// Address of custom activity handler called at processing BugTrap action.
+extern BT_CustomActivityHandler g_pfnCustomActivityHandler = NULL;
+/// User-defined parameter of custom activity handler.
+extern INT_PTR g_nCustomActivityHandlerParam = 0;

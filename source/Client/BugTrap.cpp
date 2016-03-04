@@ -937,6 +937,24 @@ extern "C" BUGTRAP_API BT_ErrHandler APIENTRY BT_GetPostErrHandler(void)
 }
 
 /**
+* @return address of custom activity handler called at processing BugTrap action.
+*/
+extern "C" BUGTRAP_API BT_CustomActivityHandler APIENTRY BT_GetCustomActivityHandler(void)
+{
+	return g_pfnCustomActivityHandler;
+}
+
+/**
+* @param pfnCustomActivityHandler - address of custom activity handler called at processing BugTrap action.
+* @param nCustomActivityHandlerParam - user-defined parameter of custom activity handler called at processing BugTrap action.
+*/
+extern "C" BUGTRAP_API void APIENTRY BT_SetCustomActivityHandler(BT_CustomActivityHandler pfnCustomActivityHandler, INT_PTR nCustomActivityHandlerParam)
+{
+	g_pfnCustomActivityHandler = pfnCustomActivityHandler;
+	g_nCustomActivityHandlerParam = nCustomActivityHandlerParam;
+}
+
+/**
  * @param pfnPostErrHandler - address of error handler called after BugTrap dialog.
  * @param nPostErrHandlerParam - user-defined parameter of error handler called after BugTrap dialog.
  */
