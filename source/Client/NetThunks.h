@@ -146,6 +146,8 @@ namespace NetThunks
 
 	void FireAfterUnhandledExceptionEvent(void);
 
+    void FireCustomActivityEvent(LPCTSTR pszReportFilePath);
+
 	void FlushTraceListeners(void);
 
 	inline gcroot<Thread^> GetCurrentThread(void)
