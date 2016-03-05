@@ -504,6 +504,18 @@ namespace NetThunks
 		}
 	}
 
+    void FireCustomActivityEvent(LPCTSTR pszReportFilePath)
+    {
+        try
+        {
+            ExceptionHandler::FireCustomActivityEvent(gcnew String(pszReportFilePath));
+        }
+        catch (Exception^ exception)
+        {
+            Debug::WriteLine(exception);
+        }
+    }
+
 	void FlushTraceListeners(void)
 	{
 		try

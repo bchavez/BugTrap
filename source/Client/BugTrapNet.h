@@ -47,7 +47,8 @@ namespace IntelleSoft
 			ShowUI     = BTA_SHOWUI,
 			SaveReport = BTA_SAVEREPORT,
 			MailReport = BTA_MAILREPORT,
-			SendReport = BTA_SENDREPORT
+			SendReport = BTA_SENDREPORT,
+            Custom = BTA_CUSTOM
 		};
 
 		[Flags]
@@ -373,6 +374,8 @@ namespace IntelleSoft
 
 		public delegate void UnhandledExceptionDelegate(Object^ sender, UnhandledExceptionEventArgs^ args);
 
+        public delegate void CustomActivityDelegate(Object^ sender, String^ reportFilePath);
+
 		public ref class ExceptionHandler
 		{
 		private:
@@ -391,6 +394,7 @@ namespace IntelleSoft
 
 			static void ValidateIoResult(BOOL bResult);
 
+            static event CustomActivityDelegate^ customActivityEvent;
 		internal:
 			static property System::Exception^ Exception
 			{
@@ -418,7 +422,7 @@ namespace IntelleSoft
 
 			static void FireBeforeUnhandledExceptionEvent(void);
 			static void FireAfterUnhandledExceptionEvent(void);
-
+            static void FireCustomActivityEvent(String^ reportFilePath);
 		public:
 			static const int HttpPort = BUGTRAP_HTTP_PORT;
 
@@ -433,6 +437,12 @@ namespace IntelleSoft
 				void add(UnhandledExceptionDelegate^ value);
 				void remove(UnhandledExceptionDelegate^ value);
 			}
+
+            static event CustomActivityDelegate^ CustomActivity
+            {
+                void add(CustomActivityDelegate^ value);
+                void remove(CustomActivityDelegate^ value);
+            }
 
 			static property String^ AppName
 			{
@@ -596,6 +606,11 @@ namespace IntelleSoft
 			afterUnhandledExceptionEvent(Sender, Arguments);
 		}
 
+        inline void ExceptionHandler::FireCustomActivityEvent(String^ reportFilePath)
+		{
+			customActivityEvent(Sender, reportFilePath);
+		}
+
 		inline void ExceptionHandler::BeforeUnhandledException::add(UnhandledExceptionDelegate^ value)
 		{
 			beforeUnhandledExceptionEvent += value;
@@ -615,6 +630,16 @@ namespace IntelleSoft
 		{
 			afterUnhandledExceptionEvent -= value;
 		}
+
+        inline void ExceptionHandler::CustomActivity::add(CustomActivityDelegate^ value)
+        {
+            customActivityEvent += value;
+        }
+
+        inline void ExceptionHandler::CustomActivity::remove(CustomActivityDelegate^ value)
+        {
+            customActivityEvent -= value;
+        }
 
 		inline String^ ExceptionHandler::AppName::get(void)
 		{
