@@ -1,3 +1,6 @@
+## v1.4.7
+* PR20: Add custom callback action when handling uncaught exception. 
+
 ## v1.4.6
 * Include unicode binaries in release package. Close #16.
 
