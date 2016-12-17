@@ -1,3 +1,6 @@
+## v1.4.8
+* CrashExplorer: Fix crash when loading report with MAP file (#21)
+
 ## v1.4.7
 * PR20: Add custom callback action when handling uncaught exception. 
 
