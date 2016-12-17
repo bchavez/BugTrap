@@ -430,7 +430,7 @@ boost::shared_ptr<CBaseProcessor> CExpressModeDlg::GetModuleInfo(const CString& 
 							if (pMapProcessor == NULL)
 							{
 								pMapProcessor = new CMapProcessor();
-								pBaseProcessor.reset(pMapProcessor);
+								m_pMapProcessor.reset(pMapProcessor);
 							}
 							pBaseProcessor = m_pMapProcessor;
 							pMapProcessor->LoadMapText(szMapPdbFile);
