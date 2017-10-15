@@ -1021,7 +1021,13 @@ void CSymEngine::GetRegistersString(PTSTR pszRegString, DWORD dwRegStringSize)
  */
 void CSymEngine::GetRegistersString(CUTF8EncStream& rEncStream)
 {
+#if defined _M_IX86
 	TCHAR szRegString[256];
+#elif defined _M_X64
+	TCHAR szRegString[512];
+#else
+#	error CPU architecture is not supported.
+#endif
 	GetRegistersString(szRegString, countof(szRegString));
 	rEncStream.WriteUTF8Bin(szRegString);
 }
