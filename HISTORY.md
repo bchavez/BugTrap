@@ -1,3 +1,6 @@
+## v1.4.9
+* Fixed Issue #22: Error using BT_SetReportFormat (BTRF_TEXT) in x64 build.
+
 ## v1.4.8
 * CrashExplorer: Fix crash when loading report with MAP file (#21)
 
