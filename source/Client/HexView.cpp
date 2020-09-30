@@ -50,9 +50,9 @@ void CHexView::InitVars(void)
 void CHexView::DrawHexView(HDC hdc, const RECT* prcPaint)
 {
 	_ASSERTE(g_pResManager != NULL);
+	RECT rcClient;
 	if (prcPaint == NULL)
 	{
-		RECT rcClient;
 		GetClientRect(m_hwnd, &rcClient);
 		prcPaint = &rcClient;
 	}
