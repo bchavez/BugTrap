@@ -91,7 +91,7 @@ private:
 	int m_nWheelLines;
 };
 
-inline CImageView::CImageView(void) : m_hAdjustedBitmap(NULL)
+inline CImageView::CImageView(void) : m_hAdjustedBitmap(NULL), m_dwFirstCachedLine(0)
 {
 	InitVars();
 }

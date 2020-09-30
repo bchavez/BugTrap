@@ -25,7 +25,7 @@
  * @param eDirection - splitter direction.
  * @param bProportionalMode - proportional mode.
  */
-CSplitter::CSplitter(SPLITTER_DIRECTION eDirection, bool bProportionalMode)
+CSplitter::CSplitter(SPLITTER_DIRECTION eDirection, bool bProportionalMode) : m_hwnd(nullptr)
 {
 	ClearPanels();
 	m_pfnOldSplitterWndProc = NULL;
