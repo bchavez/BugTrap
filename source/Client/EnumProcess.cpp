@@ -138,7 +138,7 @@ CEnumProcess::CEnumProcess(void) :
 	// How about ToolHelp?
 	if (m_hKernelDll &&
 		FCreateToolhelp32Snapshot &&
-		FProcess32Next && FProcess32Next &&
+		FProcess32First && FProcess32Next &&
 		FModule32First && FModule32Next &&
 		FThread32First && FThread32Next)
 	{
