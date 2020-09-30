@@ -376,9 +376,9 @@ BOOL CMapiSession::Send(const CMapiMessage& rMessage, BOOL bShowMessageEditor, H
 
 	// Setup the sender
 	const CStrHolder& strFrom = rMessage.GetFrom();
+	MapiRecipDesc recipOrigin;
 	if (! strFrom.IsEmpty())
 	{
-		MapiRecipDesc recipOrigin;
 		ZeroMemory(&recipOrigin, sizeof(recipOrigin));
 		InitRecipient(MAPI_ORIG, recipOrigin, strFrom);
 		mapiMessage.lpOriginator = &recipOrigin;

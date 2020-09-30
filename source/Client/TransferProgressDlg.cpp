@@ -63,9 +63,9 @@ static BOOL TransferStatusPane_OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM /*
 		LoadString(g_hInstance, IDS_ERROR_TRANSFERFAILED, szMessageText, countof(szMessageText));
 		Stream << szMessageText << _T('\n');
 		PCTSTR pszErrorMessage = g_pTransferThreadParams->GetErrorMessage();
+		TCHAR szErrorMessageTemplate[256];
 		if (pszErrorMessage == NULL)
 		{
-			TCHAR szErrorMessageTemplate[256];
 			LoadString(g_hInstance, IDS_UNDEFINED_ERROR_EX, szErrorMessageTemplate, countof(szErrorMessageTemplate));
 			TCHAR szErrorMessage[256];
 			_stprintf_s(szErrorMessage, countof(szErrorMessage), szErrorMessageTemplate, dwErrorCode);
