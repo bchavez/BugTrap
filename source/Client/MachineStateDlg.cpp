@@ -250,7 +250,7 @@ static LRESULT MachineStateDlg_OnNotify(HWND hwnd, int idCtrl, LPNMHDR pnmh)
 								ListView_SetItemText(hwndModuleList, iItemPos, CID_MODULE_VERSION, szVersionString);
 							TCHAR szTempBuf[32];
 #if defined _WIN64
-							_stprintf_s(szTempBuf, countof(szTempBuf), _T("%016X"), (DWORD_PTR)module.m_pLoadBase);
+							_stprintf_s(szTempBuf, countof(szTempBuf), _T("%016IX"), (DWORD_PTR)module.m_pLoadBase);
 #elif defined _WIN32
 							_stprintf_s(szTempBuf, countof(szTempBuf), _T("%08X"), (DWORD_PTR)module.m_pLoadBase);
 #endif

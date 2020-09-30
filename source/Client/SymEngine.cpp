@@ -1829,13 +1829,13 @@ void CSymEngine::GetModuleList(CUTF8EncStream& rEncStream, CEnumProcess* pEnumPr
 			}
 			rEncStream.WriteAscii(szBaseMsg);
 #if defined _WIN64
-			sprintf_s(szTempBuf, countof(szTempBuf), "%016lX", (DWORD_PTR)ModuleEntry.m_pLoadBase);
+			sprintf_s(szTempBuf, countof(szTempBuf), "%016IX", (DWORD_PTR)ModuleEntry.m_pLoadBase);
 #elif defined _WIN32
 			sprintf_s(szTempBuf, countof(szTempBuf), "%08lX", (DWORD_PTR)ModuleEntry.m_pLoadBase);
 #endif
 			rEncStream.WriteAscii(szTempBuf);
 			rEncStream.WriteAscii(szSizeMsg);
-			sprintf_s(szTempBuf, countof(szTempBuf), "%08lX", (DWORD_PTR)ModuleEntry.m_dwModuleSize);
+			sprintf_s(szTempBuf, countof(szTempBuf), "%08IX", (DWORD_PTR)ModuleEntry.m_dwModuleSize);
 			rEncStream.WriteAscii(szTempBuf);
 			rEncStream.WriteAscii(szNewLine);
 		}
@@ -1871,12 +1871,12 @@ void CSymEngine::GetModuleList(CXmlWriter& rXmlWriter, CEnumProcess* pEnumProces
 			  *szVersionString = _T('\0');
 		  rXmlWriter.WriteElementString(_T("version"), szVersionString); // <version>...</version>
 #if defined _WIN64
-		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%016lX"), (DWORD_PTR)ModuleEntry.m_pLoadBase);
+		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%016IX"), (DWORD_PTR)ModuleEntry.m_pLoadBase);
 #elif defined _WIN32
 		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%08lX"), (DWORD_PTR)ModuleEntry.m_pLoadBase);
 #endif
 		  rXmlWriter.WriteElementString(_T("base"), szTempBuf); // <base>...</base>
-		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%08lX"), (DWORD_PTR)ModuleEntry.m_dwModuleSize);
+		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%08IX"), (DWORD_PTR)ModuleEntry.m_dwModuleSize);
 		  rXmlWriter.WriteElementString(_T("size"), szTempBuf); // <size>...</size>
 		 rXmlWriter.WriteEndElement(); // </module>
 		 bContinue = pEnumProcess->GetModuleNext(rProcEntry.m_dwProcessID, ModuleEntry);
