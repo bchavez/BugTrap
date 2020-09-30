@@ -296,7 +296,7 @@ LRESULT CALLBACK CTextView::TextViewWndProc(HWND hwnd, UINT uMsg, WPARAM wParam,
 	PAINTSTRUCT ps;
 	HDC hdc;
 	int zDelta, zTotal, nScrollCode, nScrollBarType;
-	LONG lWindowStyle;
+	LONG_PTR lWindowStyle;
 
 	CTextView* _this  = (CTextView*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
 	_ASSERTE(_this != NULL);
@@ -378,7 +378,7 @@ LRESULT CALLBACK CTextView::TextViewWndProc(HWND hwnd, UINT uMsg, WPARAM wParam,
 		zTotal = abs(zDelta) / WHEEL_DELTA;
 		if (_this->m_nWheelLines != WHEEL_PAGESCROLL)
 			zTotal *= _this->m_nWheelLines;
-		lWindowStyle = GetWindowLong(hwnd, GWL_STYLE);
+		lWindowStyle = GetWindowLongPtr(hwnd, GWL_STYLE);
 
 		if (lWindowStyle & WS_VSCROLL)
 			nScrollBarType = SB_VERT;
@@ -419,7 +419,7 @@ void CTextView::Attach(HWND hwnd)
 	m_pfnOldTextViewWndProc = SubclassWindow(hwnd, TextViewWndProc);
 	SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)this);
 	// Preserve original window styles that could be modified by SetScrollInfo().
-	m_lOldStyle = GetWindowLong(hwnd, GWL_STYLE);
+	m_lOldStyle = GetWindowLongPtr(hwnd, GWL_STYLE);
 	ResizeTextView(TRUE);
 	InvalidateRect(m_hwnd, NULL, FALSE);
 }
@@ -437,7 +437,7 @@ void CTextView::Detach(void)
 		sinfo.fMask = SIF_POS | SIF_PAGE | SIF_RANGE;
 		SetScrollInfo(m_hwnd, SB_HORZ, &sinfo, FALSE);
 		SetScrollInfo(m_hwnd, SB_VERT, &sinfo, FALSE);
-		SetWindowLong(m_hwnd, GWL_STYLE, m_lOldStyle);
+		SetWindowLongPtr(m_hwnd, GWL_STYLE, m_lOldStyle);
 
 		InvalidateRect(m_hwnd, NULL, TRUE);
 		InitVars();

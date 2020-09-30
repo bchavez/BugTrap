@@ -86,7 +86,7 @@ private:
 	/// Number of first cache lined.
 	DWORD m_dwFirstCachedLine;
 	/// Old window style.
-	LONG m_lOldStyle;
+	LONG_PTR m_lOldStyle;
 	/// Number of wheel lines.
 	int m_nWheelLines;
 };

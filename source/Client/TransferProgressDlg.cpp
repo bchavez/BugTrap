@@ -243,9 +243,9 @@ static HWND CreateDialogPane(HWND hwndParent, UINT uDialogID, DLGPROC pfnDlgProc
 	HWND hwndPane = CreateDialogParam(g_hInstance, MAKEINTRESOURCE(uDialogID), hwndParent, pfnDlgProc, lParam);
 	if (hwndPane)
 	{
-		SetWindowLong(hwndPane, GWL_ID, IDC_DIALOG_PANE);
-		DWORD dwStyleEx = GetWindowLong(hwndPane, GWL_EXSTYLE);
-		SetWindowLong(hwndPane, GWL_EXSTYLE, dwStyleEx | WS_EX_STATICEDGE);
+		SetWindowLongPtr(hwndPane, GWL_ID, IDC_DIALOG_PANE);
+		LONG_PTR dwStyleEx = GetWindowLongPtr(hwndPane, GWL_EXSTYLE);
+		SetWindowLongPtr(hwndPane, GWL_EXSTYLE, dwStyleEx | WS_EX_STATICEDGE);
 		RECT rcClient;
 		GetClientRect(hwndParent, &rcClient);
 		RECT rcPane;
@@ -345,7 +345,7 @@ INT_PTR CALLBACK TransferProgressDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam,
 			// stop progress animation
 			StopProgressAnimation(hwndPane);
 			// and of course panel ID should be changed to avoid conflicts
-			SetWindowLong(hwndPane, GWL_ID, -1);
+			SetWindowLongPtr(hwndPane, GWL_ID, -1);
 			// finally we can create a new panel
 			hwndPane = CreateDialogPane(hwndDlg, IDD_TRANSFERSTATUS_PANE, TransferStatusPaneProc, wParam);
 			if (hwndPane)

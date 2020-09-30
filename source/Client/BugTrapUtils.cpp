@@ -36,10 +36,10 @@
 void CenterWindow(HWND hwnd, HWND hwndCenter)
 {
 	// Determine owner window to center against.
-	DWORD dwStyle = GetWindowLong(hwnd, GWL_STYLE);
+	LONG_PTR lStyle = GetWindowLongPtr(hwnd, GWL_STYLE);
 	if (hwndCenter == NULL)
 	{
-		if(dwStyle & WS_CHILD)
+		if(lStyle & WS_CHILD)
 			hwndCenter = GetParent(hwnd);
 		else
 			hwndCenter = GetWindow(hwnd, GW_OWNER);
@@ -51,13 +51,13 @@ void CenterWindow(HWND hwnd, HWND hwndCenter)
 	RECT rcArea;
 	RECT rcCenter;
 	HWND hwndParent;
-	if ((dwStyle & WS_CHILD) == 0)
+	if ((lStyle & WS_CHILD) == 0)
 	{
 		// Don't center against invisible or minimized windows.
 		if (hwndCenter != NULL)
 		{
-			DWORD dwStyleCenter = GetWindowLong(hwndCenter, GWL_STYLE);
-			if (! (dwStyleCenter & WS_VISIBLE) || (dwStyleCenter & WS_MINIMIZE))
+			LONG_PTR lStyleCenter = GetWindowLongPtr(hwndCenter, GWL_STYLE);
+			if (! (lStyleCenter & WS_VISIBLE) || (lStyleCenter & WS_MINIMIZE))
 				hwndCenter = NULL;
 		}
 

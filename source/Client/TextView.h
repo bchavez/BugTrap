@@ -110,7 +110,7 @@ private:
 	/// Pointer to the line buffer.
 	PBYTE m_pLineBuffer;
 	/// Old window style.
-	LONG m_lOldStyle;
+	LONG_PTR m_lOldStyle;
 	/// Maximum line width.
 	int m_nMaxLineWidth;
 	/// Number of wheel lines.

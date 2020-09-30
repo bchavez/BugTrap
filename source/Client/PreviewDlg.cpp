@@ -327,7 +327,7 @@ static void AddFileItem(HWND hwndFileList, PCTSTR pszFilePath)
 	HIMAGELIST hFileImages = (HIMAGELIST)SHGetFileInfo(pszFilePath, 0, &sfi, sizeof(sfi), SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_TYPENAME);
 	if (nItemPos == 0)
 	{
-		_ASSERTE((GetWindowLong(hwndFileList, GWL_STYLE) & LVS_SHAREIMAGELISTS) != 0);
+		_ASSERTE((GetWindowLongPtr(hwndFileList, GWL_STYLE) & LVS_SHAREIMAGELISTS) != 0);
 		ListView_SetImageList(hwndFileList, hFileImages, LVSIL_SMALL);
 	}
 
@@ -554,8 +554,8 @@ static BOOL PreviewDlg_OnInitDialog(HWND hwnd, HWND hwndFocus, LPARAM lParam)
 
 	g_hImageList = ImageList_LoadBitmap(g_hInstance, MAKEINTRESOURCE(IDB_IMAGETOOLBAR), 16, 0, RGB(0xC0, 0xC0, 0xC0));
 	HWND hwndImgToolbar = GetDlgItem(hwnd, IDC_IMAGE_COMMANDS);
-	LONG lStyle = GetWindowLong(hwndImgToolbar, GWL_STYLE);
-	SetWindowLong(hwndImgToolbar, GWL_STYLE, lStyle | CCS_NODIVIDER | CCS_NOPARENTALIGN | CCS_NORESIZE | TBSTYLE_FLAT | TBSTYLE_TOOLTIPS);
+	LONG_PTR lStyle = GetWindowLongPtr(hwndImgToolbar, GWL_STYLE);
+	SetWindowLongPtr(hwndImgToolbar, GWL_STYLE, lStyle | CCS_NODIVIDER | CCS_NOPARENTALIGN | CCS_NORESIZE | TBSTYLE_FLAT | TBSTYLE_TOOLTIPS);
 	SendMessage(hwndImgToolbar, TB_SETIMAGELIST, 0, (LPARAM)g_hImageList);
 	SendMessage(hwndImgToolbar, TB_ADDBUTTONS, countof(g_arrButtons), (LPARAM)g_arrButtons);
 
