@@ -985,11 +985,11 @@ void CSymEngine::GetRegistersString(PTSTR pszRegString, DWORD dwRegStringSize)
 	           m_pExceptionPointers->ContextRecord->SegGs);
 #elif defined _M_X64
 	_stprintf_s(pszRegString, dwRegStringSize,
-	           _T("RAX=%016X  RBX=%016X\r\n")
-			   _T("RCX=%016X  RDX=%016X\r\n")
-	           _T("RSI=%016X  RDI=%016X\r\n")
-			   _T("FLG=%08X          RBP=%016X\r\n")
-	           _T("RSP=%016X  RIP=%016X\r\n")
+	           _T("RAX=%016I64X  RBX=%016I64X\r\n")
+	           _T("RCX=%016I64X  RDX=%016I64X\r\n")
+	           _T("RSI=%016I64X  RDI=%016I64X\r\n")
+	           _T("FLG=%08lX          RBP=%016I64X\r\n")
+	           _T("RSP=%016I64X  RIP=%016I64X\r\n")
 	           _T("CS=%04X  DS=%04X  SS=%04X  ES=%04X  FS=%04X  GS=%04X"),
 
 	           m_pExceptionPointers->ContextRecord->Rax,
@@ -3194,7 +3194,7 @@ BOOL CSymEngine::GetNextStackTraceEntry(CStackTraceEntry& rEntry)
 	WORD wExceptionSegment = m_swContext.m_stFrame.AddrPC.Segment;
 #if defined _WIN64
 	_stprintf_s(rEntry.m_szAddress, countof(rEntry.m_szAddress),
-	            _T("%04lX:%016lX"), wExceptionSegment, dwExceptionAddress);
+	            _T("%04lX:%016I64X"), wExceptionSegment, dwExceptionAddress);
 #elif defined _WIN32
 	_stprintf_s(rEntry.m_szAddress, countof(rEntry.m_szAddress),
 	            _T("%04lX:%08I64X"), wExceptionSegment, dwExceptionAddress);
