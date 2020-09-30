@@ -652,7 +652,7 @@ void CTextView::LoadCache(void)
 				DWORD dwLineSize;
 				if (m_dwNumCachedLines + 1 < dwNumLines)
 				{
-					const CLineInfo& rNextLineInfo = m_arrLines[(size_t)(m_dwNumCachedLines + 1)];
+					const CLineInfo& rNextLineInfo = m_arrLines[((size_t)m_dwNumCachedLines + 1)];
 					dwLineSize = rNextLineInfo.m_dwLineStart - rLineInfo.m_dwLineStart; // line size includes line end
 				}
 				else
@@ -727,7 +727,7 @@ BOOL CTextView::CacheLine(DWORD dwCachedLineNum, HDC hdc, const TEXTMETRIC& tmet
 			BOOL bLineNumberChanged = FALSE;
 			if (dwLastCachedLine + 1 < dwNumLines)
 			{
-				const CLineInfo& rLineInfo = m_arrLines[(size_t)(dwLastCachedLine + 1)];
+				const CLineInfo& rLineInfo = m_arrLines[((size_t)dwLastCachedLine + 1)];
 				if (dwTotalSize + rLineInfo.m_dwLength <= TEXT_CACHE_SIZE)
 				{
 					dwTotalSize += rLineInfo.m_dwLength;
@@ -822,7 +822,7 @@ BOOL CTextView::CacheLine(DWORD dwCachedLineNum, HDC hdc, const TEXTMETRIC& tmet
 				DWORD dwLineSize;
 				if (dwLineNum < dwLastLoadedLine)
 				{
-					const CLineInfo& rNextLineInfo = m_arrLines[(size_t)(dwLineNum + 1)];
+					const CLineInfo& rNextLineInfo = m_arrLines[((size_t)dwLineNum + 1)];
 					dwLineSize = rNextLineInfo.m_dwLineStart - rLineInfo.m_dwLineStart; // line size including line end
 				}
 				else
