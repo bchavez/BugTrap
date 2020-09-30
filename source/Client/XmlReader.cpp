@@ -406,7 +406,7 @@ CXmlReader::XML_RESULT CXmlReader::CXmlParser::ProcessNode(CXmlNode& rXmlNode, C
  * @param arrChar - character data.
  * @return number of characters in one symbol.
  */
-size_t CXmlReader::CXmlParser::ReadNonSpaceChar(TCHAR arrChar[2])
+size_t CXmlReader::CXmlParser::ReadNonSpaceChar(TCHAR (&arrChar)[2])
 {
 	for (;;)
 	{
@@ -481,7 +481,7 @@ bool CXmlReader::CXmlInputStream::ReadCharFromBackBuffer(TCHAR& chValue)
  * @param arrChar - character data.
  * @return number of characters in one symbol.
  */
-size_t CXmlReader::CXmlInputStream::ReadChar(TCHAR arrChar[2])
+size_t CXmlReader::CXmlInputStream::ReadChar(TCHAR (&arrChar)[2])
 {
 	size_t nCharSize;
 	if (ReadCharFromBackBuffer(arrChar[0]))
@@ -516,7 +516,7 @@ size_t CXmlReader::CXmlInputStream::ReadChar(TCHAR arrChar[2])
  * @param bRequired - true if character is required.
  * @return number of characters in one symbol.
  */
-size_t CXmlReader::CXmlParser::ReadChar(TCHAR arrChar[2], bool bRequired)
+size_t CXmlReader::CXmlParser::ReadChar(TCHAR (&arrChar)[2], bool bRequired)
 {
 	size_t nCharSize = ReadChar(arrChar);
 	if (nCharSize == MAXSIZE_T)

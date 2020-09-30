@@ -337,7 +337,7 @@ bool WriteBinaryString(PCTSTR pszString, PBYTE pBuffer, size_t& nPosition, size_
  * @param nCharSize - number of symbols in one character.
  * @return number of bytes in one character.
  */
-size_t UTF8DecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR arrChar[2], size_t& nCharSize)
+size_t UTF8DecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR (&arrChar)[2], size_t& nCharSize)
 {
 	nCharSize = MAXSIZE_T;
 	if (nNumBytes == 0)
@@ -420,7 +420,7 @@ size_t UTF8DecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR arrChar[2], si
  * @param nCharSize - number of symbols in one character.
  * @return number of bytes in one character.
  */
-size_t UTF16BeDecodeChar(BYTE* pBytes, size_t nNumBytes, TCHAR arrChar[2], size_t& nCharSize)
+size_t UTF16BeDecodeChar(BYTE* pBytes, size_t nNumBytes, TCHAR (&arrChar)[2], size_t& nCharSize)
 {
 	if (UTF16BeToLeChar(pBytes, nNumBytes) < 0)
 	{
@@ -438,7 +438,7 @@ size_t UTF16BeDecodeChar(BYTE* pBytes, size_t nNumBytes, TCHAR arrChar[2], size_
  * @param nCharSize - number of symbols in one character.
  * @return number of bytes in one character.
  */
-size_t UTF16LeDecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR arrChar[2], size_t& nCharSize)
+size_t UTF16LeDecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR (&arrChar)[2], size_t& nCharSize)
 {
 	size_t nNumBytesInChar = GetUnicodeCharSize(pBytes);
 	if (nNumBytes >= nNumBytesInChar)
@@ -468,7 +468,7 @@ size_t UTF16LeDecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR arrChar[2],
  * @param nCharSize - number of symbols in one character.
  * @return number of bytes in one character.
  */
-size_t AnsiDecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR arrChar[2], size_t& nCharSize)
+size_t AnsiDecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR (&arrChar)[2], size_t& nCharSize)
 {
 	int nNumBytesInChar = IsDBCSLeadByte(*pBytes) ? 2 : 1;
 	if (nNumBytes >= (size_t)nNumBytesInChar)
@@ -787,7 +787,7 @@ size_t CDecInputStream::FillBuffer(size_t nNumBytes)
  * @param arrChar - character data.
  * @return number of characters in one symbol.
  */
-size_t CDecInputStream::ReadChar(TCHAR arrChar[2])
+size_t CDecInputStream::ReadChar(TCHAR (&arrChar)[2])
 {
 	// one character in UTF-16 encoding may require up to 4 bytes
 	// one character in UTF-8 encoding may require up to 4 bytes
@@ -847,7 +847,7 @@ bool CDecInputStream::ReadPreamble(TEXT_ENCODING& eEncoding)
  * @param arrChar - character data.
  * @return number of characters in one symbol.
  */
-size_t CStrInputStream::ReadChar(TCHAR arrChar[2])
+size_t CStrInputStream::ReadChar(TCHAR (&arrChar)[2])
 {
 	_ASSERTE(m_pStrStream != NULL);
 	size_t nLength = m_pStrStream->GetLength();
