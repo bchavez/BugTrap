@@ -943,7 +943,8 @@ inline void CXmlReader::CXmlInputStream::UnsafePutCharsBack(const TCHAR* pChars,
 {
 	if (nNumChars > 0)
 	{
-		for (size_t nCharPos = nNumChars - 1; nCharPos >= 0; --nCharPos)
+		_ASSERTE(nNumChars <= MAXSSIZE_T);
+		for (ptrdiff_t nCharPos = nNumChars - 1; nCharPos >= 0; --nCharPos)
 			UnsafePutCharBack(pChars[nCharPos]);
 	}
 }
