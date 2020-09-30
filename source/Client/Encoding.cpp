@@ -422,7 +422,7 @@ size_t UTF8DecodeChar(const BYTE* pBytes, size_t nNumBytes, TCHAR (&arrChar)[2],
  */
 size_t UTF16BeDecodeChar(BYTE* pBytes, size_t nNumBytes, TCHAR (&arrChar)[2], size_t& nCharSize)
 {
-	if (UTF16BeToLeChar(pBytes, nNumBytes) < 0)
+	if (UTF16BeToLeChar(pBytes, nNumBytes) == MAXSIZE_T)
 	{
 		nCharSize = MAXSIZE_T;
 		return 0;
