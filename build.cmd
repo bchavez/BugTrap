@@ -22,8 +22,8 @@ rem Restore NuGet packages
 nuget restore source\BugTrap.vs2013.sln
 
 rem Add boost to include and library paths
-set "INCLUDE=C:\Libraries\boost;%INCLUDE%"
-set "LIB=C:\Libraries\boost\stage\lib;%LIB%"
+set "INCLUDE=C:\Libraries\boost_1_60_0;%INCLUDE%"
+set "LIB=C:\Libraries\boost_1_60_0\stage\lib;%LIB%"
 
 rem Additional arguments required for msbuild to use INCLUDE and LIB 
 set "MSB_ADD_ARGS=-p:useenv=true"
