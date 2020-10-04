@@ -652,7 +652,7 @@ void CTextView::LoadCache(void)
 				DWORD dwLineSize;
 				if (m_dwNumCachedLines + 1 < dwNumLines)
 				{
-					const CLineInfo& rNextLineInfo = m_arrLines[((size_t)m_dwNumCachedLines + 1)];
+					const CLineInfo& rNextLineInfo = m_arrLines[(size_t)m_dwNumCachedLines + 1];
 					dwLineSize = rNextLineInfo.m_dwLineStart - rLineInfo.m_dwLineStart; // line size includes line end
 				}
 				else
