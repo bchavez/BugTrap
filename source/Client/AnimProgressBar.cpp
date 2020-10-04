@@ -90,9 +90,9 @@ void CAnimProgressBar::SetTimeout(DWORD dwTimeout)
  */
 void CAnimProgressBar::DrawAnimProgressBar(HDC hdc, const RECT* prcPaint) const
 {
+	RECT rcClient;
 	if (prcPaint == NULL)
 	{
-		RECT rcClient;
 		GetClientRect(m_hwnd, &rcClient);
 		prcPaint = &rcClient;
 	}
@@ -133,7 +133,6 @@ void CAnimProgressBar::DrawAnimProgressBar(HDC hdc, const RECT* prcPaint) const
 			bAppThemed = FALSE;
 	}
 
-	RECT rcClient;
 	GetClientRect(m_hwnd, &rcClient);
 	RECT rcClip;
 	GetClipBox(hdc, &rcClip);

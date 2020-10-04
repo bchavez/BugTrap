@@ -45,9 +45,9 @@ LAYOUT_INFO::LAYOUT_INFO(int nCtlID, int nRatioX1, int nRatioY1, int nRatioX2, i
  */
 void CLayoutManager::InitLayout(HWND hwndParent, LAYOUT_INFO arrLayout[], int nItemCount, bool bAddSizeBox)
 {
-	LONG lStyle = GetWindowLong(hwndParent, GWL_STYLE);
+	LONG_PTR lStyle = GetWindowLongPtr(hwndParent, GWL_STYLE);
 	lStyle |= WS_CLIPCHILDREN | WS_CLIPSIBLINGS;
-	SetWindowLong(hwndParent, GWL_STYLE, lStyle);
+	SetWindowLongPtr(hwndParent, GWL_STYLE, lStyle);
 
 	RECT rcWindow;
 	GetWindowRect(hwndParent, &rcWindow);

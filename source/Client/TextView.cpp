@@ -54,9 +54,9 @@ void CTextView::InitVars(void)
 void CTextView::DrawTextView(HDC hdc, const RECT* prcPaint)
 {
 	_ASSERTE(g_pResManager != NULL);
+	RECT rcClient;
 	if (prcPaint == NULL)
 	{
-		RECT rcClient;
 		GetClientRect(m_hwnd, &rcClient);
 		prcPaint = &rcClient;
 	}
@@ -296,7 +296,7 @@ LRESULT CALLBACK CTextView::TextViewWndProc(HWND hwnd, UINT uMsg, WPARAM wParam,
 	PAINTSTRUCT ps;
 	HDC hdc;
 	int zDelta, zTotal, nScrollCode, nScrollBarType;
-	LONG lWindowStyle;
+	LONG_PTR lWindowStyle;
 
 	CTextView* _this  = (CTextView*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
 	_ASSERTE(_this != NULL);
@@ -378,7 +378,7 @@ LRESULT CALLBACK CTextView::TextViewWndProc(HWND hwnd, UINT uMsg, WPARAM wParam,
 		zTotal = abs(zDelta) / WHEEL_DELTA;
 		if (_this->m_nWheelLines != WHEEL_PAGESCROLL)
 			zTotal *= _this->m_nWheelLines;
-		lWindowStyle = GetWindowLong(hwnd, GWL_STYLE);
+		lWindowStyle = GetWindowLongPtr(hwnd, GWL_STYLE);
 
 		if (lWindowStyle & WS_VSCROLL)
 			nScrollBarType = SB_VERT;
@@ -419,7 +419,7 @@ void CTextView::Attach(HWND hwnd)
 	m_pfnOldTextViewWndProc = SubclassWindow(hwnd, TextViewWndProc);
 	SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)this);
 	// Preserve original window styles that could be modified by SetScrollInfo().
-	m_lOldStyle = GetWindowLong(hwnd, GWL_STYLE);
+	m_lOldStyle = GetWindowLongPtr(hwnd, GWL_STYLE);
 	ResizeTextView(TRUE);
 	InvalidateRect(m_hwnd, NULL, FALSE);
 }
@@ -437,7 +437,7 @@ void CTextView::Detach(void)
 		sinfo.fMask = SIF_POS | SIF_PAGE | SIF_RANGE;
 		SetScrollInfo(m_hwnd, SB_HORZ, &sinfo, FALSE);
 		SetScrollInfo(m_hwnd, SB_VERT, &sinfo, FALSE);
-		SetWindowLong(m_hwnd, GWL_STYLE, m_lOldStyle);
+		SetWindowLongPtr(m_hwnd, GWL_STYLE, m_lOldStyle);
 
 		InvalidateRect(m_hwnd, NULL, TRUE);
 		InitVars();
@@ -652,7 +652,7 @@ void CTextView::LoadCache(void)
 				DWORD dwLineSize;
 				if (m_dwNumCachedLines + 1 < dwNumLines)
 				{
-					const CLineInfo& rNextLineInfo = m_arrLines[(size_t)(m_dwNumCachedLines + 1)];
+					const CLineInfo& rNextLineInfo = m_arrLines[(size_t)m_dwNumCachedLines + 1];
 					dwLineSize = rNextLineInfo.m_dwLineStart - rLineInfo.m_dwLineStart; // line size includes line end
 				}
 				else
@@ -727,7 +727,7 @@ BOOL CTextView::CacheLine(DWORD dwCachedLineNum, HDC hdc, const TEXTMETRIC& tmet
 			BOOL bLineNumberChanged = FALSE;
 			if (dwLastCachedLine + 1 < dwNumLines)
 			{
-				const CLineInfo& rLineInfo = m_arrLines[(size_t)(dwLastCachedLine + 1)];
+				const CLineInfo& rLineInfo = m_arrLines[((size_t)dwLastCachedLine + 1)];
 				if (dwTotalSize + rLineInfo.m_dwLength <= TEXT_CACHE_SIZE)
 				{
 					dwTotalSize += rLineInfo.m_dwLength;
@@ -822,7 +822,7 @@ BOOL CTextView::CacheLine(DWORD dwCachedLineNum, HDC hdc, const TEXTMETRIC& tmet
 				DWORD dwLineSize;
 				if (dwLineNum < dwLastLoadedLine)
 				{
-					const CLineInfo& rNextLineInfo = m_arrLines[(size_t)(dwLineNum + 1)];
+					const CLineInfo& rNextLineInfo = m_arrLines[((size_t)dwLineNum + 1)];
 					dwLineSize = rNextLineInfo.m_dwLineStart - rLineInfo.m_dwLineStart; // line size including line end
 				}
 				else

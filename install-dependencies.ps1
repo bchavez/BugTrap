@@ -26,7 +26,7 @@ if (!$found)
   cmd /c del $exePath
 }
 
-$boostDir = "C:\Libraries\boost\"
+$boostDir = "C:\Libraries\boost_1_60_0\"
 $bootstrap = $boostDir+"bootstrap.bat"
 if (!(Test-Path $bootstrap))
 {

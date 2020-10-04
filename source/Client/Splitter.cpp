@@ -25,7 +25,7 @@
  * @param eDirection - splitter direction.
  * @param bProportionalMode - proportional mode.
  */
-CSplitter::CSplitter(SPLITTER_DIRECTION eDirection, bool bProportionalMode)
+CSplitter::CSplitter(SPLITTER_DIRECTION eDirection, bool bProportionalMode) : m_hwnd(nullptr)
 {
 	ClearPanels();
 	m_pfnOldSplitterWndProc = NULL;
@@ -116,7 +116,7 @@ BOOL CSplitter::DrawPanel(HDC hdc, int iPanel) const
 		RECT rect;
 		CalcPanelRect(iPanel, rect, false);
 		HWND hwndPanel = m_arrPanels[iPanel];
-		if (hwndPanel == NULL || (GetWindowLong(hwndPanel, GWL_EXSTYLE) & WS_EX_CLIENTEDGE) == 0)
+		if (hwndPanel == NULL || (GetWindowLongPtr(hwndPanel, GWL_EXSTYLE) & WS_EX_CLIENTEDGE) == 0)
 		{
 			int nCXEdge = GetSystemMetrics(SM_CXEDGE) * 2;
 			int nCYEdge = GetSystemMetrics(SM_CYEDGE) * 2;
@@ -214,7 +214,7 @@ BOOL CSplitter::CalcPanelRect(int iPanel, RECT& rect, bool bShrinkRect) const
 		if (bShrinkRect)
 		{
 			HWND hwndPanel = m_arrPanels[iPanel];
-			if (hwndPanel == NULL || (GetWindowLong(hwndPanel, GWL_EXSTYLE) & WS_EX_CLIENTEDGE) == 0)
+			if (hwndPanel == NULL || (GetWindowLongPtr(hwndPanel, GWL_EXSTYLE) & WS_EX_CLIENTEDGE) == 0)
 			{
 				int nCXEdge = GetSystemMetrics(SM_CXEDGE);
 				int nCYEdge = GetSystemMetrics(SM_CYEDGE);

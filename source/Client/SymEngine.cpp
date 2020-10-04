@@ -902,43 +902,43 @@ void CSymEngine::GetRegistersValues(CRegistersValues& rRegVals)
 	if (m_pExceptionPointers == NULL)
 		return;
 
-#define CONVERT_REGISTER_VALUE_TO_STRING(reg, digits) \
-	_stprintf_s(rRegVals.m_sz##reg, countof(rRegVals.m_sz##reg), _T("0x%0") _T(#digits) _T("lX"), m_pExceptionPointers->ContextRecord->reg);
+#define CONVERT_REGISTER_VALUE_TO_STRING(reg, digits, format) \
+	_stprintf_s(rRegVals.m_sz##reg, countof(rRegVals.m_sz##reg), _T("0x%0") _T(#digits) format, m_pExceptionPointers->ContextRecord->reg);
 
 #if defined _M_IX86
-	CONVERT_REGISTER_VALUE_TO_STRING(Eax, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(Ebx, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(Ecx, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(Edx, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(Esi, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(Edi, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(Esp, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(Ebp, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(Eip, 8);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegCs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegDs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegSs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegEs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegFs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegGs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(EFlags, 8);
+	CONVERT_REGISTER_VALUE_TO_STRING(Eax, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Ebx, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Ecx, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Edx, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Esi, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Edi, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Esp, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Ebp, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Eip, 8, _T("lX"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegCs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegDs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegSs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegEs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegFs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegGs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(EFlags, 8, _T("lX"));
 #elif defined _M_X64
-	CONVERT_REGISTER_VALUE_TO_STRING(Rax, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(Rbx, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(Rcx, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(Rdx, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(Rsi, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(Rdi, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(Rsp, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(Rbp, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(Rip, 16);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegCs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegDs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegSs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegEs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegFs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(SegGs, 4);
-	CONVERT_REGISTER_VALUE_TO_STRING(EFlags, 8);
+	CONVERT_REGISTER_VALUE_TO_STRING(Rax, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Rbx, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Rcx, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Rdx, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Rsi, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Rdi, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Rsp, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Rbp, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(Rip, 16, _T("I64X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegCs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegDs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegSs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegEs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegFs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(SegGs, 4, _T("X"));
+	CONVERT_REGISTER_VALUE_TO_STRING(EFlags, 8, _T("lX"));
 #else
  #error CPU architecture is not supported.
 #endif
@@ -985,11 +985,11 @@ void CSymEngine::GetRegistersString(PTSTR pszRegString, DWORD dwRegStringSize)
 	           m_pExceptionPointers->ContextRecord->SegGs);
 #elif defined _M_X64
 	_stprintf_s(pszRegString, dwRegStringSize,
-	           _T("RAX=%016X  RBX=%016X\r\n")
-			   _T("RCX=%016X  RDX=%016X\r\n")
-	           _T("RSI=%016X  RDI=%016X\r\n")
-			   _T("FLG=%08X          RBP=%016X\r\n")
-	           _T("RSP=%016X  RIP=%016X\r\n")
+	           _T("RAX=%016I64X  RBX=%016I64X\r\n")
+	           _T("RCX=%016I64X  RDX=%016I64X\r\n")
+	           _T("RSI=%016I64X  RDI=%016I64X\r\n")
+	           _T("FLG=%08lX          RBP=%016I64X\r\n")
+	           _T("RSP=%016I64X  RIP=%016I64X\r\n")
 	           _T("CS=%04X  DS=%04X  SS=%04X  ES=%04X  FS=%04X  GS=%04X"),
 
 	           m_pExceptionPointers->ContextRecord->Rax,
@@ -1829,13 +1829,13 @@ void CSymEngine::GetModuleList(CUTF8EncStream& rEncStream, CEnumProcess* pEnumPr
 			}
 			rEncStream.WriteAscii(szBaseMsg);
 #if defined _WIN64
-			sprintf_s(szTempBuf, countof(szTempBuf), "%016lX", (DWORD_PTR)ModuleEntry.m_pLoadBase);
+			sprintf_s(szTempBuf, countof(szTempBuf), "%016IX", (DWORD_PTR)ModuleEntry.m_pLoadBase);
 #elif defined _WIN32
 			sprintf_s(szTempBuf, countof(szTempBuf), "%08lX", (DWORD_PTR)ModuleEntry.m_pLoadBase);
 #endif
 			rEncStream.WriteAscii(szTempBuf);
 			rEncStream.WriteAscii(szSizeMsg);
-			sprintf_s(szTempBuf, countof(szTempBuf), "%08lX", (DWORD_PTR)ModuleEntry.m_dwModuleSize);
+			sprintf_s(szTempBuf, countof(szTempBuf), "%08IX", (DWORD_PTR)ModuleEntry.m_dwModuleSize);
 			rEncStream.WriteAscii(szTempBuf);
 			rEncStream.WriteAscii(szNewLine);
 		}
@@ -1871,12 +1871,12 @@ void CSymEngine::GetModuleList(CXmlWriter& rXmlWriter, CEnumProcess* pEnumProces
 			  *szVersionString = _T('\0');
 		  rXmlWriter.WriteElementString(_T("version"), szVersionString); // <version>...</version>
 #if defined _WIN64
-		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%016lX"), (DWORD_PTR)ModuleEntry.m_pLoadBase);
+		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%016IX"), (DWORD_PTR)ModuleEntry.m_pLoadBase);
 #elif defined _WIN32
 		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%08lX"), (DWORD_PTR)ModuleEntry.m_pLoadBase);
 #endif
 		  rXmlWriter.WriteElementString(_T("base"), szTempBuf); // <base>...</base>
-		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%08lX"), (DWORD_PTR)ModuleEntry.m_dwModuleSize);
+		  _stprintf_s(szTempBuf, countof(szTempBuf), _T("0x%08IX"), (DWORD_PTR)ModuleEntry.m_dwModuleSize);
 		  rXmlWriter.WriteElementString(_T("size"), szTempBuf); // <size>...</size>
 		 rXmlWriter.WriteEndElement(); // </module>
 		 bContinue = pEnumProcess->GetModuleNext(rProcEntry.m_dwProcessID, ModuleEntry);
@@ -3194,7 +3194,7 @@ BOOL CSymEngine::GetNextStackTraceEntry(CStackTraceEntry& rEntry)
 	WORD wExceptionSegment = m_swContext.m_stFrame.AddrPC.Segment;
 #if defined _WIN64
 	_stprintf_s(rEntry.m_szAddress, countof(rEntry.m_szAddress),
-	            _T("%04lX:%016lX"), wExceptionSegment, dwExceptionAddress);
+	            _T("%04lX:%016I64X"), wExceptionSegment, dwExceptionAddress);
 #elif defined _WIN32
 	_stprintf_s(rEntry.m_szAddress, countof(rEntry.m_szAddress),
 	            _T("%04lX:%08I64X"), wExceptionSegment, dwExceptionAddress);

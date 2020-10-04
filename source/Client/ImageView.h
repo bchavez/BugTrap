@@ -86,12 +86,12 @@ private:
 	/// Number of first cache lined.
 	DWORD m_dwFirstCachedLine;
 	/// Old window style.
-	LONG m_lOldStyle;
+	LONG_PTR m_lOldStyle;
 	/// Number of wheel lines.
 	int m_nWheelLines;
 };
 
-inline CImageView::CImageView(void) : m_hAdjustedBitmap(NULL)
+inline CImageView::CImageView(void) : m_hAdjustedBitmap(NULL), m_dwFirstCachedLine(0)
 {
 	InitVars();
 }

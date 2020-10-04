@@ -1,6 +1,6 @@
 /*
  * This is a part of the BugTrap package.
- * Copyright (c) 2005-2009ß IntelleSoft.
+ * Copyright (c) 2005-2009ÃŸ IntelleSoft.
  * All rights reserved.
  *
  * Description: Simple dynamic array.
@@ -494,9 +494,9 @@ void CArray<DATA_TYPE, INSTANCE_TRAITS, COMPARE_TRAITS>::PrivQSort(DATA_TYPE* ar
 		DATA_TYPE& DataPivot = arrData[nLowPos];
 		while (nLeft <= nRight)
 		{
-			while ((*pfnCompare)(DataPivot, arrData[nLeft]) > 0 && nLeft <= nRight)
+			while (nLeft <= nRight && (*pfnCompare)(DataPivot, arrData[nLeft]) > 0)
 				++nLeft;
-			while ((*pfnCompare)(DataPivot, arrData[nRight]) < 0 && nLeft <= nRight)
+			while (nLeft <= nRight && (*pfnCompare)(DataPivot, arrData[nRight]) < 0)
 				--nRight;
 			if (nLeft > nRight)
 				break;

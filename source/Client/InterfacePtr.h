@@ -40,9 +40,9 @@ public:
 	friend bool operator>=(const CInterfacePtr& iptr1, const CInterfacePtr& iptr2) { return iptr1.m_ptr >= iptr2.m_ptr; }
 
 	template <class INTERFACE2>
-	HRESULT QueryInterface(INTERFACE2*& ptr) const { _ASSERTE(m_ptr != NULL); m_ptr->QueryInterface(__uuidof(INTERFACE2), (void**)&ptr); }
+	HRESULT QueryInterface(INTERFACE2*& ptr) const { _ASSERTE(m_ptr != NULL); return m_ptr->QueryInterface(__uuidof(INTERFACE2), (void**)&ptr); }
 	template <class INTERFACE2>
-	HRESULT QueryInterface(CInterfacePtr<INTERFACE2>& iptr2) const { _ASSERTE(m_ptr != NULL); _ASSERTE(iptr2.m_ptr == NULL); m_ptr->QueryInterface(__uuidof(INTERFACE2), (void**)&iptr2.m_ptr); }
+	HRESULT QueryInterface(CInterfacePtr<INTERFACE2>& iptr2) const { _ASSERTE(m_ptr != NULL); _ASSERTE(iptr2.m_ptr == NULL); return m_ptr->QueryInterface(__uuidof(INTERFACE2), (void**)&iptr2.m_ptr); }
 
 	bool IsNull(void) const { return (m_ptr == NULL); }
 	void Release(void) { Free(); m_ptr = NULL; }
