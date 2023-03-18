@@ -106,6 +106,12 @@ typedef enum BUGTRAP_FLAGS_tag
 	 */
 	BTF_ATTACHREPORT   = 0x004,
 	/**
+	 * @brief By default BugTrap show a "More..." button to open
+	 * the advanced ui in the simple dialog. Enable this flag
+	 * hide the button.
+	 */
+	BTF_HIDEMOREBUTTON = 0x006,
+	/**
 	 * @brief Set this flag to add list of all processes and loaded
 	 * modules to the report. Disable this option to speedup report
 	 * generation.
