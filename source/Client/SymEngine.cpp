@@ -1164,6 +1164,7 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 	static const TCHAR szWindows8[] = _T("Windows 8");
 	static const TCHAR szWindows81[] = _T("Windows 8.1");
 	static const TCHAR szWindows10[] = _T("Windows 10");
+	static const TCHAR szWindows11[] = _T("Windows 11");
 	static const TCHAR szWindowsServer2003[] = _T("Windows Server 2003");
 	static const TCHAR szWindowsHomeServer[] = _T("Windows Home Server");
 	static const TCHAR szWindowsServer2003R2[] = _T("Windows Server 2003 R2");
@@ -1299,7 +1300,10 @@ void CSymEngine::GetOsInfo(COsInfo& rOsInfo)
 				switch (osvi.wProductType)
 				{
 				case VER_NT_WORKSTATION:
-					rOsInfo.m_pszWinVersion = szWindows10;
+					if (osvi.dwBuildNumber >= 22000)
+						rOsInfo.m_pszWinVersion = szWindows11;
+					else
+						rOsInfo.m_pszWinVersion = szWindows10;
 					break;
 				//case VER_NT_DOMAIN_CONTROLLER:
 				//case VER_NT_SERVER:
