@@ -119,6 +119,11 @@ static void InitControls(HWND hwnd)
 			ShowWindow(hwndMailTo, SW_HIDE);
 	}
 
+	if (g_dwFlags & BTF_HIDEMOREBUTTON)
+	{
+		ShowWindow(hwndMore, FALSE);
+	}
+
 	HWND hwndFocus = IsWindowEnabled(hwndSubmitBug) ? hwndSubmitBug : hwndClose;
 	SetFocus(hwndFocus);
 	SendMessage(hwnd, DM_SETDEFID, GetDlgCtrlID(hwndFocus), 0l);
