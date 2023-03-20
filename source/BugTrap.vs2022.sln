@@ -1,0 +1,108 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2022
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrap", "Client\BugTrap.vs2022.vcxproj", "{E8CF1ADA-264A-4127-86C2-FD7057D3792C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B5919129-6716-499D-9516-04EC34C86CDF} = {B5919129-6716-499D-9516-04EC34C86CDF}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "zlib\zlib.vs2022.vcxproj", "{B5919129-6716-499D-9516-04EC34C86CDF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CrashExplorer", "CrashExplorer\CrashExplorer.vs2022.vcxproj", "{E6EDE286-05E0-4396-B551-AB273111E967}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{426D2F68-7D26-4599-8574-92DF50FF0AFF}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		.NET Debug|Win32 = .NET Debug|Win32
+		.NET Debug|x64 = .NET Debug|x64
+		.NET Release|Win32 = .NET Release|Win32
+		.NET Release|x64 = .NET Release|x64
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		Unicode Debug|Win32 = Unicode Debug|Win32
+		Unicode Debug|x64 = Unicode Debug|x64
+		Unicode Release|Win32 = Unicode Release|Win32
+		Unicode Release|x64 = Unicode Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}..NET Debug|Win32.ActiveCfg = .NET Debug|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}..NET Debug|Win32.Build.0 = .NET Debug|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}..NET Debug|x64.ActiveCfg = .NET Debug|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}..NET Debug|x64.Build.0 = .NET Debug|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}..NET Release|Win32.ActiveCfg = .NET Release|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}..NET Release|Win32.Build.0 = .NET Release|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}..NET Release|x64.ActiveCfg = .NET Release|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}..NET Release|x64.Build.0 = .NET Release|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Debug|Win32.Build.0 = Debug|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Debug|x64.ActiveCfg = Debug|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Debug|x64.Build.0 = Debug|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Release|Win32.ActiveCfg = Release|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Release|Win32.Build.0 = Release|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Release|x64.ActiveCfg = Release|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Release|x64.Build.0 = Release|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Debug|Win32.ActiveCfg = Unicode Debug|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Debug|Win32.Build.0 = Unicode Debug|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Debug|x64.ActiveCfg = Unicode Debug|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Debug|x64.Build.0 = Unicode Debug|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|Win32.ActiveCfg = Unicode Release|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|Win32.Build.0 = Unicode Release|Win32
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|x64.ActiveCfg = Unicode Release|x64
+		{E8CF1ADA-264A-4127-86C2-FD7057D3792C}.Unicode Release|x64.Build.0 = Unicode Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|Win32.ActiveCfg = MD Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|Win32.Build.0 = MD Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|x64.ActiveCfg = MD Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Debug|x64.Build.0 = MD Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|Win32.ActiveCfg = MD Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|Win32.Build.0 = MD Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|x64.ActiveCfg = MD Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}..NET Release|x64.Build.0 = MD Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|Win32.Build.0 = Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|x64.ActiveCfg = Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Debug|x64.Build.0 = Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|Win32.ActiveCfg = Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|Win32.Build.0 = Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|x64.ActiveCfg = Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Release|x64.Build.0 = Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|Win32.ActiveCfg = Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|Win32.Build.0 = Debug|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|x64.ActiveCfg = Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Debug|x64.Build.0 = Debug|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|Win32.ActiveCfg = Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|Win32.Build.0 = Release|Win32
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|x64.ActiveCfg = Release|x64
+		{B5919129-6716-499D-9516-04EC34C86CDF}.Unicode Release|x64.Build.0 = Release|x64
+		{E6EDE286-05E0-4396-B551-AB273111E967}..NET Debug|Win32.ActiveCfg = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}..NET Debug|Win32.Build.0 = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}..NET Debug|x64.ActiveCfg = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}..NET Release|Win32.ActiveCfg = Release|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}..NET Release|Win32.Build.0 = Release|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}..NET Release|x64.ActiveCfg = Release|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Debug|Win32.Build.0 = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Debug|x64.ActiveCfg = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Release|Win32.ActiveCfg = Release|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Release|Win32.Build.0 = Release|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Release|x64.ActiveCfg = Release|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Unicode Debug|Win32.ActiveCfg = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Unicode Debug|Win32.Build.0 = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Unicode Debug|x64.ActiveCfg = Debug|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Unicode Release|Win32.ActiveCfg = Release|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Unicode Release|Win32.Build.0 = Release|Win32
+		{E6EDE286-05E0-4396-B551-AB273111E967}.Unicode Release|x64.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
