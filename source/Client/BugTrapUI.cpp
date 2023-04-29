@@ -778,7 +778,7 @@ static DWORD HTTPSendReport(PCTSTR pszSupportUrl, CTransferThreadParams* pTransf
 				urlComponents.dwUrlPathLength = countof(szUrlPath);
 				if (InternetCrackUrl(pszSupportUrl, 0, ICU_DECODE | ICU_ESCAPE, &urlComponents))
 				{
-					if (urlComponents.nScheme == INTERNET_SCHEME_HTTP)
+					if (urlComponents.nScheme == INTERNET_SCHEME_HTTP || urlComponents.nScheme == INTERNET_SCHEME_HTTPS)
 					{
 #ifdef _DEBUG
 						OutputDebugString(_T("InternetOpen()\n"));
@@ -802,7 +802,10 @@ static DWORD HTTPSendReport(PCTSTR pszSupportUrl, CTransferThreadParams* pTransf
 #ifdef _DEBUG
 								OutputDebugString(_T("HttpOpenRequest()\n"));
 #endif
-								HINTERNET hRequest = HttpOpenRequest(hConnection, _T("POST"), szUrlPath, NULL, NULL, NULL, INTERNET_FLAG_DONT_CACHE | INTERNET_FLAG_NO_UI, (DWORD_PTR)pTransferThreadParams);
+								DWORD dwFlags = INTERNET_FLAG_DONT_CACHE | INTERNET_FLAG_NO_UI;
+								if (urlComponents.nScheme == INTERNET_SCHEME_HTTPS)
+									dwFlags |= INTERNET_FLAG_SECURE;
+								HINTERNET hRequest = HttpOpenRequest(hConnection, _T("POST"), szUrlPath, NULL, NULL, NULL, dwFlags, (DWORD_PTR)pTransferThreadParams);
 								if (hRequest)
 								{
 									CMemStream MemStream(4 * 1024);
@@ -1049,7 +1052,10 @@ static UINT CALLBACK TransferThreadProc(PVOID pParam)
 		{
 			static const TCHAR szHttpPrefix[] = _T("http://");
 			static const size_t nHttpPrefixLength = countof(szHttpPrefix) - 1;
-			if (_tcsnicmp(g_szSupportHost, szHttpPrefix, nHttpPrefixLength) == 0)
+			static const TCHAR szHttpsPrefix[] = _T("https://");
+			static const size_t nHttpsPrefixLength = countof(szHttpsPrefix) - 1;
+			if (_tcsnicmp(g_szSupportHost, szHttpPrefix, nHttpPrefixLength) == 0
+				|| _tcsnicmp(g_szSupportHost, szHttpsPrefix, nHttpsPrefixLength) == 0)
 				dwErrorCode = HTTPSendReport(g_szSupportHost, pTransferThreadParams);
 			else
 				dwErrorCode = WSASendReport(g_szSupportHost, pTransferThreadParams);
