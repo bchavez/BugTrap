@@ -877,10 +877,6 @@ BUGTRAP_API void CDECL BT_CallNetFilter(void);
   #include "BTAtlWindow.h"
  #endif // __ATLWIN_H__
 
- #ifdef __AFX_H__
-  #include "BTMfcWindow.h"
- #endif // __AFX_H__
-
 #endif // __cplusplus
 
 #endif // _BUGTRAP_H_

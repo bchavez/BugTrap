@@ -22,7 +22,6 @@ Check the releases section in this repository for the latest builds:
 * `BugTrap.h` - Header file with BugTrap API definitions.
 * `BTTrace.h` - C++ wrapper of custom logging functions.
 * `BTAtlWindow.h` - ATL/WTL exception handlers.
-* `BTMfcWindow.h` - MFC exception handlers.
 * `CrashExplorer.exe` - MAP file analyzer.
 * `BugTrap.chm` - BugTrap 1.x Specification.
 

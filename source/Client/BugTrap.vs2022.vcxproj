@@ -905,7 +905,6 @@
     <ClInclude Include="ThemeXP.h" />
     <ClInclude Include="XmlLogFile.h" />
     <ClInclude Include="BTAtlWindow.h" />
-    <ClInclude Include="BTMfcWindow.h" />
     <ClInclude Include="BTTrace.h" />
     <ClInclude Include="BugTrap.h" />
     <ClInclude Include="BugTrapNet.h" />

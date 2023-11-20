@@ -2,8 +2,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrapTest", "Examples\BugTrapTest\BugTrapTest.vs2013.vcxproj", "{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrapConsoleTest", "Examples\BugTrapConsoleTest\BugTrapConsoleTest.vs2013.vcxproj", "{6CB4122E-E337-4514-96E7-E60D2487BA5F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BugTrapLogTest", "Examples\BugTrapLogTest\BugTrapLogTest.vs2013.vcxproj", "{5A802CAA-D386-4678-9D57-4C6DAAF25E2D}"
@@ -37,26 +35,6 @@ Global
 		Unicode Release|x64 = Unicode Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Debug|.NET x86.ActiveCfg = Debug|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Debug|Win32.ActiveCfg = Debug|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Debug|Win32.Build.0 = Debug|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Debug|x64.ActiveCfg = Debug|x64
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Debug|x64.Build.0 = Debug|x64
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Release|.NET x86.ActiveCfg = Release|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Release|Win32.ActiveCfg = Release|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Release|Win32.Build.0 = Release|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Release|x64.ActiveCfg = Release|x64
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Release|x64.Build.0 = Release|x64
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Debug|.NET x86.ActiveCfg = Debug|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Debug|Win32.ActiveCfg = Unicode Debug|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Debug|Win32.Build.0 = Unicode Debug|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Debug|x64.ActiveCfg = Unicode Debug|x64
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Debug|x64.Build.0 = Unicode Debug|x64
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Release|.NET x86.ActiveCfg = Release|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Release|Win32.ActiveCfg = Unicode Release|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Release|Win32.Build.0 = Unicode Release|Win32
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Release|x64.ActiveCfg = Unicode Release|x64
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC}.Unicode Release|x64.Build.0 = Unicode Release|x64
 		{6CB4122E-E337-4514-96E7-E60D2487BA5F}.Debug|.NET x86.ActiveCfg = Debug|Win32
 		{6CB4122E-E337-4514-96E7-E60D2487BA5F}.Debug|Win32.ActiveCfg = Debug|Win32
 		{6CB4122E-E337-4514-96E7-E60D2487BA5F}.Debug|Win32.Build.0 = Debug|Win32
@@ -178,7 +156,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{54F8FDBB-2F6B-407A-9C92-85CFEF68E7EC} = {21B4173A-4A67-48D1-9C37-17BDE2DFDEC9}
 		{6CB4122E-E337-4514-96E7-E60D2487BA5F} = {21B4173A-4A67-48D1-9C37-17BDE2DFDEC9}
 		{5A802CAA-D386-4678-9D57-4C6DAAF25E2D} = {21B4173A-4A67-48D1-9C37-17BDE2DFDEC9}
 		{3C5FAB69-6811-4E83-890B-AD9E1DA64881} = {21B4173A-4A67-48D1-9C37-17BDE2DFDEC9}

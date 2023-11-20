@@ -375,9 +375,6 @@
     <ClInclude Include="BTAtlWindow.h">
       <Filter>Main\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BTMfcWindow.h">
-      <Filter>Main\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BTTrace.h">
       <Filter>Main\Header Files</Filter>
     </ClInclude>
