@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/73nrgph9by0pgeb0?svg=true)](https://ci.appveyor.com/project/bchavez/bugtrap) [![Release](https://img.shields.io/github/release/bchavez/BugTrap.svg)](https://github.com/bchavez/BugTrap/releases) [![License](https://img.shields.io/github/license/bchavez/BugTrap.svg)](https://raw.githubusercontent.com/bchavez/BugTrap/master/LICENSE)
+![GitHub License](https://img.shields.io/github/license/Brouilles/BugTrap)
 
 # BugTrap
 
@@ -27,14 +27,6 @@ Check the releases section in this repository for the latest builds:
 * `BugTrap.chm` - BugTrap 1.x Specification.
 
 Please see ["BugTrap Developer's Guide"](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/BugTrap.pdf) for additional information about file types used by BugTrap for Win32/x64.
-
-### BugTrap Server Application
-Inside [**BugTrap.zip**](https://github.com/bchavez/BugTrap/releases), you'll also find the following server applications for server side acceptance of crash reports:
-* `Server\BugTrapServer` - BugTrap Server Windows Service in C#
-* `Server\BugTrapWebServer` - BugTrap Web Server in ASP.NET
-* `Server\JBugTrapServer` - BugTrap Server in Java
-
-You can choose any server technology to begin accepting crash reports from BugTrap clients. Open and edit `*.config` files for various configuration parameters.
 
 ## Screenshots
 ![Screenshot](https://raw.githubusercontent.com/bchavez/BugTrap/master/doc/Screenshot2.png)

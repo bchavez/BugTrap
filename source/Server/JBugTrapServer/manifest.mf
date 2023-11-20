@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: mail-1.4.1.jar
-Created-By: IntelleSoft
-Main-Class: BugTrapServer.ServerApp

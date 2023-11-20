@@ -1,1 +1,0 @@
-@net start "BugTrap Server"
