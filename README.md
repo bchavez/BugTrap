@@ -1,5 +1,13 @@
 ![GitHub License](https://img.shields.io/github/license/Brouilles/BugTrap)
 
+# What changed?
+This project is a fork of https://github.com/bchavez/BugTrap. With a different philosophy, **break things** and **remove deprecated stuff**.
+
+## Changelog:    
+* Add support for VS2019 & VS2022
+* Remove BugTrap Server Application (deprecated)
+* Remove MFC support
+
 # BugTrap
 
 BugTrap is a tool to catch unhandled exceptions in **unmanaged** and **managed** .NET code. BugTrap also supports sending crash reports to a remote server for analysis.
