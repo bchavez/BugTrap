@@ -1,4 +1,4 @@
-// BugTrapTest.cpp : Defines the class behaviors for the application.
+﻿// BugTrapTest.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
@@ -32,7 +32,7 @@ CBugTrapTestApp::CBugTrapTestApp()
 	// Setup exception handler
 	BT_SetAppName(_T("BugTrap Test"));
 	BT_SetSupportEMail(_T("your@email.com"));
-	BT_SetFlags(BTF_DETAILEDMODE | BTF_EDITMAIL | BTF_ATTACHREPORT| BTF_SCREENCAPTURE);
+	BT_SetFlags(BTF_DETAILEDMODE | BTF_EDITMAIL | BTF_ATTACHREPORT | BTF_SCREENCAPTURE);
 	BT_SetSupportURL(_T("http://www.intellesoft.net"));
 
 	// = BugTrapServer ===========================================
