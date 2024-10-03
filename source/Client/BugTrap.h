@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This is a part of the BugTrap package.
  * Copyright (c) 2005-2009 IntelleSoft.
  * All rights reserved.
@@ -160,7 +160,7 @@ typedef enum BUGTRAP_FLAGS_tag
       * the advanced ui in the simple dialog. Enable this flag
       * hide the button.
       */
-     BTF_HIDEMOREBUTTON = 0x400
+     BTF_HIDEMOREBUTTON = 0x400,
 }
 BUGTRAP_FLAGS;
 
